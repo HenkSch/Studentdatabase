@@ -12,16 +12,16 @@ public class Century {
     private Long id;
     private String studyProgram;
     private Integer year;
-    private String group;
+    private String subGroup;
 
     public Century() {
     }
 
-    public Century(Long id, String studyProgram, Integer year, String group) {
+    public Century(Long id, String studyProgram, Integer year, String subGroup) {
         this.id = id;
         this.studyProgram = studyProgram;
         this.year = year;
-        this.group = group;
+        this.subGroup = subGroup;
     }
 
     @Id
@@ -53,11 +53,11 @@ public class Century {
     }
 
     @Basic
-    public String getGroup() {
-        return group;
+    public String getSubGroup() {
+        return subGroup;
     }
 
-    public void setGroup(String group) {
-        this.group = group;
+    public void setSubGroup(String subGroup) {
+        this.subGroup = subGroup;
     }
 }
