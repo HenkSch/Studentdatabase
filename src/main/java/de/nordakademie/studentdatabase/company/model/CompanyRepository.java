@@ -1,5 +1,7 @@
 package de.nordakademie.studentdatabase.company.model;
 
+import org.springframework.stereotype.Repository;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
@@ -7,6 +9,7 @@ import java.util.List;
 /**
  * Created by U555987 on 023, 23.10.2017.
  */
+@Repository
 public class CompanyRepository {
 
     @PersistenceContext
