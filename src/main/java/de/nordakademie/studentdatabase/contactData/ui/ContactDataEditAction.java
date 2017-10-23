@@ -40,9 +40,6 @@ public class ContactDataEditAction extends ActionSupport {
     }
 
     public String updateContactData() {
-        System.out.println(this.contactData);
-        System.out.println(contactData.getId());
-        System.out.println(id);
         contactDataService.update(this.contactData);
         return SUCCESS;
     }
