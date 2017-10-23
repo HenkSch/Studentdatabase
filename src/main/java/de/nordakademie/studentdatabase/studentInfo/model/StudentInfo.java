@@ -18,18 +18,16 @@ public class StudentInfo {
     private Century century;
     private Advisor advisor;
     private Company company;
-    private Company company2;
 
     public StudentInfo() {
     }
 
-    public StudentInfo(Long registrationNumber, Integer userNumber, Century century, Advisor advisor, Company company, Company company2) {
+    public StudentInfo(Long registrationNumber, Integer userNumber, Century century, Advisor advisor, Company company) {
         this.registrationNumber = registrationNumber;
         this.userNumber = userNumber;
         this.century = century;
         this.advisor = advisor;
         this.company = company;
-        this.company2 = company2;
     }
 
     @Id
@@ -76,14 +74,5 @@ public class StudentInfo {
 
     public void setCompany(Company company) {
         this.company = company;
-    }
-
-    @ManyToOne
-    public Company getCompany2() {
-        return company2;
-    }
-
-    public void setCompany2(Company company2) {
-        this.company2 = company2;
     }
 }
