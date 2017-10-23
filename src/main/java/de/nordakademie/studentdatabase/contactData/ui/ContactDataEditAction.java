@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 public class ContactDataEditAction extends ActionSupport {
 
-    protected final ContactDataService contactDataService;
+    private final ContactDataService contactDataService;
 
     private ContactData contactData;
     private Long id;

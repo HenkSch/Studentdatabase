@@ -10,6 +10,7 @@
         <action name='studentList' class="de.nordakademie.studentdatabase.student.ui.StudentListAction">
             <result>studentList</result>
         </action>
+        <!-- contact data-->
         <action name="contactDataList" class="de.nordakademie.studentdatabase.contactData.ui.ContactDataListAction">
             <result>contactDataList</result>
         </action>
@@ -24,7 +25,6 @@
             <result type="redirectAction">contactDataList</result>
             <result name="input">contactDataAddForm</result>
         </action>
-
         <action name="contactDataEdit"
                 class="de.nordakademie.studentdatabase.contactData.ui.ContactDataEditAction"
                 method="getEditForm">
@@ -41,6 +41,36 @@
                 method="deleteContactData">
             <result type="redirectAction">contactDataList</result>
         </action>
-
+        <!-- century -->
+        <action name="centuryList" class="de.nordakademie.studentdatabase.century.ui.CenturyListAction">
+            <result>centuryList</result>
+        </action>
+        <action name="centuryAdd"
+                class="de.nordakademie.studentdatabase.century.ui.CenturyEditAction"
+                method="getAddForm">
+            <result>centuryAddForm</result>
+        </action>
+        <action name="saveCentury"
+                class="de.nordakademie.studentdatabase.century.ui.CenturyEditAction"
+                method="saveCentury">
+            <result type="redirectAction">centuryList</result>
+            <result name="input">centuryAddForm</result>
+        </action>
+        <action name="centuryEdit"
+                class="de.nordakademie.studentdatabase.century.ui.CenturyEditAction"
+                method="getEditForm">
+            <result>centuryEditForm</result>
+        </action>
+        <action name="updateCentury"
+                class="de.nordakademie.studentdatabase.century.ui.CenturyEditAction"
+                method="updateCentury">
+            <result type="redirectAction">centuryList</result>
+            <result name="input">centuryEditForm</result>
+        </action>
+        <action name="deleteCentury"
+                class="de.nordakademie.studentdatabase.century.ui.CenturyEditAction"
+                method="deleteCentury">
+            <result type="redirectAction">centuryList</result>
+        </action>
     </package>
 </struts>

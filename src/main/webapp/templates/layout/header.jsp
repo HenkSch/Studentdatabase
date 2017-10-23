@@ -20,7 +20,7 @@
                 </s:a>
             </li>
 
-            <s:url var="century_url" action="studentList"/>
+            <s:url var="century_url" action="centuryList"/>
             <li>
                 <s:a href="%{century_url}">
                     <s:text name="header.centuries"/>

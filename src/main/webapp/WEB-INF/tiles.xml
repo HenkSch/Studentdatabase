@@ -9,6 +9,7 @@
     <definition name="studentList" extends="pageFrame">
         <put-attribute name="content" value="/templates/student/studentList.jsp"/>
     </definition>
+    <!-- contact data -->
     <definition name="contactDataList" extends="pageFrame">
         <put-attribute name="content" value="/templates/contactData/contactDataList.jsp"/>
     </definition>
@@ -18,4 +19,16 @@
     <definition name="contactDataEditForm" extends="pageFrame">
         <put-attribute name="content" value="/templates/contactData/contactDataEditForm.jsp"/>
     </definition>
+
+    <!-- century -->
+    <definition name="centuryList" extends="pageFrame">
+        <put-attribute name="content" value="/templates/century/centuryList.jsp"/>
+    </definition>
+    <definition name="centuryAddForm" extends="pageFrame">
+        <put-attribute name="content" value="/templates/century/centuryAddForm.jsp"/>
+    </definition>
+    <definition name="centuryEditForm" extends="pageFrame">
+        <put-attribute name="content" value="/templates/century/centuryEditForm.jsp"/>
+    </definition>
+
 </tiles-definitions>
