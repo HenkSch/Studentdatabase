@@ -15,19 +15,23 @@ public class StudentRepository {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public void create(final Student student) {
-        entityManager.persist(student);
-    }
-
     public List<Student> findAll() {
         return entityManager.createQuery("SELECT s FROM Student s", Student.class).getResultList();
     }
 
-    public Student findOne(final Long id) {
-        return entityManager.find(Student.class, id);
+    public Student findOne(Long studentId) {
+        return entityManager.find(Student.class, studentId);
     }
 
-    public void remove(final Student student) {
+    public void create(final Student student) {
+        entityManager.persist(student);
+    }
+
+    public void update(final Student student) {
+        entityManager.merge(student);
+    }
+
+    public void delete(Student student) {
         entityManager.remove(student);
     }
 }

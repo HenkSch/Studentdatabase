@@ -30,7 +30,7 @@ public class ContactDataEditAction extends ActionSupport {
     }
 
     public String saveContactData() {
-        contactDataService.save(this.contactData);
+        contactDataService.create(this.contactData);
         return SUCCESS;
     }
 

@@ -33,7 +33,7 @@ public class ContactDataService {
     }
 
     @Transactional
-    public void save(final ContactData contactData) {
+    public void create(final ContactData contactData) {
         contactDataRepository.create(contactData);
     }
 

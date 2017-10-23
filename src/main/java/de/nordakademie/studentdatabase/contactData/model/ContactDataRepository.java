@@ -28,7 +28,6 @@ public class ContactDataRepository {
     }
 
     public void update(final ContactData contactData) {
-
         entityManager.merge(contactData);
     }
 
