@@ -103,7 +103,7 @@ public class Student {
         this.studentInfo = studentInfo;
     }
 
-    @OneToOne(optional = false)
+    @ManyToOne(optional = false)
     public Address getAddress() {
         return address;
     }

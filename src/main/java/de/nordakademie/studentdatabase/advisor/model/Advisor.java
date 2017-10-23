@@ -1,5 +1,7 @@
 package de.nordakademie.studentdatabase.advisor.model;
 
+import de.nordakademie.studentdatabase.contactData.model.ContactData;
+
 import javax.persistence.*;
 
 /**
@@ -12,14 +14,17 @@ public class Advisor {
     private Long id;
     private String name;
     private String givenName;
+    private ContactData contactData;
 
     public Advisor() {
     }
 
-    public Advisor(Long id, String name, String givenName) {
+    public Advisor(Long id, String name, String givenName, ContactData contactData) {
         this.id = id;
         this.name = name;
         this.givenName = givenName;
+        this.contactData = contactData;
+
     }
 
     @Id
@@ -48,5 +53,14 @@ public class Advisor {
 
     public void setGivenName(String givenName) {
         this.givenName = givenName;
+    }
+
+    @OneToOne
+    public ContactData getContactData() {
+        return contactData;
+    }
+
+    public void setContactData(ContactData contactData) {
+        this.contactData = contactData;
     }
 }

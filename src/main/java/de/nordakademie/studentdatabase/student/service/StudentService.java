@@ -47,10 +47,13 @@ public class StudentService {
     public void create(final Student student) {
         final StudentInfo studentInfo = studentInfoRepository.findOne(student.getStudentInfo().getRegistrationNumber());
         student.setStudentInfo(studentInfo);
+
         final Address address = addressRepository.findOne(student.getAddress().getId());
         student.setAddress(address);
+
         final ContactData contactData = contactDataRepository.findOne((student.getContactData().getId()));
         student.setContactData(contactData);
+
         studentRepository.create(student);
     }
 
@@ -58,7 +61,7 @@ public class StudentService {
     public void deleteBy(Long id) {
         Student student = studentRepository.findOne(id);
         if (student != null) {
-            studentRepository.remove(student);
+            studentRepository.delete(student);
         }
     }
 
