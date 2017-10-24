@@ -43,4 +43,15 @@
     <definition name="addressEditForm" extends="pageFrame">
         <put-attribute name="content" value="/templates/address/addressEditForm.jsp"/>
     </definition>
+
+    <!-- advisor -->
+    <definition name="advisorList" extends="pageFrame">
+        <put-attribute name="content" value="/templates/advisor/advisorList.jsp"/>
+    </definition>
+    <definition name="advisorAddForm" extends="pageFrame">
+        <put-attribute name="content" value="/templates/advisor/advisorAddForm.jsp"/>
+    </definition>
+    <definition name="advisorEditForm" extends="pageFrame">
+        <put-attribute name="content" value="/templates/advisor/advisorEditForm.jsp"/>
+    </definition>
 </tiles-definitions>

@@ -48,7 +48,7 @@
                 </s:a>
             </li>
 
-            <s:url var="advisor_url" action="studentList"/>
+            <s:url var="advisor_url" action="advisorList"/>
             <li>
                 <s:a href="%{advisor_url}">
                     <s:text name="header.advisors"/>

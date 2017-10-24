@@ -107,5 +107,37 @@
                 method="deleteAddress">
             <result type="redirectAction">addressList</result>
         </action>
+
+        <!-- advisor -->
+        <action name="advisorList" class="de.nordakademie.studentdatabase.advisor.ui.AdvisorListAction">
+            <result>advisorList</result>
+        </action>
+        <action name="advisorAdd"
+                class="de.nordakademie.studentdatabase.advisor.ui.AdvisorEditAction"
+                method="getAddForm">
+            <result>advisorAddForm</result>
+        </action>
+        <action name="createAdvisor"
+                class="de.nordakademie.studentdatabase.advisor.ui.AdvisorEditAction"
+                method="createAdvisor">
+            <result type="redirectAction">advisorList</result>
+            <result name="input">advisorAddForm</result>
+        </action>
+        <action name="advisorEdit"
+                class="de.nordakademie.studentdatabase.advisor.ui.AdvisorEditAction"
+                method="getEditForm">
+            <result>advisorEditForm</result>
+        </action>
+        <action name="updateAdvisor"
+                class="de.nordakademie.studentdatabase.advisor.ui.AdvisorEditAction"
+                method="updateAdvisor">
+            <result type="redirectAction">advisorList</result>
+            <result name="input">advisorEditForm</result>
+        </action>
+        <action name="deleteAdvisor"
+                class="de.nordakademie.studentdatabase.advisor.ui.AdvisorEditAction"
+                method="deleteAdvisor">
+            <result type="redirectAction">advisorList</result>
+        </action>
     </package>
 </struts>
