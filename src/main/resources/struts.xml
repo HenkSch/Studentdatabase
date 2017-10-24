@@ -6,10 +6,12 @@
         <result-types>
             <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" default="true"/>
         </result-types>
+
         <!-- student -->
         <action name='studentList' class="de.nordakademie.studentdatabase.student.ui.StudentListAction">
             <result>studentList</result>
         </action>
+
         <!-- contact data-->
         <action name="contactDataList" class="de.nordakademie.studentdatabase.contactData.ui.ContactDataListAction">
             <result>contactDataList</result>
@@ -19,9 +21,9 @@
                 method="getAddForm">
             <result>contactDataAddForm</result>
         </action>
-        <action name="saveContactData"
+        <action name="createContactData"
                 class="de.nordakademie.studentdatabase.contactData.ui.ContactDataEditAction"
-                method="saveContactData">
+                method="createContactData">
             <result type="redirectAction">contactDataList</result>
             <result name="input">contactDataAddForm</result>
         </action>
@@ -41,6 +43,7 @@
                 method="deleteContactData">
             <result type="redirectAction">contactDataList</result>
         </action>
+
         <!-- century -->
         <action name="centuryList" class="de.nordakademie.studentdatabase.century.ui.CenturyListAction">
             <result>centuryList</result>
@@ -50,9 +53,9 @@
                 method="getAddForm">
             <result>centuryAddForm</result>
         </action>
-        <action name="saveCentury"
+        <action name="createCentury"
                 class="de.nordakademie.studentdatabase.century.ui.CenturyEditAction"
-                method="saveCentury">
+                method="createCentury">
             <result type="redirectAction">centuryList</result>
             <result name="input">centuryAddForm</result>
         </action>
@@ -71,6 +74,38 @@
                 class="de.nordakademie.studentdatabase.century.ui.CenturyEditAction"
                 method="deleteCentury">
             <result type="redirectAction">centuryList</result>
+        </action>
+
+        <!-- address -->
+        <action name="addressList" class="de.nordakademie.studentdatabase.address.ui.AddressListAction">
+            <result>addressList</result>
+        </action>
+        <action name="addressAdd"
+                class="de.nordakademie.studentdatabase.address.ui.AddressEditAction"
+                method="getAddForm">
+            <result>addressAddForm</result>
+        </action>
+        <action name="createAddress"
+                class="de.nordakademie.studentdatabase.address.ui.AddressEditAction"
+                method="createAddress">
+            <result type="redirectAction">addressList</result>
+            <result name="input">addressAddForm</result>
+        </action>
+        <action name="addressEdit"
+                class="de.nordakademie.studentdatabase.address.ui.AddressEditAction"
+                method="getEditForm">
+            <result>addressEditForm</result>
+        </action>
+        <action name="updateAddress"
+                class="de.nordakademie.studentdatabase.address.ui.AddressEditAction"
+                method="updateAddress">
+            <result type="redirectAction">addressList</result>
+            <result name="input">addressEditForm</result>
+        </action>
+        <action name="deleteAddress"
+                class="de.nordakademie.studentdatabase.address.ui.AddressEditAction"
+                method="deleteAddress">
+            <result type="redirectAction">addressList</result>
         </action>
     </package>
 </struts>

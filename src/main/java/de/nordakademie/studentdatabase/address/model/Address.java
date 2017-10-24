@@ -24,7 +24,6 @@ public class Address {
         this.id = id;
         this.street = street;
         this.houseNumber = houseNumber;
-
         this.zipCode = zipCode;
         this.location = location;
         this.addition = addition;

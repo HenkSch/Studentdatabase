@@ -34,7 +34,7 @@
                 </s:a>
             </li>
 
-            <s:url var="address_url" action="studentList"/>
+            <s:url var="address_url" action="addressList"/>
             <li>
                 <s:a href="%{address_url}">
                     <s:text name="header.addresses"/>

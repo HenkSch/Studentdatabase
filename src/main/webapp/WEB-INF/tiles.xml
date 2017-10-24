@@ -5,10 +5,12 @@
     <definition name="pageFrame" template="/templates/layout/pageFrame.jsp">
         <put-attribute name="header" value="/templates/layout/header.jsp"/>
     </definition>
+
     <!-- student -->
     <definition name="studentList" extends="pageFrame">
         <put-attribute name="content" value="/templates/student/studentList.jsp"/>
     </definition>
+
     <!-- contact data -->
     <definition name="contactDataList" extends="pageFrame">
         <put-attribute name="content" value="/templates/contactData/contactDataList.jsp"/>
@@ -31,4 +33,14 @@
         <put-attribute name="content" value="/templates/century/centuryEditForm.jsp"/>
     </definition>
 
+    <!-- address -->
+    <definition name="addressList" extends="pageFrame">
+        <put-attribute name="content" value="/templates/address/addressList.jsp"/>
+    </definition>
+    <definition name="addressAddForm" extends="pageFrame">
+        <put-attribute name="content" value="/templates/address/addressAddForm.jsp"/>
+    </definition>
+    <definition name="addressEditForm" extends="pageFrame">
+        <put-attribute name="content" value="/templates/address/addressEditForm.jsp"/>
+    </definition>
 </tiles-definitions>
