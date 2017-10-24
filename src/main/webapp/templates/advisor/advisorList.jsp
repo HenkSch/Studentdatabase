@@ -17,6 +17,7 @@
         <th>Given name</th>
         <th>Email</th>
         <th>Phone number</th>
+        <th>Fax number</th>
 
     </tr>
     <s:iterator value="advisorList">
@@ -26,6 +27,7 @@
             <td><s:property value="givenName"/></td>
             <td><s:property value="contactData.email"/></td>
             <td><s:property value="contactData.phoneNumber"/></td>
+            <td><s:property value="contactData.faxNumber"/></td>
             <td><!--
                 Author: Meyyappan Muthuraman
                 Source: https://dzone.com/tutorials/java/struts-2/struts-2-example/struts-2-crud-example-1.html

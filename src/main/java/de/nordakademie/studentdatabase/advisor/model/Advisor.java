@@ -55,7 +55,7 @@ public class Advisor {
         this.givenName = givenName;
     }
 
-    @OneToOne
+    @OneToOne(optional = false)
     public ContactData getContactData() {
         return contactData;
     }
