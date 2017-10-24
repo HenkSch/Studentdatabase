@@ -27,7 +27,7 @@
                 </s:a>
             </li>
 
-            <s:url var="company_url" action="studentList"/>
+            <s:url var="company_url" action="companyList"/>
             <li>
                 <s:a href="%{company_url}">
                     <s:text name="header.companies"/>

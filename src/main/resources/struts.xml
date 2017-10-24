@@ -139,5 +139,37 @@
                 method="deleteAdvisor">
             <result type="redirectAction">advisorList</result>
         </action>
+
+        <!-- company -->
+        <action name="companyList" class="de.nordakademie.studentdatabase.company.ui.CompanyListAction">
+            <result>companyList</result>
+        </action>
+        <action name="companyAdd"
+                class="de.nordakademie.studentdatabase.company.ui.CompanyEditAction"
+                method="getAddForm">
+            <result>companyAddForm</result>
+        </action>
+        <action name="createCompany"
+                class="de.nordakademie.studentdatabase.company.ui.CompanyEditAction"
+                method="createCompany">
+            <result type="redirectAction">companyList</result>
+            <result name="input">companyAddForm</result>
+        </action>
+        <action name="companyEdit"
+                class="de.nordakademie.studentdatabase.company.ui.CompanyEditAction"
+                method="getEditForm">
+            <result>companyEditForm</result>
+        </action>
+        <action name="updateCompany"
+                class="de.nordakademie.studentdatabase.company.ui.CompanyEditAction"
+                method="updateCompany">
+            <result type="redirectAction">companyList</result>
+            <result name="input">companyEditForm</result>
+        </action>
+        <action name="deleteCompany"
+                class="de.nordakademie.studentdatabase.company.ui.CompanyEditAction"
+                method="deleteCompany">
+            <result type="redirectAction">companyList</result>
+        </action>
     </package>
 </struts>

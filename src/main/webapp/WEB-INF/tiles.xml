@@ -54,4 +54,15 @@
     <definition name="advisorEditForm" extends="pageFrame">
         <put-attribute name="content" value="/templates/advisor/advisorEditForm.jsp"/>
     </definition>
+
+    <!-- company -->
+    <definition name="companyList" extends="pageFrame">
+        <put-attribute name="content" value="/templates/company/companyList.jsp"/>
+    </definition>
+    <definition name="companyAddForm" extends="pageFrame">
+        <put-attribute name="content" value="/templates/company/companyAddForm.jsp"/>
+    </definition>
+    <definition name="companyEditForm" extends="pageFrame">
+        <put-attribute name="content" value="/templates/company/companyEditForm.jsp"/>
+    </definition>
 </tiles-definitions>
