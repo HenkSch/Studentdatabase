@@ -28,7 +28,7 @@ public class CenturyEditAction extends ActionSupport {
         return SUCCESS;
     }
 
-    public String saveCentury() {
+    public String createCentury() {
         centuryService.create(this.century);
         return SUCCESS;
     }
