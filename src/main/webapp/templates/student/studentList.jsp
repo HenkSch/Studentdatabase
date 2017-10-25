@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="/struts-tags" prefix="s" %>
-<table>
+<table border="1">
     <tr>
         <th>Id</th>
         <th>Name</th>
@@ -9,6 +9,7 @@
         <th>Birthdate</th>
         <th>Birthplace</th>
         <th>Registration number</th>
+        <th>Options</th>
     </tr>
     <s:iterator value="students">
         <tr>

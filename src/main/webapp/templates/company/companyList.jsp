@@ -6,11 +6,11 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="/struts-tags" prefix="s" %>
-<h1><s:text name="company.title"/></h1>
+<h1><s:text name="company.caption"/></h1>
 <s:form action="companyAdd">
     <s:submit value="Add"/>
 </s:form>
-<table>
+<table border="1">
     <tr>
         <th>Id</th>
         <th>Name</th>

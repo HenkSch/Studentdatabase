@@ -6,11 +6,11 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="/struts-tags" prefix="s" %>
-<h1><s:text name="address.title"/></h1>
+<h1><s:text name="address.caption"/></h1>
 <s:form action="addressAdd">
     <s:submit value="Add"/>
 </s:form>
-<table>
+<table border="1">
     <tr>
         <th>Id</th>
         <th>Street</th>
@@ -18,6 +18,7 @@
         <th>ZIP code</th>
         <th>Location</th>
         <th>Addition</th>
+        <th>Options</th>
     </tr>
     <s:iterator value="addressList">
         <tr>

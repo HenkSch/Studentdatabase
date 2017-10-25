@@ -6,16 +6,17 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="/struts-tags" prefix="s" %>
-<h1><s:text name="century.title"/></h1>
+<h1><s:text name="century.caption"/></h1>
 <s:form action="centuryAdd">
     <s:submit value="Add"/>
 </s:form>
-<table>
+<table border="1">
     <tr>
         <th>Id</th>
         <th>Study Program</th>
         <th>Year</th>
         <th>Sub group</th>
+        <th>Options</th>
     </tr>
     <s:iterator value="centuryList">
         <tr>

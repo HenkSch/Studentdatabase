@@ -6,7 +6,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="/struts-tags" prefix="s" %>
-<h1><s:text name="contactData.title"/></h1>
+<h1><s:text name="contactData.caption"/></h1>
 <s:form action="updateContactData" method="POST">
     <s:textfield name="contactData.id" label="Id" readonly="true"/>
     <s:textfield name="contactData.email" label="Email"/>

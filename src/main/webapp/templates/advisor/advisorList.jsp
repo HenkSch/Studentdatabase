@@ -6,11 +6,11 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="/struts-tags" prefix="s" %>
-<h1><s:text name="advisor.title"/></h1>
+<h1><s:text name="advisor.caption"/></h1>
 <s:form action="advisorAdd">
     <s:submit value="Add"/>
 </s:form>
-<table>
+<table border="1">
     <tr>
         <th>Id</th>
         <th>Name</th>
@@ -18,7 +18,7 @@
         <th>Email</th>
         <th>Phone number</th>
         <th>Fax number</th>
-
+        <th>Options</th>
     </tr>
     <s:iterator value="advisorList">
         <tr>
