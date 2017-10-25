@@ -171,5 +171,37 @@
                 method="deleteCompany">
             <result type="redirectAction">companyList</result>
         </action>
+
+        <!-- studentInfo -->
+        <action name="studentInfoList" class="de.nordakademie.studentdatabase.studentInfo.ui.StudentInfoListAction">
+            <result>studentInfoList</result>
+        </action>
+        <action name="studentInfoAdd"
+                class="de.nordakademie.studentdatabase.studentInfo.ui.StudentInfoEditAction"
+                method="getAddForm">
+            <result>studentInfoAddForm</result>
+        </action>
+        <action name="createStudentInfo"
+                class="de.nordakademie.studentdatabase.studentInfo.ui.StudentInfoEditAction"
+                method="createStudentInfo">
+            <result type="redirectAction">studentInfoList</result>
+            <result name="input">studentInfoAddForm</result>
+        </action>
+        <action name="studentInfoEdit"
+                class="de.nordakademie.studentdatabase.studentInfo.ui.StudentInfoEditAction"
+                method="getEditForm">
+            <result>studentInfoEditForm</result>
+        </action>
+        <action name="updateStudentInfo"
+                class="de.nordakademie.studentdatabase.studentInfo.ui.StudentInfoEditAction"
+                method="updateStudentInfo">
+            <result type="redirectAction">studentInfoList</result>
+            <result name="input">studentInfoEditForm</result>
+        </action>
+        <action name="deleteStudentInfo"
+                class="de.nordakademie.studentdatabase.studentInfo.ui.StudentInfoEditAction"
+                method="deleteStudentInfo">
+            <result type="redirectAction">studentInfoList</result>
+        </action>
     </package>
 </struts>

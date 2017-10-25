@@ -13,7 +13,7 @@
                 </s:a>
             </li>
 
-            <s:url var="studentInfo_url" action="studentList"/>
+            <s:url var="studentInfo_url" action="studentInfoList"/>
             <li class="active">
                 <s:a href="%{studentInfo_url}">
                     <s:text name="header.studentsInformation"/>

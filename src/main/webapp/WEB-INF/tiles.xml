@@ -65,4 +65,15 @@
     <definition name="companyEditForm" extends="pageFrame">
         <put-attribute name="content" value="/templates/company/companyEditForm.jsp"/>
     </definition>
+
+    <!-- studentInfo -->
+    <definition name="studentInfoList" extends="pageFrame">
+        <put-attribute name="content" value="/templates/studentInfo/studentInfoList.jsp"/>
+    </definition>
+    <definition name="studentInfoAddForm" extends="pageFrame">
+        <put-attribute name="content" value="/templates/studentInfo/studentInfoAddForm.jsp"/>
+    </definition>
+    <definition name="studentInfoEditForm" extends="pageFrame">
+        <put-attribute name="content" value="/templates/studentInfo/studentInfoEditForm.jsp"/>
+    </definition>
 </tiles-definitions>
