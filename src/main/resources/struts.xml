@@ -7,11 +7,6 @@
             <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" default="true"/>
         </result-types>
 
-        <!-- student -->
-        <action name='studentList' class="de.nordakademie.studentdatabase.student.ui.StudentListAction">
-            <result>studentList</result>
-        </action>
-
         <!-- contact data-->
         <action name="contactDataList" class="de.nordakademie.studentdatabase.contactData.ui.ContactDataListAction">
             <result>contactDataList</result>
@@ -202,6 +197,38 @@
                 class="de.nordakademie.studentdatabase.studentInfo.ui.StudentInfoEditAction"
                 method="deleteStudentInfo">
             <result type="redirectAction">studentInfoList</result>
+        </action>
+
+        <!-- student -->
+        <action name="studentList" class="de.nordakademie.studentdatabase.student.ui.StudentListAction">
+            <result>studentList</result>
+        </action>
+        <action name="studentAdd"
+                class="de.nordakademie.studentdatabase.student.ui.StudentEditAction"
+                method="getAddForm">
+            <result>studentAddForm</result>
+        </action>
+        <action name="createStudent"
+                class="de.nordakademie.studentdatabase.student.ui.StudentEditAction"
+                method="createStudent">
+            <result type="redirectAction">studentList</result>
+            <result name="input">studentAddForm</result>
+        </action>
+        <action name="studentEdit"
+                class="de.nordakademie.studentdatabase.student.ui.StudentEditAction"
+                method="getEditForm">
+            <result>studentEditForm</result>
+        </action>
+        <action name="updateStudent"
+                class="de.nordakademie.studentdatabase.student.ui.StudentEditAction"
+                method="updateStudent">
+            <result type="redirectAction">studentList</result>
+            <result name="input">studentEditForm</result>
+        </action>
+        <action name="deleteStudent"
+                class="de.nordakademie.studentdatabase.student.ui.StudentEditAction"
+                method="deleteStudent">
+            <result type="redirectAction">studentList</result>
         </action>
     </package>
 </struts>

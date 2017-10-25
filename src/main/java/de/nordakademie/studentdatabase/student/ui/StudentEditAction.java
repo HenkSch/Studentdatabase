@@ -12,24 +12,39 @@ public class StudentEditAction extends ActionSupport {
 
     private final StudentService studentService;
     private Student student;
+    private Long id;
 
     @Autowired
     public StudentEditAction(StudentService studentService) {
         this.studentService = studentService;
     }
 
-    public String getForm() {
+    public String getAddForm() {
         return SUCCESS;
     }
 
-    public String saveStudent() {
-        studentService.create(student);
+    public String getEditForm() {
+        student = studentService.findOne(this.id);
+        return SUCCESS;
+    }
+
+    public String createStudent() {
+        studentService.create(this.student);
+        return SUCCESS;
+    }
+
+    public String deleteStudent() {
+        studentService.deleteBy(this.id);
+        return SUCCESS;
+    }
+
+    public String updateStudent() {
+        studentService.update(this.student);
         return SUCCESS;
     }
 
     @Override
     public void validate() {
-
     }
 
     public Student getStudent() {
@@ -38,5 +53,13 @@ public class StudentEditAction extends ActionSupport {
 
     public void setStudent(Student student) {
         this.student = student;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

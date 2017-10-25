@@ -112,7 +112,7 @@ public class Student {
         this.address = address;
     }
 
-    @OneToOne
+    @OneToOne(optional = false)
     public ContactData getContactData() {
         return contactData;
     }

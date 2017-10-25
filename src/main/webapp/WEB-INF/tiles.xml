@@ -6,11 +6,6 @@
         <put-attribute name="header" value="/templates/layout/header.jsp"/>
     </definition>
 
-    <!-- student -->
-    <definition name="studentList" extends="pageFrame">
-        <put-attribute name="content" value="/templates/student/studentList.jsp"/>
-    </definition>
-
     <!-- contact data -->
     <definition name="contactDataList" extends="pageFrame">
         <put-attribute name="content" value="/templates/contactData/contactDataList.jsp"/>
@@ -75,5 +70,16 @@
     </definition>
     <definition name="studentInfoEditForm" extends="pageFrame">
         <put-attribute name="content" value="/templates/studentInfo/studentInfoEditForm.jsp"/>
+    </definition>
+
+    <!-- student -->
+    <definition name="studentList" extends="pageFrame">
+        <put-attribute name="content" value="/templates/student/studentList.jsp"/>
+    </definition>
+    <definition name="studentAddForm" extends="pageFrame">
+        <put-attribute name="content" value="/templates/student/studentAddForm.jsp"/>
+    </definition>
+    <definition name="studentEditForm" extends="pageFrame">
+        <put-attribute name="content" value="/templates/student/studentEditForm.jsp"/>
     </definition>
 </tiles-definitions>

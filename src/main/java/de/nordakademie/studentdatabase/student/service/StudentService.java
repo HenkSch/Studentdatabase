@@ -24,6 +24,7 @@ public class StudentService {
     private final StudentInfoRepository studentInfoRepository;
     private final AddressRepository addressRepository;
     private final ContactDataRepository contactDataRepository;
+    private Long id;
 
     @Autowired
     public StudentService(StudentRepository studentRepository, StudentInfoRepository studentInfoRepository, AddressRepository addressRepository, ContactDataRepository contactDataRepository) {
@@ -34,19 +35,25 @@ public class StudentService {
     }
 
     @Transactional
-    public Student findOne(final Long id) {
-        return studentRepository.findOne(id);
-    }
-
-    @Transactional
     public List<Student> findAll() {
         return studentRepository.findAll();
     }
 
     @Transactional
+    public Student findOne(final Long id) {
+        return studentRepository.findOne(id);
+    }
+
+    @Transactional
     public void create(final Student student) {
-        final StudentInfo studentInfo = studentInfoRepository.findOne(student.getStudentInfo().getRegistrationNumber());
-        student.setStudentInfo(studentInfo);
+
+        final Long registrationNumber = student.getStudentInfo().getRegistrationNumber();
+        if (registrationNumber != null) {
+            final StudentInfo studentInfo = studentInfoRepository.findOne(registrationNumber);
+            student.setStudentInfo(studentInfo);
+        } else {
+            student.setStudentInfo(null);
+        }
 
         final Address address = addressRepository.findOne(student.getAddress().getId());
         student.setAddress(address);
@@ -58,11 +65,27 @@ public class StudentService {
     }
 
     @Transactional
+    public void update(final Student student) {
+        if (student.getStudentInfo().getRegistrationNumber() == null) {
+            student.setStudentInfo(null);
+        }
+        studentRepository.update(student);
+    }
+
+    @Transactional
     public void deleteBy(Long id) {
         Student student = studentRepository.findOne(id);
         if (student != null) {
             studentRepository.delete(student);
         }
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
 

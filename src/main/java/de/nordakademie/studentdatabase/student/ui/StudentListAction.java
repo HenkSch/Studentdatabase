@@ -14,8 +14,7 @@ import java.util.List;
 public class StudentListAction implements Action {
 
     private final StudentService studentService;
-
-    private List<Student> students;
+    private List<Student> studentList;
 
     @Autowired
     public StudentListAction(StudentService studentService) {
@@ -25,11 +24,11 @@ public class StudentListAction implements Action {
 
     @Override
     public String execute() throws Exception {
-        students = studentService.findAll();
+        studentList = studentService.findAll();
         return SUCCESS;
     }
 
-    public List<Student> getStudents() {
-        return students;
+    public List<Student> getStudentList() {
+        return studentList;
     }
 }
