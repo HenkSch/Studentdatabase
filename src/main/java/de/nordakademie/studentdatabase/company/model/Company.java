@@ -77,7 +77,7 @@ public class Company {
         this.contactData = contactData;
     }
 
-    @OneToOne(optional = false)
+    @ManyToOne(optional = false)
     public Address getAddress() {
         return address;
     }

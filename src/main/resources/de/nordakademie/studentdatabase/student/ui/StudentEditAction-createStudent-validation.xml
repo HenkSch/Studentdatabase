@@ -1,7 +1,11 @@
 <!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
         "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
 <validators>
+
     <field name="student.birthDate">
+        <field-validator type="required">
+            <message>birthDate must be set.</message>
+        </field-validator>
         <field-validator type="date">
             <message>birthDate must be type Date.</message>
         </field-validator>
