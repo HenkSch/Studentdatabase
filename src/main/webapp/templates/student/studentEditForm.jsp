@@ -15,7 +15,8 @@
     <s:textfield name="student.birthDate" label="Birthdate"/>
     <s:textfield name="student.birthPlace" label="Birthplace"/>
     <s:textfield name="student.studentInfo.registrationNumber" label="Registration number"/>
-    <s:textfield name="student.address.id" label="Address"/>
-    <s:textfield name="student.contactData.id" label="Contact data"/>
+    <s:select list="addressList" headerkey="-1" headerValue="Select Address" name="student.address.id" label="Address"/>
+    <s:select list="contactDataList" headerkey="-1" headerValue="Select Contact data" name="student.contactData.id"
+              label="Contact data"/>
     <s:submit value="Send"/>
 </s:form>

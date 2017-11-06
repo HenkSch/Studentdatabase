@@ -1,9 +1,14 @@
 package de.nordakademie.studentdatabase.student.ui;
 
 import com.opensymphony.xwork2.ActionSupport;
+import de.nordakademie.studentdatabase.address.service.AddressService;
+import de.nordakademie.studentdatabase.contactData.service.ContactDataService;
 import de.nordakademie.studentdatabase.student.model.Student;
 import de.nordakademie.studentdatabase.student.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by U555987 on 020, 20.10.2017.
@@ -11,20 +16,33 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class StudentEditAction extends ActionSupport {
 
     private final StudentService studentService;
+    private final AddressService addressService;
+    private final ContactDataService contactDataService;
     private Student student;
     private Long id;
+    private List<Long> addressList;
+    private List<Long> contactDataList;
 
     @Autowired
-    public StudentEditAction(StudentService studentService) {
+    public StudentEditAction(StudentService studentService, AddressService addressService, ContactDataService contactDataService) {
         this.studentService = studentService;
+        this.addressService = addressService;
+        this.contactDataService = contactDataService;
     }
 
     public String getAddForm() {
+        addressList = addressService.getAllIds();
+        contactDataList = contactDataService.getUnusedIds();
         return SUCCESS;
     }
 
     public String getEditForm() {
         student = studentService.findOne(this.id);
+
+        addressList = addressService.getAllIds();
+        contactDataList = new ArrayList<>();
+        contactDataList.add(this.student.getContactData().getId());
+        contactDataList.addAll(contactDataService.getUnusedIds());
         return SUCCESS;
     }
 
@@ -61,5 +79,21 @@ public class StudentEditAction extends ActionSupport {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public List<Long> getAddressList() {
+        return addressList;
+    }
+
+    public void setAddressList(List<Long> addressList) {
+        this.addressList = addressList;
+    }
+
+    public List<Long> getContactDataList() {
+        return contactDataList;
+    }
+
+    public void setContactDataList(List<Long> contactDataList) {
+        this.contactDataList = contactDataList;
     }
 }

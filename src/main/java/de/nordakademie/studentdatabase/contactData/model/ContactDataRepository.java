@@ -1,5 +1,6 @@
 package de.nordakademie.studentdatabase.contactData.model;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -33,5 +34,12 @@ public class ContactDataRepository {
 
     public void delete(ContactData contactData) {
         entityManager.remove(contactData);
+    }
+
+    public List<Long> getUnusedIds(List<Long> usedIds) {
+
+        return entityManager.createQuery("SELECT c.id FROM ContactData c where c.id not in ("
+                + StringUtils.join(usedIds, ',') +
+                ")", Long.class).getResultList();
     }
 }

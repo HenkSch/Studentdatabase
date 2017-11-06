@@ -22,6 +22,11 @@ public class AddressService {
         this.addressRepository = addressRepository;
     }
 
+    @Transactional
+    public List<Long> getAllIds() {
+        return addressRepository.getAllIds();
+    }
+
     @Transactional(readOnly = true)
     public List<Address> findAll() {
         return addressRepository.findAll();

@@ -34,4 +34,8 @@ public class AdvisorRepository {
     public void delete(Advisor advisor) {
         entityManager.remove(advisor);
     }
+
+    public List<Long> getAllUsedIds() {
+        return entityManager.createQuery("select a.contactData.id from Advisor a", Long.class).getResultList();
+    }
 }

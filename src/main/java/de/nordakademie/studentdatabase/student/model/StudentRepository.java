@@ -34,4 +34,9 @@ public class StudentRepository {
     public void delete(Student student) {
         entityManager.remove(student);
     }
+
+
+    public List<Long> getAllUsedIds() {
+        return entityManager.createQuery("select s.contactData.id From Student s", Long.class).getResultList();
+    }
 }

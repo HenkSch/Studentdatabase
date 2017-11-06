@@ -34,4 +34,8 @@ public class AddressRepository {
     public void delete(Address address) {
         entityManager.remove(address);
     }
+
+    public List<Long> getAllIds() {
+        return entityManager.createQuery("Select a.id FROM Address a", Long.class).getResultList();
+    }
 }
