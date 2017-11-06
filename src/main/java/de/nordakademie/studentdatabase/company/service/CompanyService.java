@@ -4,8 +4,8 @@ import de.nordakademie.studentdatabase.address.model.Address;
 import de.nordakademie.studentdatabase.address.model.AddressRepository;
 import de.nordakademie.studentdatabase.company.model.Company;
 import de.nordakademie.studentdatabase.company.model.CompanyRepository;
-import de.nordakademie.studentdatabase.contactData.model.ContactData;
-import de.nordakademie.studentdatabase.contactData.model.ContactDataRepository;
+import de.nordakademie.studentdatabase.contactPerson.model.ContactPerson;
+import de.nordakademie.studentdatabase.contactPerson.model.ContactPersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,14 +20,14 @@ public class CompanyService {
 
     private final CompanyRepository companyRepository;
     private final AddressRepository addressRepository;
-    private final ContactDataRepository contactDataRepository;
+    private final ContactPersonRepository contactPersonRepository;
     private Long id;
 
     @Autowired
-    public CompanyService(CompanyRepository companyRepository, AddressRepository addressRepository, ContactDataRepository contactDataRepository) {
+    public CompanyService(CompanyRepository companyRepository, AddressRepository addressRepository, ContactPersonRepository contactPersonRepository) {
         this.companyRepository = companyRepository;
         this.addressRepository = addressRepository;
-        this.contactDataRepository = contactDataRepository;
+        this.contactPersonRepository = contactPersonRepository;
     }
 
     @Transactional(readOnly = true)
@@ -45,8 +45,8 @@ public class CompanyService {
         Address address = addressRepository.findOne(company.getAddress().getId());
         company.setAddress(address);
 
-        ContactData contactData = contactDataRepository.findOne(company.getContactData().getId());
-        company.setContactData(contactData);
+        ContactPerson contactPerson = contactPersonRepository.findOne(company.getContactPerson().getId());
+        company.setContactPerson(contactPerson);
 
         companyRepository.create(company);
     }

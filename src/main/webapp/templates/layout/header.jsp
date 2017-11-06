@@ -20,10 +20,10 @@
                 </s:a>
             </li>
 
-            <s:url var="century_url" action="centuryList"/>
+            <s:url var="advisor_url" action="advisorList"/>
             <li>
-                <s:a href="%{century_url}">
-                    <s:text name="header.centuries"/>
+                <s:a href="%{advisor_url}">
+                    <s:text name="header.advisors"/>
                 </s:a>
             </li>
 
@@ -31,6 +31,20 @@
             <li>
                 <s:a href="%{company_url}">
                     <s:text name="header.companies"/>
+                </s:a>
+            </li>
+
+            <s:url var="contactPerson_url" action="contactPersonList"/>
+            <li>
+                <s:a href="%{contactPerson_url}">
+                    <s:text name="header.contactPersons"/>
+                </s:a>
+            </li>
+
+            <s:url var="century_url" action="centuryList"/>
+            <li>
+                <s:a href="%{century_url}">
+                    <s:text name="header.centuries"/>
                 </s:a>
             </li>
 
@@ -47,14 +61,6 @@
                     <s:text name="header.contactData"/>
                 </s:a>
             </li>
-
-            <s:url var="advisor_url" action="advisorList"/>
-            <li>
-                <s:a href="%{advisor_url}">
-                    <s:text name="header.advisors"/>
-                </s:a>
-            </li>
-
         </ul>
     </div>
 </nav>

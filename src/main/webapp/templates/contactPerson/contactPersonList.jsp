@@ -1,54 +1,41 @@
 <%--
   Created by IntelliJ IDEA.
   User: U555987
-  Date: 024, 24.10.2017
-  Time: 15:38
+  Date: 006, 06.11.2017
+  Time: 12:25
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="/struts-tags" prefix="s" %>
-<h1><s:text name="company.caption"/></h1>
-<s:form action="companyAdd">
+<h1><s:text name="contactPerson.caption"/></h1>
+<s:form action="contactPersonAdd">
     <s:submit value="Add"/>
 </s:form>
 <table border="1">
     <tr>
         <th>Id</th>
         <th>Name</th>
-        <th>Short name</th>
-        <th>Contact person name</th>
-        <th>Contact person given name</th>
+        <th>Given name</th>
         <th>Email</th>
         <th>Phone number</th>
         <th>Fax number</th>
-        <th>Street</th>
-        <th>House number</th>
-        <th>ZIP code</th>
-        <th>Location</th>
-        <th>Addition</th>
+        <th>Options</th>
     </tr>
-    <s:iterator value="companyList">
+    <s:iterator value="contactPersonList">
         <tr>
             <td><s:property value="id"/></td>
             <td><s:property value="name"/></td>
-            <td><s:property value="shortName"/></td>
-            <td><s:property value="contactPerson.name"/></td>
-            <td><s:property value="contactPerson.givenName"/></td>
-            <td><s:property value="contactPerson.contactData.email"/></td>
-            <td><s:property value="contactPerson.contactData.phoneNumber"/></td>
-            <td><s:property value="contactPerson.contactData.faxNumber"/></td>
-            <td><s:property value="address.street"/></td>
-            <td><s:property value="address.houseNumber"/></td>
-            <td><s:property value="address.zipCode"/></td>
-            <td><s:property value="address.location"/></td>
-            <td><s:property value="address.addition"/></td>
+            <td><s:property value="givenName"/></td>
+            <td><s:property value="contactData.email"/></td>
+            <td><s:property value="contactData.phoneNumber"/></td>
+            <td><s:property value="contactData.faxNumber"/></td>
             <td><!--
                 Author: Meyyappan Muthuraman
                 Source: https://dzone.com/tutorials/java/struts-2/struts-2-example/struts-2-crud-example-1.html
                 -->
-                <s:url var="editUrl" action="companyEdit">
+                <s:url var="editUrl" action="contactPersonEdit">
                     <s:param name="id" value="%{id}"></s:param>
                 </s:url>
-                <s:url var="deleteUrl" action="deleteCompany">
+                <s:url var="deleteUrl" action="deleteContactPerson">
                     <s:param name="id" value="%{id}"></s:param>
                 </s:url>
                 <!--

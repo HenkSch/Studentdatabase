@@ -1,7 +1,7 @@
 package de.nordakademie.studentdatabase.company.model;
 
 import de.nordakademie.studentdatabase.address.model.Address;
-import de.nordakademie.studentdatabase.contactData.model.ContactData;
+import de.nordakademie.studentdatabase.contactPerson.model.ContactPerson;
 
 import javax.persistence.*;
 
@@ -15,19 +15,17 @@ public class Company {
     private Long id;
     private String name;
     private String shortName;
-    private String contactPerson;
-    private ContactData contactData;
+    private ContactPerson contactPerson;
     private Address address;
 
     public Company() {
     }
 
-    public Company(Long id, String name, String shortName, String contactPerson, ContactData contactData, Address address) {
+    public Company(Long id, String name, String shortName, ContactPerson contactPerson, Address address) {
         this.id = id;
         this.name = name;
         this.shortName = shortName;
         this.contactPerson = contactPerson;
-        this.contactData = contactData;
         this.address = address;
     }
 
@@ -59,22 +57,13 @@ public class Company {
         this.shortName = shortName;
     }
 
-    @Basic
-    public String getContactPerson() {
+    @OneToOne(optional = false)
+    public ContactPerson getContactPerson() {
         return contactPerson;
     }
 
-    public void setContactPerson(String contactPerson) {
+    public void setContactPerson(ContactPerson contactPerson) {
         this.contactPerson = contactPerson;
-    }
-
-    @OneToOne(optional = false)
-    public ContactData getContactData() {
-        return contactData;
-    }
-
-    public void setContactData(ContactData contactData) {
-        this.contactData = contactData;
     }
 
     @ManyToOne(optional = false)

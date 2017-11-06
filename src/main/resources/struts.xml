@@ -230,5 +230,38 @@
                 method="deleteStudent">
             <result type="redirectAction">studentList</result>
         </action>
+
+        <!-- contactPerson -->
+        <action name="contactPersonList"
+                class="de.nordakademie.studentdatabase.contactPerson.ui.ContactPersonListAction">
+            <result>contactPersonList</result>
+        </action>
+        <action name="contactPersonAdd"
+                class="de.nordakademie.studentdatabase.contactPerson.ui.ContactPersonEditAction"
+                method="getAddForm">
+            <result>contactPersonAddForm</result>
+        </action>
+        <action name="createContactPerson"
+                class="de.nordakademie.studentdatabase.contactPerson.ui.ContactPersonEditAction"
+                method="createContactPerson">
+            <result type="redirectAction">contactPersonList</result>
+            <result name="input">contactPersonAddForm</result>
+        </action>
+        <action name="contactPersonEdit"
+                class="de.nordakademie.studentdatabase.contactPerson.ui.ContactPersonEditAction"
+                method="getEditForm">
+            <result>contactPersonEditForm</result>
+        </action>
+        <action name="updateContactPerson"
+                class="de.nordakademie.studentdatabase.contactPerson.ui.ContactPersonEditAction"
+                method="updateContactPerson">
+            <result type="redirectAction">contactPersonList</result>
+            <result name="input">contactPersonEditForm</result>
+        </action>
+        <action name="deleteContactPerson"
+                class="de.nordakademie.studentdatabase.contactPerson.ui.ContactPersonEditAction"
+                method="deleteContactPerson">
+            <result type="redirectAction">contactPersonList</result>
+        </action>
     </package>
 </struts>

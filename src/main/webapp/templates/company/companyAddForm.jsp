@@ -10,8 +10,7 @@
 <s:form action="createCompany" method="POST">
     <s:textfield name="company.name" label="Name"/>
     <s:textfield name="company.shortName" label="Short name"/>
-    <s:textfield name="company.contactPerson" label="Contact person"/>
-    <s:textfield name="company.contactData.id" label="Contact data"/>
+    <s:textfield name="company.contactPerson.id" label="Contact person"/>
     <s:textfield name="company.address.id" label="Address"/>
     <s:submit value="Send"/>
 </s:form>

@@ -82,4 +82,15 @@
     <definition name="studentEditForm" extends="pageFrame">
         <put-attribute name="content" value="/templates/student/studentEditForm.jsp"/>
     </definition>
+
+    <!-- contactPerson -->
+    <definition name="contactPersonList" extends="pageFrame">
+        <put-attribute name="content" value="/templates/contactPerson/contactPersonList.jsp"/>
+    </definition>
+    <definition name="contactPersonAddForm" extends="pageFrame">
+        <put-attribute name="content" value="/templates/contactPerson/contactPersonAddForm.jsp"/>
+    </definition>
+    <definition name="contactPersonEditForm" extends="pageFrame">
+        <put-attribute name="content" value="/templates/contactPerson/contactPersonEditForm.jsp"/>
+    </definition>
 </tiles-definitions>

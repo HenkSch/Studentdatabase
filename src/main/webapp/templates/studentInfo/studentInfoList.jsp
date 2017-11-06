@@ -24,7 +24,9 @@
 
         <th>Company name</th>
         <th>Company short name</th>
-        <th>Company contact person</th>
+        <th>Company contact person name</th>
+        <th>Company contact person given name</th>
+
         <th>Options</th>
     </tr>
     <s:iterator value="studentInfoList">
@@ -41,7 +43,9 @@
 
             <td><s:property value="company.name"/></td>
             <td><s:property value="company.shortName"/></td>
-            <td><s:property value="company.contactPerson"/></td>
+            <td><s:property value="company.contactPerson.name"/></td>
+            <td><s:property value="company.contactPerson.givenName"/></td>
+
             <td><!--
                 Author: Meyyappan Muthuraman
                 Source: https://dzone.com/tutorials/java/struts-2/struts-2-example/struts-2-crud-example-1.html
