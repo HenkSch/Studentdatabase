@@ -1,9 +1,13 @@
 package de.nordakademie.studentdatabase.contactPerson.ui;
 
 import com.opensymphony.xwork2.ActionSupport;
+import de.nordakademie.studentdatabase.contactData.service.ContactDataService;
 import de.nordakademie.studentdatabase.contactPerson.model.ContactPerson;
 import de.nordakademie.studentdatabase.contactPerson.service.ContactPersonService;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by U555987 on 006, 06.11.2017.
@@ -11,35 +15,44 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class ContactPersonEditAction extends ActionSupport {
 
     private final ContactPersonService contactPersonService;
+    private final ContactDataService contactDataService;
     private ContactPerson contactPerson;
     private Long id;
+    private List<Long> contactDataList;
 
     @Autowired
-    public ContactPersonEditAction(ContactPersonService contactPersonService) {
+    public ContactPersonEditAction(ContactPersonService contactPersonService, ContactDataService contactDataService) {
         this.contactPersonService = contactPersonService;
+        this.contactDataService = contactDataService;
     }
 
     public String getAddForm() {
+        this.contactDataList = contactDataService.getUnusedIds();
         return SUCCESS;
     }
 
     public String getEditForm() {
-        contactPerson = contactPersonService.findOne(this.id);
+        this.contactPerson = this.contactPersonService.findOne(this.id);
+
+        this.contactDataList = new ArrayList<>();
+        this.contactDataList.add(this.contactPerson.getContactData().getId());
+        this.contactDataList.addAll(contactDataService.getUnusedIds());
+
         return SUCCESS;
     }
 
     public String createContactPerson() {
-        contactPersonService.create(this.contactPerson);
+        this.contactPersonService.create(this.contactPerson);
         return SUCCESS;
     }
 
     public String deleteContactPerson() {
-        contactPersonService.deleteBy(this.id);
+        this.contactPersonService.deleteBy(this.id);
         return SUCCESS;
     }
 
     public String updateContactPerson() {
-        contactPersonService.update(this.contactPerson);
+        this.contactPersonService.update(this.contactPerson);
         return SUCCESS;
     }
 
@@ -49,7 +62,7 @@ public class ContactPersonEditAction extends ActionSupport {
     }
 
     public ContactPerson getContactPerson() {
-        return contactPerson;
+        return this.contactPerson;
     }
 
     public void setContactPerson(ContactPerson contactPerson) {
@@ -57,10 +70,18 @@ public class ContactPersonEditAction extends ActionSupport {
     }
 
     public Long getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public List<Long> getContactDataList() {
+        return this.contactDataList;
+    }
+
+    public void setContactDataList(List<Long> contactDataList) {
+        this.contactDataList = contactDataList;
     }
 }

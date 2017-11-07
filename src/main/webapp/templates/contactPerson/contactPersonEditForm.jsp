@@ -11,7 +11,7 @@
     <s:textfield name="contactPerson.id" label="Id" readonly="true"/>
     <s:textfield name="contactPerson.name" label="*Name"/>
     <s:textfield name="contactPerson.givenName" label="*Given name"/>
-    <s:textfield name="contactPerson.contactData.id" label="*Contact data"/>
+    <s:select name="contactPerson.contactData.id" label="*Contact data" list="contactDataList"/>
     <s:label key="*field required" value=""></s:label>
     <s:submit value="Send"/>
 </s:form>
