@@ -14,6 +14,6 @@
     <s:textfield name="address.zipCode" label="*ZIP code"/>
     <s:textfield name="address.location" label="*Location"/>
     <s:textfield name="address.addition" label="Addition"/>
-    <s:label key="*field required" value=""></s:label>
     <s:submit value="Send"/>
 </s:form>
+<s:text name="required.caption"/>

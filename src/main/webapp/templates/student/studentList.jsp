@@ -13,6 +13,7 @@
         <th>Birthdate</th>
         <th>Birthplace</th>
         <th>Registration number</th>
+        <th>Century</th>
         <th>Address</th>
         <th>Contact data</th>
         <th>Options</th>
@@ -26,8 +27,15 @@
             <td><s:date name="birthDate" format="dd.MM.yyyy"/></td>
             <td><s:property value="birthPlace"/></td>
             <td><s:property value="studentInfo.registrationNumber"/></td>
-            <td><s:property value="address.id"/></td>
-            <td><s:property value="contactData.id"/></td>
+            <td>
+                <s:property value="studentInfo.century.studyProgram"/><s:property
+                    value="studentInfo.century.year"/><s:property value="studentInfo.century.subGroup"/>
+            </td>
+            <td>
+                <s:property value="address.zipCode"/>
+                <s:property value="address.location"/>
+            </td>
+            <td><s:property value="contactData.email"/></td>
             <td><!--
                 Author: Meyyappan Muthuraman
                 Source: https://dzone.com/tutorials/java/struts-2/struts-2-example/struts-2-crud-example-1.html

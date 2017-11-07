@@ -13,6 +13,6 @@
     <s:select list="centuryList" name="studentInfo.century.id" label="*Century"/>
     <s:select list="advisorList" name="studentInfo.advisor.id" label="Advisor" emptyOption="true"/>
     <s:select list="companyList" name="studentInfo.company.id" label="Company" emptyOption="true"/>
-    <s:label key="*field required" value=""></s:label>
     <s:submit value="Send"/>
 </s:form>
+<s:text name="required.caption"/>

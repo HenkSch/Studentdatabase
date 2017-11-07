@@ -13,11 +13,11 @@
     <s:textfield name="student.givenName" label="*Given name"/>
     <s:textfield name="student.gender" label="*Gender"/>
     <s:textfield name="student.birthDate" label="*Birthdate"/>
-    <s:textfield name="student.birthPlace" label="*Birthplace"/>
+    <s:textfield name="student.birthPlace" label="Birthplace"/>
     <s:select name="student.studentInfo.registrationNumber" label="Registration number" list="studentInfoList"
               emptyOption="true"/>
     <s:select name="student.address.id" label="*Address" list="addressList"/>
     <s:select name="student.contactData.id" label="*Contact data" list="contactDataList"/>
-    <s:label key="*field required" value=""></s:label>
     <s:submit value="Send"/>
 </s:form>
+<s:text name="required.caption"/>

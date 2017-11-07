@@ -14,6 +14,6 @@
               headerValue="Please select an advisor"/>
     <s:select list="companyList" name="studentInfo.company.id" label="Company" headerKey=""
               headerValue="Please select a company"/>
-    <s:label key="*field required" value=""></s:label>
     <s:submit value="Send"/>
 </s:form>
+<s:text name="required.caption"/>

@@ -12,6 +12,6 @@
     <s:textfield name="century.studyProgram" label="*Study program"/>
     <s:textfield name="century.year" label="*Year"/>
     <s:textfield name="century.subGroup" label="*Sub group"/>
-    <s:label key="*field required" value=""></s:label>
     <s:submit value="Send"/>
 </s:form>
+<s:text name="required.caption"/>

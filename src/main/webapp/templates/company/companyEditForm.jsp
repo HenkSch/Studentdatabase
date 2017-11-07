@@ -13,6 +13,6 @@
     <s:textfield name="company.shortName" label="Short name"/>
     <s:select list="contactPersonList" name="company.contactPerson.id" label="*Contact person"/>
     <s:select list="addressList" name="company.address.id" label="*Address"/>
-    <s:label key="*field required" value=""></s:label>
     <s:submit value="Send"/>
 </s:form>
+<s:text name="required.caption"/>
