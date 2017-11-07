@@ -21,6 +21,11 @@ public class CenturyService {
         this.centuryRepository = centuryRepository;
     }
 
+    @Transactional
+    public List<Long> getAllIds() {
+        return centuryRepository.getAllIds();
+    }
+
     @Transactional(readOnly = true)
     public List<Century> findAll() {
         return centuryRepository.findAll();

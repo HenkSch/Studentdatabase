@@ -9,8 +9,9 @@
 <h1><s:text name="contactData.caption"/></h1>
 <s:form action="updateContactData" method="POST">
     <s:textfield name="contactData.id" label="Id" readonly="true"/>
-    <s:textfield name="contactData.email" label="Email"/>
-    <s:textfield name="contactData.phoneNumber" label="Phone number"/>
+    <s:textfield name="contactData.email" label="*Email"/>
+    <s:textfield name="contactData.phoneNumber" label="*Phone number"/>
     <s:textfield name="contactData.faxNumber" label="Fax number"/>
+    <s:label key="*field required" value=""></s:label>
     <s:submit value="Send"/>
 </s:form>

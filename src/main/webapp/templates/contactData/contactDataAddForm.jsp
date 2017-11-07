@@ -8,8 +8,9 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <h1><s:text name="contactData.caption"/></h1>
 <s:form action="createContactData" method="POST">
-    <s:textfield name="contactData.email" label="Email"/>
-    <s:textfield name="contactData.phoneNumber" label="Phone number"/>
+    <s:textfield name="contactData.email" label="*Email"/>
+    <s:textfield name="contactData.phoneNumber" label="*Phone number"/>
     <s:textfield name="contactData.faxNumber" label="Fax number"/>
+    <s:label key="*field required" value=""></s:label>
     <s:submit value="Send"/>
 </s:form>

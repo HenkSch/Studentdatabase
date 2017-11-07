@@ -23,11 +23,17 @@ public class CompanyService {
     private final ContactPersonRepository contactPersonRepository;
     private Long id;
 
+
     @Autowired
     public CompanyService(CompanyRepository companyRepository, AddressRepository addressRepository, ContactPersonRepository contactPersonRepository) {
         this.companyRepository = companyRepository;
         this.addressRepository = addressRepository;
         this.contactPersonRepository = contactPersonRepository;
+    }
+
+    @Transactional
+    public List<Long> getAllIds() {
+        return companyRepository.getAllIds();
     }
 
     @Transactional(readOnly = true)
@@ -71,4 +77,6 @@ public class CompanyService {
     public void setId(Long id) {
         this.id = id;
     }
+
+
 }

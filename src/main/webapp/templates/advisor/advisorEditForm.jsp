@@ -9,8 +9,9 @@
 <h1><s:text name="advisor.caption"/></h1>
 <s:form action="updateAdvisor" method="POST">
     <s:textfield name="advisor.id" label="Id" readonly="true"/>
-    <s:textfield name="advisor.name" label="Name"/>
-    <s:textfield name="advisor.givenName" label="Given name"/>
-    <s:textfield name="advisor.contactData.id" label="Contact data"/>
+    <s:textfield name="advisor.name" label="*Name"/>
+    <s:textfield name="advisor.givenName" label="*Given name"/>
+    <s:textfield name="advisor.contactData.id" label="*Contact data"/>
+    <s:label key="*field required" value=""></s:label>
     <s:submit value="Send"/>
 </s:form>

@@ -8,8 +8,9 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <h1><s:text name="century.caption"/></h1>
 <s:form action="createCentury" method="POST">
-    <s:textfield name="century.studyProgram" label="Study programm"/>
-    <s:textfield name="century.year" label="Year"/>
-    <s:textfield name="century.subGroup" label="Sub group"/>
+    <s:textfield name="century.studyProgram" label="*Study programm"/>
+    <s:textfield name="century.year" label="*Year"/>
+    <s:textfield name="century.subGroup" label="*Sub group"/>
+    <s:label key="*field required" value=""></s:label>
     <s:submit value="Send"/>
 </s:form>

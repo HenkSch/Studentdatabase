@@ -26,6 +26,11 @@ public class AdvisorService {
         this.contactDataRepository = contactDataRepository;
     }
 
+    @Transactional
+    public List<Long> getAllIds() {
+        return advisorRepository.getAllIds();
+    }
+
     @Transactional(readOnly = true)
     public List<Advisor> findAll() {
         return advisorRepository.findAll();

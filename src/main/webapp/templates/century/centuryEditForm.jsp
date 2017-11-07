@@ -9,8 +9,9 @@
 <h1><s:text name="century.caption"/></h1>
 <s:form action="updateCentury" method="POST">
     <s:textfield name="century.id" label="Id" readonly="true"/>
-    <s:textfield name="century.studyProgram" label="Study program"/>
-    <s:textfield name="century.year" label="Year"/>
-    <s:textfield name="century.subGroup" label="Sub group"/>
+    <s:textfield name="century.studyProgram" label="*Study program"/>
+    <s:textfield name="century.year" label="*Year"/>
+    <s:textfield name="century.subGroup" label="*Sub group"/>
+    <s:label key="*field required" value=""></s:label>
     <s:submit value="Send"/>
 </s:form>

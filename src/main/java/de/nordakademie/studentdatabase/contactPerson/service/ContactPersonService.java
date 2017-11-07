@@ -1,5 +1,6 @@
 package de.nordakademie.studentdatabase.contactPerson.service;
 
+import de.nordakademie.studentdatabase.company.model.CompanyRepository;
 import de.nordakademie.studentdatabase.contactData.model.ContactData;
 import de.nordakademie.studentdatabase.contactData.model.ContactDataRepository;
 import de.nordakademie.studentdatabase.contactPerson.model.ContactPerson;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,12 +20,14 @@ public class ContactPersonService {
 
     private final ContactPersonRepository contactPersonRepository;
     private final ContactDataRepository contactDataRepository;
+    private final CompanyRepository companyRepository;
     private Long id;
 
     @Autowired
-    public ContactPersonService(ContactPersonRepository contactPersonRepository, ContactDataRepository contactDataRepository) {
+    public ContactPersonService(ContactPersonRepository contactPersonRepository, ContactDataRepository contactDataRepository, CompanyRepository companyRepository) {
         this.contactPersonRepository = contactPersonRepository;
         this.contactDataRepository = contactDataRepository;
+        this.companyRepository = companyRepository;
     }
 
     @Transactional(readOnly = true)
@@ -63,5 +67,13 @@ public class ContactPersonService {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public List<Long> getUnusedIds() {
+
+        final List<Long> usedContactPersonIds = new ArrayList<>();
+        usedContactPersonIds.addAll(companyRepository.getAllUsedContactPersonIds());
+
+        return contactPersonRepository.getUnusedIds(usedContactPersonIds);
     }
 }

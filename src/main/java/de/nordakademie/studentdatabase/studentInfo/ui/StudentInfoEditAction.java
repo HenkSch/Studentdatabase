@@ -1,9 +1,14 @@
 package de.nordakademie.studentdatabase.studentInfo.ui;
 
 import com.opensymphony.xwork2.ActionSupport;
+import de.nordakademie.studentdatabase.advisor.service.AdvisorService;
+import de.nordakademie.studentdatabase.century.service.CenturyService;
+import de.nordakademie.studentdatabase.company.service.CompanyService;
 import de.nordakademie.studentdatabase.studentInfo.model.StudentInfo;
 import de.nordakademie.studentdatabase.studentInfo.service.StudentInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
 
 /**
  * Created by U555987 on 025, 25.10.2017.
@@ -11,19 +16,36 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class StudentInfoEditAction extends ActionSupport {
 
     private final StudentInfoService studentInfoService;
+    private final CenturyService centuryService;
+    private final CompanyService companyService;
+    private final AdvisorService advisorService;
     private StudentInfo studentInfo;
     private Long id;
+    private List<Long> centuryList;
+    private List<Long> companyList;
+    private List<Long> advisorList;
 
     @Autowired
-    public StudentInfoEditAction(StudentInfoService studentInfoService) {
+    public StudentInfoEditAction(StudentInfoService studentInfoService, CenturyService centuryService, CompanyService companyService, AdvisorService advisorService) {
         this.studentInfoService = studentInfoService;
+        this.centuryService = centuryService;
+        this.companyService = companyService;
+        this.advisorService = advisorService;
     }
 
     public String getAddForm() {
+
+        centuryList = centuryService.getAllIds();
+        companyList = companyService.getAllIds();
+        advisorList = advisorService.getAllIds();
+
         return SUCCESS;
     }
 
     public String getEditForm() {
+        centuryList = centuryService.getAllIds();
+        companyList = companyService.getAllIds();
+        advisorList = advisorService.getAllIds();
         studentInfo = studentInfoService.findOne(this.id);
         return SUCCESS;
     }
@@ -62,5 +84,29 @@ public class StudentInfoEditAction extends ActionSupport {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public List<Long> getCenturyList() {
+        return centuryList;
+    }
+
+    public void setCenturyList(List<Long> centuryList) {
+        this.centuryList = centuryList;
+    }
+
+    public List<Long> getCompanyList() {
+        return companyList;
+    }
+
+    public void setCompanyList(List<Long> companyList) {
+        this.companyList = companyList;
+    }
+
+    public List<Long> getAdvisorList() {
+        return advisorList;
+    }
+
+    public void setAdvisorList(List<Long> advisorList) {
+        this.advisorList = advisorList;
     }
 }

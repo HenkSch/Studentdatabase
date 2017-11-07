@@ -9,9 +9,10 @@
 <h1><s:text name="company.caption"/></h1>
 <s:form action="updateCompany" method="POST">
     <s:textfield name="company.id" label="Id" readonly="true"/>
-    <s:textfield name="company.name" label="Name"/>
+    <s:textfield name="company.name" label="*Name"/>
     <s:textfield name="company.shortName" label="Short name"/>
-    <s:textfield name="company.contactPerson.id" label="Contact person"/>
-    <s:textfield name="company.address.id" label="Address"/>
+    <s:select list="contactPersonList" name="company.contactPerson.id" label="*Contact person"/>
+    <s:select list="addressList" name="company.address.id" label="*Address"/>
+    <s:label key="*field required" value=""></s:label>
     <s:submit value="Send"/>
 </s:form>

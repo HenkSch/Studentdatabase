@@ -9,10 +9,11 @@
 <h1><s:text name="address.caption"/></h1>
 <s:form action="updateAddress" method="POST">
     <s:textfield name="address.id" label="Id" readonly="true"/>
-    <s:textfield name="address.street" label="Street"/>
-    <s:textfield name="address.houseNumber" label="House number"/>
-    <s:textfield name="address.zipCode" label="ZIP code"/>
-    <s:textfield name="address.location" label="Location"/>
+    <s:textfield name="address.street" label="*Street"/>
+    <s:textfield name="address.houseNumber" label="*House number"/>
+    <s:textfield name="address.zipCode" label="*ZIP code"/>
+    <s:textfield name="address.location" label="*Location"/>
     <s:textfield name="address.addition" label="Addition"/>
+    <s:label key="*field required" value=""></s:label>
     <s:submit value="Send"/>
 </s:form>

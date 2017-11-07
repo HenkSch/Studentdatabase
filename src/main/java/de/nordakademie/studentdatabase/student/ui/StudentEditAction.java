@@ -45,20 +45,19 @@ public class StudentEditAction extends ActionSupport {
     }
 
     public String getEditForm() {
-        student = studentService.findOne(this.id);
+        this.student = studentService.findOne(this.id);
 
-        addressList = addressService.getAllIds();
+        this.addressList = addressService.getAllIds();
 
-        contactDataList = new ArrayList<>();
-        contactDataList.add(this.student.getContactData().getId());
-        contactDataList.addAll(contactDataService.getUnusedIds());
+        this.contactDataList = new ArrayList<>();
+        this.contactDataList.add(this.student.getContactData().getId());
+        this.contactDataList.addAll(contactDataService.getUnusedIds());
 
-        studentInfoList = new ArrayList<>();
+        this.studentInfoList = new ArrayList<>();
         if (this.student.getStudentInfo() != null) {
-            studentInfoList.add(this.student.getStudentInfo().getRegistrationNumber());
+            this.studentInfoList.add(this.student.getStudentInfo().getRegistrationNumber());
         }
-        studentInfoList.addAll(studentInfoService.getUnusedIds());
-
+        this.studentInfoList.addAll(studentInfoService.getUnusedIds());
 
         return SUCCESS;
     }

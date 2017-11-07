@@ -34,4 +34,12 @@ public class CompanyRepository {
     public void delete(Company company) {
         entityManager.remove(company);
     }
+
+    public List<Long> getAllIds() {
+        return entityManager.createQuery("Select c.id FROM Company c", Long.class).getResultList();
+    }
+
+    public List<Long> getAllUsedContactPersonIds() {
+        return entityManager.createQuery("select c.contactPerson.id From Company c", Long.class).getResultList();
+    }
 }

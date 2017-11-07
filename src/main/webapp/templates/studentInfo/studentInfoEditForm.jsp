@@ -9,9 +9,10 @@
 <h1><s:text name="studentInfo.caption"/></h1>
 <s:form action="updateStudentInfo" method="POST">
     <s:textfield name="studentInfo.registrationNumber" label="Registration number" readonly="true"/>
-    <s:textfield name="studentInfo.userNumber" label="User number"/>
-    <s:textfield name="studentInfo.century.id" label="Century"/>
-    <s:textfield name="studentInfo.advisor.id" label="Advisor"/>
-    <s:textfield name="studentInfo.company.id" label="Company"/>
+    <s:textfield name="studentInfo.userNumber" label="*User number"/>
+    <s:select list="centuryList" name="studentInfo.century.id" label="*Century"/>
+    <s:select list="advisorList" name="studentInfo.advisor.id" label="Advisor" emptyOption="true"/>
+    <s:select list="companyList" name="studentInfo.company.id" label="Company" emptyOption="true"/>
+    <s:label key="*field required" value=""></s:label>
     <s:submit value="Send"/>
 </s:form>

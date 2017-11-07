@@ -34,4 +34,8 @@ public class CenturyRepository {
     public void delete(Century century) {
         entityManager.remove(century);
     }
+
+    public List<Long> getAllIds() {
+        return entityManager.createQuery("Select c.id FROM Century c", Long.class).getResultList();
+    }
 }

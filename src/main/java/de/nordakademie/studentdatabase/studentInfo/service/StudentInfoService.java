@@ -75,6 +75,13 @@ public class StudentInfoService {
 
     @Transactional
     public void update(final StudentInfo studentInfo) {
+        if (studentInfo.getAdvisor().getId() == null) {
+            studentInfo.setAdvisor(null);
+        }
+        if (studentInfo.getCompany().getId() == null) {
+            studentInfo.setCompany(null);
+        }
+
         studentInfoRepository.update(studentInfo);
     }
 

@@ -1,5 +1,6 @@
 package de.nordakademie.studentdatabase.contactPerson.model;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -37,5 +38,9 @@ public class ContactPersonRepository {
 
     public List<Long> getAllUsedContactDataIds() {
         return entityManager.createQuery("select c.contactData.id from ContactPerson c", Long.class).getResultList();
+    }
+
+    public List<Long> getUnusedIds(List<Long> usedIds) {
+        return entityManager.createQuery("SELECT c.id FROM ContactPerson c where c.id not in (" + StringUtils.join(usedIds, ',') + ")", Long.class).getResultList();
     }
 }

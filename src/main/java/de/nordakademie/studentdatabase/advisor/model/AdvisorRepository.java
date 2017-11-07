@@ -38,4 +38,8 @@ public class AdvisorRepository {
     public List<Long> getAllUsedContactDataIds() {
         return entityManager.createQuery("select a.contactData.id from Advisor a", Long.class).getResultList();
     }
+
+    public List<Long> getAllIds() {
+        return entityManager.createQuery("Select a.id FROM Advisor a", Long.class).getResultList();
+    }
 }
