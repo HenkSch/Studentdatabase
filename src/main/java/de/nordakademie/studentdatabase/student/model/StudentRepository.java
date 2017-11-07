@@ -35,8 +35,11 @@ public class StudentRepository {
         entityManager.remove(student);
     }
 
-
-    public List<Long> getAllUsedIds() {
+    public List<Long> getAllUsedContactDataIds() {
         return entityManager.createQuery("select s.contactData.id From Student s", Long.class).getResultList();
+    }
+
+    public List<Long> getAllUsedStudentInfoIds() {
+        return entityManager.createQuery("select s.studentInfo.registrationNumber From Student s", Long.class).getResultList();
     }
 }

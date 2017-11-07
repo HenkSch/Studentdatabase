@@ -1,5 +1,6 @@
 package de.nordakademie.studentdatabase.studentInfo.model;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -33,5 +34,9 @@ public class StudentInfoRepository {
 
     public void delete(StudentInfo studentInfo) {
         entityManager.remove(studentInfo);
+    }
+
+    public List<Long> getUnusedIds(List<Long> usedIds) {
+        return entityManager.createQuery("SELECT s.registrationNumber FROM StudentInfo s where s.registrationNumber not in (" + StringUtils.join(usedIds, ',') + ")", Long.class).getResultList();
     }
 }

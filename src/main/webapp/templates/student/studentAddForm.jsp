@@ -13,9 +13,10 @@
     <s:textfield name="student.gender" label="Gender"/>
     <s:textfield name="student.birthDate" label="Birthdate"/>
     <s:textfield name="student.birthPlace" label="Birthplace"/>
-    <s:textfield name="student.studentInfo.registrationNumber" label="Registration number"/>
-    <s:select list="addressList" headerkey="-1" headerValue="Select Address" name="student.address.id" label="Address"/>
-    <s:select list="contactDataList" headerkey="-1" headerValue="Select Contact data" name="student.contactData.id"
+    <s:select list="studentInfoList" emptyOption="true"
+              name="student.studentInfo.registrationNumber" label="Registration number"/>
+    <s:select list="addressList" name="student.address.id" label="Address"/>
+    <s:select list="contactDataList" name="student.contactData.id"
               label="Contact data"/>
     <s:submit value="Send"/>
 </s:form>

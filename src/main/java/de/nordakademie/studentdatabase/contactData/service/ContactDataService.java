@@ -34,12 +34,12 @@ public class ContactDataService {
 
     @Transactional
     public List<Long> getUnusedIds() {
-        final List<Long> usedIds = new ArrayList<>();
-        usedIds.addAll(studentRepository.getAllUsedIds());
-        usedIds.addAll(contactPersonRepository.getAllUsedIds());
-        usedIds.addAll(advisorRepository.getAllUsedIds());
+        final List<Long> usedContactDataIds = new ArrayList<>();
+        usedContactDataIds.addAll(studentRepository.getAllUsedContactDataIds());
+        usedContactDataIds.addAll(contactPersonRepository.getAllUsedContactDataIds());
+        usedContactDataIds.addAll(advisorRepository.getAllUsedContactDataIds());
 
-        return contactDataRepository.getUnusedIds(usedIds);
+        return contactDataRepository.getUnusedIds(usedContactDataIds);
     }
 
     @Transactional(readOnly = true)

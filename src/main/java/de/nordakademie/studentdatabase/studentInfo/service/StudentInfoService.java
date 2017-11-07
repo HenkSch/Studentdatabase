@@ -6,12 +6,14 @@ import de.nordakademie.studentdatabase.century.model.Century;
 import de.nordakademie.studentdatabase.century.model.CenturyRepository;
 import de.nordakademie.studentdatabase.company.model.Company;
 import de.nordakademie.studentdatabase.company.model.CompanyRepository;
+import de.nordakademie.studentdatabase.student.model.StudentRepository;
 import de.nordakademie.studentdatabase.studentInfo.model.StudentInfo;
 import de.nordakademie.studentdatabase.studentInfo.model.StudentInfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,14 +23,16 @@ import java.util.List;
 public class StudentInfoService {
 
     private final StudentInfoRepository studentInfoRepository;
+    private final StudentRepository studentRepository;
     private final CenturyRepository centuryRepository;
     private final AdvisorRepository advisorRepository;
     private final CompanyRepository companyRepository;
     private Long id;
 
     @Autowired
-    public StudentInfoService(StudentInfoRepository studentInfoRepository, CenturyRepository centuryRepository, AdvisorRepository advisorRepository, CompanyRepository companyRepository) {
+    public StudentInfoService(StudentInfoRepository studentInfoRepository, StudentRepository studentRepository, CenturyRepository centuryRepository, AdvisorRepository advisorRepository, CompanyRepository companyRepository) {
         this.studentInfoRepository = studentInfoRepository;
+        this.studentRepository = studentRepository;
         this.centuryRepository = centuryRepository;
         this.advisorRepository = advisorRepository;
         this.companyRepository = companyRepository;
@@ -49,11 +53,22 @@ public class StudentInfoService {
         final Century century = centuryRepository.findOne(studentInfo.getCentury().getId());
         studentInfo.setCentury(century);
 
-        final Advisor advisor = advisorRepository.findOne(studentInfo.getAdvisor().getId());
-        studentInfo.setAdvisor(advisor);
+        final Long advisorId = studentInfo.getAdvisor().getId();
+        if (advisorId != null) {
+            final Advisor advisor = advisorRepository.findOne(advisorId);
+            studentInfo.setAdvisor(advisor);
+        } else {
+            studentInfo.setAdvisor(null);
+        }
 
-        final Company company = companyRepository.findOne(studentInfo.getCompany().getId());
-        studentInfo.setCompany(company);
+
+        final Long companyId = studentInfo.getCompany().getId();
+        if (companyId != null) {
+            final Company company = companyRepository.findOne(companyId);
+            studentInfo.setCompany(company);
+        } else {
+            studentInfo.setCompany(null);
+        }
 
         studentInfoRepository.create(studentInfo);
     }
@@ -77,5 +92,14 @@ public class StudentInfoService {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+
+    @Transactional
+    public List<Long> getUnusedIds() {
+        final List<Long> usedStudentInfoIds = new ArrayList<>();
+        usedStudentInfoIds.addAll(studentRepository.getAllUsedStudentInfoIds());
+
+        return studentInfoRepository.getUnusedIds(usedStudentInfoIds);
     }
 }

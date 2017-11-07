@@ -35,7 +35,7 @@ public class ContactPersonRepository {
         entityManager.remove(contactPerson);
     }
 
-    public List<Long> getAllUsedIds() {
+    public List<Long> getAllUsedContactDataIds() {
         return entityManager.createQuery("select c.contactData.id from ContactPerson c", Long.class).getResultList();
     }
 }

@@ -37,9 +37,6 @@ public class ContactDataRepository {
     }
 
     public List<Long> getUnusedIds(List<Long> usedIds) {
-
-        return entityManager.createQuery("SELECT c.id FROM ContactData c where c.id not in ("
-                + StringUtils.join(usedIds, ',') +
-                ")", Long.class).getResultList();
+        return entityManager.createQuery("SELECT c.id FROM ContactData c where c.id not in (" + StringUtils.join(usedIds, ',') + ")", Long.class).getResultList();
     }
 }
