@@ -60,7 +60,7 @@ public class StudentAddAction extends ActionSupport {
 
     @Override
     public void validate() {
-        getForm();
+        fillLists();
     }
 
     public Student getStudent() {

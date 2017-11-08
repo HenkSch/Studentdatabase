@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by U555987 on 025, 25.10.2017.
  */
-public class StudentInfoEditAction extends ActionSupport {
+public class StudentInfoAddAction extends ActionSupport {
 
     private final StudentInfoService studentInfoService;
     private final CenturyService centuryService;
@@ -27,16 +27,17 @@ public class StudentInfoEditAction extends ActionSupport {
     private List<Long> advisorList = new ArrayList<>();
 
     @Autowired
-    public StudentInfoEditAction(StudentInfoService studentInfoService, CenturyService centuryService, CompanyService companyService, AdvisorService advisorService) {
+    public StudentInfoAddAction(StudentInfoService studentInfoService, CenturyService centuryService, CompanyService companyService, AdvisorService advisorService) {
         this.studentInfoService = studentInfoService;
         this.centuryService = centuryService;
         this.companyService = companyService;
         this.advisorService = advisorService;
     }
 
-    public String getEditForm() {
-        studentInfo = studentInfoService.findOne(this.id);
+    public String getForm() {
+
         fillLists();
+
         return SUCCESS;
     }
 
@@ -46,8 +47,9 @@ public class StudentInfoEditAction extends ActionSupport {
         advisorList = advisorService.getAllIds();
     }
 
-    public String updateStudentInfo() {
-        studentInfoService.update(this.studentInfo);
+
+    public String createStudentInfo() {
+        studentInfoService.create(this.studentInfo);
         return SUCCESS;
     }
 
