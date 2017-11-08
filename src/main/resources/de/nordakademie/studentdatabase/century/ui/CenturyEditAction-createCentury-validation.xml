@@ -1,0 +1,32 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+    <field name="century.studyProgram">
+        <field-validator type="requiredstring">
+            <message>studyProgram must be set.</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regex"><![CDATA[([A,B,I,W])]]></param>
+            <message>Only A,B,I or W are allowed.</message>
+        </field-validator>
+    </field>
+    <field name="century.year">
+        <field-validator type="required">
+            <message>year must be set.</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">2</param>
+            <param name="maxLength">2</param>
+            <message>A year must contain exactly ${maxLength} characters</message>
+        </field-validator>
+    </field>
+    <field name="century.subGroup">
+        <field-validator type="requiredstring">
+            <message>subGroup must be set.</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regex"><![CDATA[([a-zA-Z])]]></param>
+            <message>Only one letter is allowed</message>
+        </field-validator>
+    </field>
+</validators>

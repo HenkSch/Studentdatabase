@@ -5,15 +5,27 @@
         <field-validator type="requiredstring">
             <message>name must be set.</message>
         </field-validator>
+        <field-validator type="regex">
+            <param name="regex"><![CDATA[([a-zA-Z]{1,})]]></param>
+            <message>Only letters are allowed for a name.</message>
+        </field-validator>
     </field>
     <field name="student.givenName">
         <field-validator type="requiredstring">
             <message>givenName must be set.</message>
         </field-validator>
+        <field-validator type="regex">
+            <param name="regex"><![CDATA[([a-zA-Z]{1,})]]></param>
+            <message>Only letters are allowed for a givenName.</message>
+        </field-validator>
     </field>
     <field name="student.gender">
         <field-validator type="requiredstring">
             <message>gender must be set.</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regex"><![CDATA[([M,F])]]></param>
+            <message>gender must be M of F</message>
         </field-validator>
     </field>
     <field name="student.birthDate">
@@ -22,6 +34,12 @@
         </field-validator>
         <field-validator type="date">
             <message>birthDate must be type Date.</message>
+        </field-validator>
+    </field>
+    <field name="student.birthPlace">
+        <field-validator type="regex">
+            <param name="regex"><![CDATA[([a-zA-Z]{1,})]]></param>
+            <message>Only letters are allowed for a birthPlace.</message>
         </field-validator>
     </field>
     <field name="student.address.id">

@@ -1,0 +1,40 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+    <field name="address.street">
+        <field-validator type="requiredstring">
+            <message>street must be set.</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regex"><![CDATA[([a-zA-Z]{1,})]]></param>
+            <message>Only letters are allowed for a street.</message>
+        </field-validator>
+    </field>
+    <field name="address.houseNumber">
+        <field-validator type="requiredstring">
+            <message>houseNumber must be set.</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regex"><![CDATA[([0-9]{1,}[a-zA-Z]{0,1})]]></param>
+            <message>Only characters 0-9 followed by one optional letter are allowed for a houseNUmber.</message>
+        </field-validator>
+    </field>
+    <field name="address.zipCode">
+        <field-validator type="required">
+            <message>zipCode must be set.</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regex"><![CDATA[([0-9]{1,})]]></param>
+            <message>Only characters 0-9 are allowed for a zipCode.</message>
+        </field-validator>
+    </field>
+    <field name="address.location">
+        <field-validator type="requiredstring">
+            <message>location must be set.</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regex"><![CDATA[([a-zA-Z]{1,})]]></param>
+            <message>Only letters are allowed for a location.</message>
+        </field-validator>
+    </field>
+</validators>

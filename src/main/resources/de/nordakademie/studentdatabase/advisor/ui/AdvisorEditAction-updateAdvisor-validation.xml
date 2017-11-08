@@ -1,33 +1,27 @@
 <!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
         "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
 <validators>
-    <field name="company.name">
+    <field name="advisor.name">
         <field-validator type="requiredstring">
-            <message>Name must be set.</message>
+            <message>name must be set.</message>
         </field-validator>
         <field-validator type="regex">
             <param name="regex"><![CDATA[([a-zA-Z]{1,})]]></param>
             <message>Only letters are allowed for a name.</message>
         </field-validator>
     </field>
-    <field name="company.shortName">
-        <field-validator type="stringlength">
-            <param name="maxLength">5</param>
-            <message>shortName has maximum of ${maxLength} characters</message>
+    <field name="advisor.givenName">
+        <field-validator type="requiredstring">
+            <message>givenName must be set.</message>
         </field-validator>
         <field-validator type="regex">
             <param name="regex"><![CDATA[([a-zA-Z]{1,})]]></param>
-            <message>Only letters are allowed for a shortName.</message>
+            <message>Only letters are allowed for a givenName.</message>
         </field-validator>
     </field>
-    <field name="company.contactPerson.id">
+    <field name="advisor.contactData.id">
         <field-validator type="required">
-            <message>contactPerson must be set.</message>
-        </field-validator>
-    </field>
-    <field name="company.address.id">
-        <field-validator type="required">
-            <message>address must be set.</message>
+            <message>contactData must be set.</message>
         </field-validator>
     </field>
 </validators>
