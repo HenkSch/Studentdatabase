@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -106,6 +107,7 @@ public class StudentInfoService {
     public List<Long> getUnusedIds() {
         final List<Long> usedStudentInfoIds = new ArrayList<>();
         usedStudentInfoIds.addAll(studentRepository.getAllUsedStudentInfoIds());
+        usedStudentInfoIds.removeAll(Collections.singleton(null));
 
         return studentInfoRepository.getUnusedIds(usedStudentInfoIds);
     }

@@ -204,19 +204,19 @@
             <result>studentList</result>
         </action>
         <action name="studentAdd"
-                class="de.nordakademie.studentdatabase.student.ui.StudentEditAction"
-                method="getAddForm">
+                class="de.nordakademie.studentdatabase.student.ui.StudentAddAction"
+                method="getForm">
             <result>studentAddForm</result>
         </action>
         <action name="createStudent"
-                class="de.nordakademie.studentdatabase.student.ui.StudentEditAction"
+                class="de.nordakademie.studentdatabase.student.ui.StudentAddAction"
                 method="createStudent">
             <result type="redirectAction">studentList</result>
             <result name="input">studentAddForm</result>
         </action>
         <action name="studentEdit"
                 class="de.nordakademie.studentdatabase.student.ui.StudentEditAction"
-                method="getEditForm">
+                method="getForm">
             <result>studentEditForm</result>
         </action>
         <action name="updateStudent"
@@ -226,7 +226,7 @@
             <result name="input">studentEditForm</result>
         </action>
         <action name="deleteStudent"
-                class="de.nordakademie.studentdatabase.student.ui.StudentEditAction"
+                class="de.nordakademie.studentdatabase.student.ui.StudentDeleteAction"
                 method="deleteStudent">
             <result type="redirectAction">studentList</result>
         </action>

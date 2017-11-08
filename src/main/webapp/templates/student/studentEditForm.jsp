@@ -18,6 +18,7 @@
               emptyOption="true"/>
     <s:select name="student.address.id" label="*Address" list="addressList"/>
     <s:select name="student.contactData.id" label="*Contact data" list="contactDataList"/>
+    <s:hidden name="id" value="%{id}"/>
     <s:submit value="Send"/>
 </s:form>
 <s:text name="required.caption"/>

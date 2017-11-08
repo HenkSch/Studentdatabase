@@ -15,8 +15,10 @@
     <s:textfield name="student.birthPlace" label="Birthplace"/>
     <s:select name="student.studentInfo.registrationNumber" label="Registration number" list="studentInfoList"
               headerKey="" headerValue="Please select a registration number"/>
-    <s:select name="student.address.id" label="*Address" list="addressList"/>
-    <s:select name="student.contactData.id" label="*Contact data" list="contactDataList"/>
+    <s:select name="student.address.id" label="*Address" list="addressList" headerKey=""
+              headerValue="Please select an address"/>
+    <s:select name="student.contactData.id" label="*Contact data" list="contactDataList" headerKey=""
+              headerValue="Please select a contact data"/>
     <s:submit value="Send"/>
 </s:form>
 <s:text name="required.caption"/>

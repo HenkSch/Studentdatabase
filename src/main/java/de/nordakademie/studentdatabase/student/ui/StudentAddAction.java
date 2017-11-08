@@ -12,9 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by U555987 on 020, 20.10.2017.
+ * Created by U555987 on 008, 08.11.2017.
  */
-public class StudentEditAction extends ActionSupport {
+public class StudentAddAction extends ActionSupport {
 
     private final StudentService studentService;
     private final AddressService addressService;
@@ -27,44 +27,36 @@ public class StudentEditAction extends ActionSupport {
     private List<Long> studentInfoList = new ArrayList();
 
     @Autowired
-    public StudentEditAction(StudentService studentService, AddressService addressService, ContactDataService contactDataService, StudentInfoService studentInfoService) {
+    public StudentAddAction(StudentService studentService, AddressService addressService, ContactDataService contactDataService, StudentInfoService studentInfoService) {
         this.studentService = studentService;
         this.addressService = addressService;
         this.contactDataService = contactDataService;
         this.studentInfoService = studentInfoService;
+
     }
 
     public String getForm() {
-        this.student = studentService.findOne(this.id);
-
-        fillLists(this.student);
+        fillLists();
 
         return SUCCESS;
     }
 
-    private void fillLists(Student student) {
-        this.addressList = addressService.getAllIds();
-
-        this.contactDataList = new ArrayList<>();
-        this.contactDataList.add(student.getContactData().getId());
-        this.contactDataList.addAll(contactDataService.getUnusedIds());
-
-        this.studentInfoList = new ArrayList<>();
-        if (student.getStudentInfo() != null) {
-            this.studentInfoList.add(student.getStudentInfo().getRegistrationNumber());
-        }
-        this.studentInfoList.addAll(studentInfoService.getUnusedIds());
+    private void fillLists() {
+        addressList = addressService.getAllIds();
+        contactDataList = contactDataService.getUnusedIds();
+        studentInfoList = studentInfoService.getUnusedIds();
     }
 
-    public String updateStudent() {
-        studentService.update(this.student);
+
+    public String createStudent() {
+        studentService.create(this.student);
         return SUCCESS;
     }
+
 
     @Override
     public void validate() {
-        Student tempStudent = studentService.findOne(this.id);
-        fillLists(tempStudent);
+        getForm();
     }
 
     public Student getStudent() {
