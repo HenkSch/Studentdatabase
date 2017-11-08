@@ -11,7 +11,7 @@
     <s:textfield name="student.id" label="Id" readonly="true"/>
     <s:textfield name="student.name" label="*Name"/>
     <s:textfield name="student.givenName" label="*Given name"/>
-    <s:textfield name="student.gender" label="*Gender"/>
+    <s:select name="student.gender" label="*Gender" list="genderList"/>
     <s:textfield name="student.birthDate" label="*Birthdate"/>
     <s:textfield name="student.birthPlace" label="Birthplace"/>
     <s:select name="student.studentInfo.registrationNumber" label="Registration number" list="studentInfoList"

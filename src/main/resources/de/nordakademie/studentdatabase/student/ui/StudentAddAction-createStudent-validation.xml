@@ -1,7 +1,21 @@
 <!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
         "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
 <validators>
-
+    <field name="student.name">
+        <field-validator type="requiredstring">
+            <message>name must be set.</message>
+        </field-validator>
+    </field>
+    <field name="student.givenName">
+        <field-validator type="requiredstring">
+            <message>givenName must be set.</message>
+        </field-validator>
+    </field>
+    <field name="student.gender">
+        <field-validator type="requiredstring">
+            <message>gender must be set.</message>
+        </field-validator>
+    </field>
     <field name="student.birthDate">
         <field-validator type="required">
             <message>birthDate must be set.</message>

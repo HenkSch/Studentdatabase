@@ -3,6 +3,7 @@ package de.nordakademie.studentdatabase.student.ui;
 import com.opensymphony.xwork2.ActionSupport;
 import de.nordakademie.studentdatabase.address.service.AddressService;
 import de.nordakademie.studentdatabase.contactData.service.ContactDataService;
+import de.nordakademie.studentdatabase.gender.Gender;
 import de.nordakademie.studentdatabase.student.model.Student;
 import de.nordakademie.studentdatabase.student.service.StudentService;
 import de.nordakademie.studentdatabase.studentInfo.service.StudentInfoService;
@@ -20,11 +21,14 @@ public class StudentAddAction extends ActionSupport {
     private final AddressService addressService;
     private final ContactDataService contactDataService;
     private final StudentInfoService studentInfoService;
+
     private Student student;
     private Long id;
     private List<Long> addressList = new ArrayList();
     private List<Long> contactDataList = new ArrayList();
     private List<Long> studentInfoList = new ArrayList();
+    private List<String> genderList = Gender.getGenderList();
+
 
     @Autowired
     public StudentAddAction(StudentService studentService, AddressService addressService, ContactDataService contactDataService, StudentInfoService studentInfoService) {
@@ -97,5 +101,13 @@ public class StudentAddAction extends ActionSupport {
 
     public void setStudentInfoList(List<Long> studentInfoList) {
         this.studentInfoList = studentInfoList;
+    }
+
+    public List<String> getGenderList() {
+        return genderList;
+    }
+
+    public void setGenderList(List<String> genderList) {
+        this.genderList = genderList;
     }
 }
