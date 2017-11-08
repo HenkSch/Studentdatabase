@@ -17,7 +17,7 @@ public class AdvisorEditAction extends ActionSupport {
     private final ContactDataService contactDataService;
     private Advisor advisor;
     private Long id;
-    private List<Long> contactDataList;
+    private List<Long> contactDataList = new ArrayList<>();
 
     @Autowired
     public AdvisorEditAction(AdvisorService advisorService, ContactDataService contactDataService) {

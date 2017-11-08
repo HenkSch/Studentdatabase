@@ -10,8 +10,10 @@
 <s:form action="createCompany" method="POST">
     <s:textfield name="company.name" label="*Name"/>
     <s:textfield name="company.shortName" label="Short name"/>
-    <s:select list="contactPersonList" name="company.contactPerson.id" label="*Contact person"/>
-    <s:select list="addressList" name="company.address.id" label="*Address"/>
+    <s:select list="contactPersonList" name="company.contactPerson.id" label="*Contact person" headerKey=""
+              headerValue="Please select a contact person"/>
+    <s:select list="addressList" name="company.address.id" label="*Address" headerKey=""
+              headerValue="Please select an address"/>
     <s:submit value="Send"/>
 </s:form>
 <s:text name="required.caption"/>

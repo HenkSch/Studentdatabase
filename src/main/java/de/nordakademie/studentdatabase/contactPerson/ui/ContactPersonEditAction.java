@@ -18,7 +18,7 @@ public class ContactPersonEditAction extends ActionSupport {
     private final ContactDataService contactDataService;
     private ContactPerson contactPerson;
     private Long id;
-    private List<Long> contactDataList;
+    private List<Long> contactDataList = new ArrayList<>();
 
     @Autowired
     public ContactPersonEditAction(ContactPersonService contactPersonService, ContactDataService contactDataService) {

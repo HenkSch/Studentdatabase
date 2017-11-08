@@ -25,6 +25,7 @@
         <th>ZIP code</th>
         <th>Location</th>
         <th>Addition</th>
+        <th>Options</th>
     </tr>
     <s:iterator value="companyList">
         <tr>

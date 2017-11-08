@@ -10,7 +10,8 @@
 <s:form action="createAdvisor" method="POST">
     <s:textfield name="advisor.name" label="*Name"/>
     <s:textfield name="advisor.givenName" label="*Given name"/>
-    <s:select name="advisor.contactData.id" label="*Contact data" list="contactDataList"/>
+    <s:select name="advisor.contactData.id" label="*Contact data" list="contactDataList" headerKey=""
+              headerValue="Please select a contact data"/>
     <s:submit value="Send"/>
 </s:form>
 <s:text name="required.caption"/>

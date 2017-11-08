@@ -19,8 +19,8 @@ public class CompanyEditAction extends ActionSupport {
     private final AddressService addressService;
     private Company company;
     private Long id;
-    private List<Long> contactPersonList;
-    private List<Long> addressList;
+    private List<Long> contactPersonList = new ArrayList<>();
+    private List<Long> addressList = new ArrayList<>();
 
     @Autowired
     public CompanyEditAction(CompanyService companyService, ContactPersonService contactPersonService, AddressService addressService) {

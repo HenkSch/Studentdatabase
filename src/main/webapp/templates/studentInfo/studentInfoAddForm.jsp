@@ -9,7 +9,8 @@
 <h1><s:text name="studentInfo.caption"/></h1>
 <s:form action="createStudentInfo" method="POST">
     <s:textfield name="studentInfo.userNumber" label="*User number"/>
-    <s:select list="centuryList" name="studentInfo.century.id" label="*Century"/>
+    <s:select list="centuryList" name="studentInfo.century.id" label="*Century" headerKey=""
+              headerValue="Please select a century"/>
     <s:select list="advisorList" name="studentInfo.advisor.id" label="Advisor" headerKey=""
               headerValue="Please select an advisor"/>
     <s:select list="companyList" name="studentInfo.company.id" label="Company" headerKey=""

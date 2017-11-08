@@ -8,6 +8,7 @@ import de.nordakademie.studentdatabase.studentInfo.model.StudentInfo;
 import de.nordakademie.studentdatabase.studentInfo.service.StudentInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,9 +22,9 @@ public class StudentInfoEditAction extends ActionSupport {
     private final AdvisorService advisorService;
     private StudentInfo studentInfo;
     private Long id;
-    private List<Long> centuryList;
-    private List<Long> companyList;
-    private List<Long> advisorList;
+    private List<Long> centuryList = new ArrayList<>();
+    private List<Long> companyList = new ArrayList<>();
+    private List<Long> advisorList = new ArrayList<>();
 
     @Autowired
     public StudentInfoEditAction(StudentInfoService studentInfoService, CenturyService centuryService, CompanyService companyService, AdvisorService advisorService) {
