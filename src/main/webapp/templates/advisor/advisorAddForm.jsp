@@ -12,6 +12,9 @@
     <s:textfield name="advisor.givenName" label="*Given name"/>
     <s:select name="advisor.contactData.id" label="*Contact data" list="contactDataList" headerKey=""
               headerValue="Please select a contact data"/>
-    <s:submit value="Send"/>
+    <s:submit value="Save"/>
+</s:form>
+<s:form action="advisorList">
+    <s:submit value="Cancel"/>
 </s:form>
 <s:text name="required.caption"/>

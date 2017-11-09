@@ -7,6 +7,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <h1><s:text name="student.caption"/></h1>
+
 <s:form action="createStudent" method="POST">
     <s:textfield name="student.name" label="*Name"/>
     <s:textfield name="student.givenName" label="*Given name"/>
@@ -20,6 +21,9 @@
               headerValue="Please select an address"/>
     <s:select name="student.contactData.id" label="*Contact data" list="contactDataList" headerKey=""
               headerValue="Please select a contact data"/>
-    <s:submit value="Send"/>
+    <s:submit value="Save"/>
+</s:form>
+<s:form action="studentList">
+    <s:submit value="Cancel"/>
 </s:form>
 <s:text name="required.caption"/>

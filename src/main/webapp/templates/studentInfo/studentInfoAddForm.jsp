@@ -15,6 +15,9 @@
               headerValue="Please select an advisor"/>
     <s:select list="companyList" name="studentInfo.company.id" label="Company" headerKey=""
               headerValue="Please select a company"/>
-    <s:submit value="Send"/>
+    <s:submit value="Save"/>
+</s:form>
+<s:form action="studentInfoList">
+    <s:submit value="Cancel"/>
 </s:form>
 <s:text name="required.caption"/>

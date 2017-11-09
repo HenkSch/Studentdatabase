@@ -11,6 +11,9 @@
     <s:textfield name="contactData.email" label="*Email"/>
     <s:textfield name="contactData.phoneNumber" label="*Phone number"/>
     <s:textfield name="contactData.faxNumber" label="Fax number"/>
-    <s:submit value="Send"/>
+    <s:submit value="Save"/>
+</s:form>
+<s:form action="contactDataList">
+    <s:submit value="Cancel"/>
 </s:form>
 <s:text name="required.caption"/>

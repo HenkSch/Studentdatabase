@@ -2,6 +2,7 @@ package de.nordakademie.studentdatabase.student.ui;
 
 
 import com.opensymphony.xwork2.ActionSupport;
+import de.nordakademie.studentdatabase.student.model.Student;
 import de.nordakademie.studentdatabase.student.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -27,6 +28,11 @@ public class StudentDeleteAction extends ActionSupport {
 
     @Override
     public void validate() {
+        final Student student = studentService.findOne(this.id);
+        System.out.println(student.getStudentInfo());
+        if (student.getStudentInfo() != null) {
+            addActionError("Cannot delete student with registrationNumber.");
+        }
     }
 
     public Long getId() {

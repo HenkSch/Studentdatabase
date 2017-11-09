@@ -14,6 +14,9 @@
               headerValue="Please select a contact person"/>
     <s:select list="addressList" name="company.address.id" label="*Address" headerKey=""
               headerValue="Please select an address"/>
-    <s:submit value="Send"/>
+    <s:submit value="Save"/>
+</s:form>
+<s:form action="companyList">
+    <s:submit value="Cancel"/>
 </s:form>
 <s:text name="required.caption"/>

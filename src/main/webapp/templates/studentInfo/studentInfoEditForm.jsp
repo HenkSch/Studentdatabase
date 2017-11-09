@@ -13,6 +13,9 @@
     <s:select list="centuryList" name="studentInfo.century.id" label="*Century"/>
     <s:select list="advisorList" name="studentInfo.advisor.id" label="Advisor" emptyOption="true"/>
     <s:select list="companyList" name="studentInfo.company.id" label="Company" emptyOption="true"/>
-    <s:submit value="Send"/>
+    <s:submit value="Save"/>
+</s:form>
+<s:form action="studentInfoList">
+    <s:submit value="Cancel"/>
 </s:form>
 <s:text name="required.caption"/>

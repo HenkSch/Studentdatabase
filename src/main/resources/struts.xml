@@ -229,6 +229,7 @@
                 class="de.nordakademie.studentdatabase.student.ui.StudentDeleteAction"
                 method="deleteStudent">
             <result type="redirectAction">studentList</result>
+            <result name="input">studentList</result>
         </action>
 
         <!-- contactPerson -->

@@ -14,6 +14,9 @@
     <s:select list="contactPersonList" name="company.contactPerson.id" label="*Contact person"/>
     <s:select list="addressList" name="company.address.id" label="*Address"/>
     <s:hidden name="id" value="%{id}"/>
-    <s:submit value="Send"/>
+    <s:submit value="Save"/>
+</s:form>
+<s:form action="companyList">
+    <s:submit value="Cancel"/>
 </s:form>
 <s:text name="required.caption"/>

@@ -1,6 +1,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <h1><s:text name="student.caption"/></h1>
+
+<s:if test="hasActionErrors()">
+    <div class="errors">
+        <s:actionerror/>
+    </div>
+    <s:form action="studentList">
+        <s:submit value="Ok. Back to List"/>
+    </s:form>
+</s:if>
+<s:else>
 <s:form action="studentAdd">
     <s:submit value="Add"/>
 </s:form>
@@ -58,3 +68,4 @@
         </tr>
     </s:iterator>
 </table>
+</s:else>
