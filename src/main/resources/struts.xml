@@ -12,19 +12,19 @@
             <result>contactDataList</result>
         </action>
         <action name="contactDataAdd"
-                class="de.nordakademie.studentdatabase.contactData.ui.ContactDataEditAction"
-                method="getAddForm">
+                class="de.nordakademie.studentdatabase.contactData.ui.ContactDataAddAction"
+                method="getForm">
             <result>contactDataAddForm</result>
         </action>
         <action name="createContactData"
-                class="de.nordakademie.studentdatabase.contactData.ui.ContactDataEditAction"
+                class="de.nordakademie.studentdatabase.contactData.ui.ContactDataAddAction"
                 method="createContactData">
             <result type="redirectAction">contactDataList</result>
             <result name="input">contactDataAddForm</result>
         </action>
         <action name="contactDataEdit"
                 class="de.nordakademie.studentdatabase.contactData.ui.ContactDataEditAction"
-                method="getEditForm">
+                method="getForm">
             <result>contactDataEditForm</result>
         </action>
         <action name="updateContactData"
@@ -34,7 +34,7 @@
             <result name="input">contactDataEditForm</result>
         </action>
         <action name="deleteContactData"
-                class="de.nordakademie.studentdatabase.contactData.ui.ContactDataEditAction"
+                class="de.nordakademie.studentdatabase.contactData.ui.ContactDataDeleteAction"
                 method="deleteContactData">
             <result type="redirectAction">contactDataList</result>
         </action>
@@ -44,19 +44,19 @@
             <result>centuryList</result>
         </action>
         <action name="centuryAdd"
-                class="de.nordakademie.studentdatabase.century.ui.CenturyEditAction"
-                method="getAddForm">
+                class="de.nordakademie.studentdatabase.century.ui.CenturyAddAction"
+                method="getForm">
             <result>centuryAddForm</result>
         </action>
         <action name="createCentury"
-                class="de.nordakademie.studentdatabase.century.ui.CenturyEditAction"
+                class="de.nordakademie.studentdatabase.century.ui.CenturyAddAction"
                 method="createCentury">
             <result type="redirectAction">centuryList</result>
             <result name="input">centuryAddForm</result>
         </action>
         <action name="centuryEdit"
                 class="de.nordakademie.studentdatabase.century.ui.CenturyEditAction"
-                method="getEditForm">
+                method="getForm">
             <result>centuryEditForm</result>
         </action>
         <action name="updateCentury"
@@ -66,7 +66,7 @@
             <result name="input">centuryEditForm</result>
         </action>
         <action name="deleteCentury"
-                class="de.nordakademie.studentdatabase.century.ui.CenturyEditAction"
+                class="de.nordakademie.studentdatabase.century.ui.CenturyDeleteAction"
                 method="deleteCentury">
             <result type="redirectAction">centuryList</result>
         </action>
@@ -76,19 +76,19 @@
             <result>addressList</result>
         </action>
         <action name="addressAdd"
-                class="de.nordakademie.studentdatabase.address.ui.AddressEditAction"
-                method="getAddForm">
+                class="de.nordakademie.studentdatabase.address.ui.AddressAddAction"
+                method="getForm">
             <result>addressAddForm</result>
         </action>
         <action name="createAddress"
-                class="de.nordakademie.studentdatabase.address.ui.AddressEditAction"
+                class="de.nordakademie.studentdatabase.address.ui.AddressAddAction"
                 method="createAddress">
             <result type="redirectAction">addressList</result>
             <result name="input">addressAddForm</result>
         </action>
         <action name="addressEdit"
                 class="de.nordakademie.studentdatabase.address.ui.AddressEditAction"
-                method="getEditForm">
+                method="getForm">
             <result>addressEditForm</result>
         </action>
         <action name="updateAddress"
@@ -98,7 +98,7 @@
             <result name="input">addressEditForm</result>
         </action>
         <action name="deleteAddress"
-                class="de.nordakademie.studentdatabase.address.ui.AddressEditAction"
+                class="de.nordakademie.studentdatabase.address.ui.AddressDeleteAction"
                 method="deleteAddress">
             <result type="redirectAction">addressList</result>
         </action>
@@ -108,19 +108,19 @@
             <result>advisorList</result>
         </action>
         <action name="advisorAdd"
-                class="de.nordakademie.studentdatabase.advisor.ui.AdvisorEditAction"
-                method="getAddForm">
+                class="de.nordakademie.studentdatabase.advisor.ui.AdvisorAddAction"
+                method="getForm">
             <result>advisorAddForm</result>
         </action>
         <action name="createAdvisor"
-                class="de.nordakademie.studentdatabase.advisor.ui.AdvisorEditAction"
+                class="de.nordakademie.studentdatabase.advisor.ui.AdvisorAddAction"
                 method="createAdvisor">
             <result type="redirectAction">advisorList</result>
             <result name="input">advisorAddForm</result>
         </action>
         <action name="advisorEdit"
                 class="de.nordakademie.studentdatabase.advisor.ui.AdvisorEditAction"
-                method="getEditForm">
+                method="getForm">
             <result>advisorEditForm</result>
         </action>
         <action name="updateAdvisor"
@@ -130,7 +130,7 @@
             <result name="input">advisorEditForm</result>
         </action>
         <action name="deleteAdvisor"
-                class="de.nordakademie.studentdatabase.advisor.ui.AdvisorEditAction"
+                class="de.nordakademie.studentdatabase.advisor.ui.AdvisorDeleteAction"
                 method="deleteAdvisor">
             <result type="redirectAction">advisorList</result>
         </action>
@@ -140,19 +140,19 @@
             <result>companyList</result>
         </action>
         <action name="companyAdd"
-                class="de.nordakademie.studentdatabase.company.ui.CompanyEditAction"
-                method="getAddForm">
+                class="de.nordakademie.studentdatabase.company.ui.CompanyAddAction"
+                method="getForm">
             <result>companyAddForm</result>
         </action>
         <action name="createCompany"
-                class="de.nordakademie.studentdatabase.company.ui.CompanyEditAction"
+                class="de.nordakademie.studentdatabase.company.ui.CompanyAddAction"
                 method="createCompany">
             <result type="redirectAction">companyList</result>
             <result name="input">companyAddForm</result>
         </action>
         <action name="companyEdit"
                 class="de.nordakademie.studentdatabase.company.ui.CompanyEditAction"
-                method="getEditForm">
+                method="getForm">
             <result>companyEditForm</result>
         </action>
         <action name="updateCompany"
@@ -162,7 +162,7 @@
             <result name="input">companyEditForm</result>
         </action>
         <action name="deleteCompany"
-                class="de.nordakademie.studentdatabase.company.ui.CompanyEditAction"
+                class="de.nordakademie.studentdatabase.company.ui.CompanyDeleteAction"
                 method="deleteCompany">
             <result type="redirectAction">companyList</result>
         </action>
@@ -172,19 +172,19 @@
             <result>studentInfoList</result>
         </action>
         <action name="studentInfoAdd"
-                class="de.nordakademie.studentdatabase.studentInfo.ui.StudentInfoEditAction"
-                method="getAddForm">
+                class="de.nordakademie.studentdatabase.studentInfo.ui.StudentInfoAddAction"
+                method="getForm">
             <result>studentInfoAddForm</result>
         </action>
         <action name="createStudentInfo"
-                class="de.nordakademie.studentdatabase.studentInfo.ui.StudentInfoEditAction"
+                class="de.nordakademie.studentdatabase.studentInfo.ui.StudentInfoAddAction"
                 method="createStudentInfo">
             <result type="redirectAction">studentInfoList</result>
             <result name="input">studentInfoAddForm</result>
         </action>
         <action name="studentInfoEdit"
                 class="de.nordakademie.studentdatabase.studentInfo.ui.StudentInfoEditAction"
-                method="getEditForm">
+                method="getForm">
             <result>studentInfoEditForm</result>
         </action>
         <action name="updateStudentInfo"
@@ -194,7 +194,7 @@
             <result name="input">studentInfoEditForm</result>
         </action>
         <action name="deleteStudentInfo"
-                class="de.nordakademie.studentdatabase.studentInfo.ui.StudentInfoEditAction"
+                class="de.nordakademie.studentdatabase.studentInfo.ui.StudentInfoDeleteAction"
                 method="deleteStudentInfo">
             <result type="redirectAction">studentInfoList</result>
         </action>
@@ -237,19 +237,19 @@
             <result>contactPersonList</result>
         </action>
         <action name="contactPersonAdd"
-                class="de.nordakademie.studentdatabase.contactPerson.ui.ContactPersonEditAction"
-                method="getAddForm">
+                class="de.nordakademie.studentdatabase.contactPerson.ui.ContactPersonAddAction"
+                method="getForm">
             <result>contactPersonAddForm</result>
         </action>
         <action name="createContactPerson"
-                class="de.nordakademie.studentdatabase.contactPerson.ui.ContactPersonEditAction"
+                class="de.nordakademie.studentdatabase.contactPerson.ui.ContactPersonAddAction"
                 method="createContactPerson">
             <result type="redirectAction">contactPersonList</result>
             <result name="input">contactPersonAddForm</result>
         </action>
         <action name="contactPersonEdit"
                 class="de.nordakademie.studentdatabase.contactPerson.ui.ContactPersonEditAction"
-                method="getEditForm">
+                method="getForm">
             <result>contactPersonEditForm</result>
         </action>
         <action name="updateContactPerson"
@@ -259,7 +259,7 @@
             <result name="input">contactPersonEditForm</result>
         </action>
         <action name="deleteContactPerson"
-                class="de.nordakademie.studentdatabase.contactPerson.ui.ContactPersonEditAction"
+                class="de.nordakademie.studentdatabase.contactPerson.ui.ContactPersonDeleteAction"
                 method="deleteContactPerson">
             <result type="redirectAction">contactPersonList</result>
         </action>

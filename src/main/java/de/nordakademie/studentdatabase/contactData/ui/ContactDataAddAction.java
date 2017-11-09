@@ -8,26 +8,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * Created by U555987 on 020, 20.10.2017.
  */
-public class ContactDataEditAction extends ActionSupport {
+public class ContactDataAddAction extends ActionSupport {
 
     private final ContactDataService contactDataService;
 
     private ContactData contactData;
-    private Long id;
 
     @Autowired
-    public ContactDataEditAction(ContactDataService contactDataService) {
+    public ContactDataAddAction(ContactDataService contactDataService) {
         this.contactDataService = contactDataService;
     }
 
-
     public String getForm() {
-        contactData = contactDataService.findOne(id);
         return SUCCESS;
     }
 
-    public String updateContactData() {
-        contactDataService.update(this.contactData);
+
+    public String createContactData() {
+        contactDataService.create(this.contactData);
         return SUCCESS;
     }
 
@@ -41,13 +39,5 @@ public class ContactDataEditAction extends ActionSupport {
 
     public void setContactData(ContactData contactData) {
         this.contactData = contactData;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 }

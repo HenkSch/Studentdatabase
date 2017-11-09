@@ -12,6 +12,7 @@
     <s:textfield name="contactPerson.name" label="*Name"/>
     <s:textfield name="contactPerson.givenName" label="*Given name"/>
     <s:select name="contactPerson.contactData.id" label="*Contact data" list="contactDataList"/>
+    <s:hidden name="id" value="%{id}"/>
     <s:submit value="Send"/>
 </s:form>
 <s:text name="required.caption"/>

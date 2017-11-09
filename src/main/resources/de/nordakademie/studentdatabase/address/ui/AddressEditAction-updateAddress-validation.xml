@@ -6,7 +6,7 @@
             <message>street must be set.</message>
         </field-validator>
         <field-validator type="regex">
-            <param name="regex"><![CDATA[([a-zA-Z]{1,})]]></param>
+            <param name="regex"><![CDATA[([a-zA-Z äÄöÖüÜß]{1,})]]></param>
             <message>Only letters are allowed for a street.</message>
         </field-validator>
     </field>
@@ -33,7 +33,7 @@
             <message>location must be set.</message>
         </field-validator>
         <field-validator type="regex">
-            <param name="regex"><![CDATA[([a-zA-Z]{1,})]]></param>
+            <param name="regex"><![CDATA[([a-zA-Z äÄöÖüÜß]{1,})]]></param>
             <message>Only letters are allowed for a location.</message>
         </field-validator>
     </field>

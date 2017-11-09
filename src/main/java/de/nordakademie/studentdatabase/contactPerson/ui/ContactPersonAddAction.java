@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by U555987 on 006, 06.11.2017.
  */
-public class ContactPersonEditAction extends ActionSupport {
+public class ContactPersonAddAction extends ActionSupport {
 
     private final ContactPersonService contactPersonService;
     private final ContactDataService contactDataService;
@@ -21,35 +21,29 @@ public class ContactPersonEditAction extends ActionSupport {
     private List<Long> contactDataList = new ArrayList<>();
 
     @Autowired
-    public ContactPersonEditAction(ContactPersonService contactPersonService, ContactDataService contactDataService) {
+    public ContactPersonAddAction(ContactPersonService contactPersonService, ContactDataService contactDataService) {
         this.contactPersonService = contactPersonService;
         this.contactDataService = contactDataService;
     }
 
-
     public String getForm() {
-        this.contactPerson = this.contactPersonService.findOne(this.id);
-
-        fillLists(this.contactPerson);
-
+        fillLists();
         return SUCCESS;
     }
 
-    private void fillLists(ContactPerson contactPerson) {
-        this.contactDataList = new ArrayList<>();
-        this.contactDataList.add(contactPerson.getContactData().getId());
-        this.contactDataList.addAll(contactDataService.getUnusedIds());
+    private void fillLists() {
+        this.contactDataList = contactDataService.getUnusedIds();
     }
 
-    public String updateContactPerson() {
-        this.contactPersonService.update(this.contactPerson);
+
+    public String createContactPerson() {
+        this.contactPersonService.create(this.contactPerson);
         return SUCCESS;
     }
 
     @Override
     public void validate() {
-        ContactPerson tempContactPerson = this.contactPersonService.findOne(this.id);
-        fillLists(tempContactPerson);
+        fillLists();
     }
 
     public ContactPerson getContactPerson() {

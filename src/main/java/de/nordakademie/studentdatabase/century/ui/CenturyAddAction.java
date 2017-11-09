@@ -8,25 +8,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * Created by U555987 on 023, 23.10.2017.
  */
-public class CenturyEditAction extends ActionSupport {
+public class CenturyAddAction extends ActionSupport {
 
     private final CenturyService centuryService;
     private Century century;
-    private Long id;
 
     @Autowired
-    public CenturyEditAction(CenturyService centuryService) {
+    public CenturyAddAction(CenturyService centuryService) {
         this.centuryService = centuryService;
     }
 
-
     public String getForm() {
-        century = centuryService.findOne(this.id);
         return SUCCESS;
     }
 
-    public String updateCentury() {
-        centuryService.update(this.century);
+
+    public String createCentury() {
+        centuryService.create(this.century);
         return SUCCESS;
     }
 
@@ -43,11 +41,4 @@ public class CenturyEditAction extends ActionSupport {
         this.century = century;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 }

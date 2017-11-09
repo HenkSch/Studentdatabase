@@ -21,7 +21,6 @@ public class StudentInfoAddAction extends ActionSupport {
     private final CompanyService companyService;
     private final AdvisorService advisorService;
     private StudentInfo studentInfo;
-    private Long id;
     private List<Long> centuryList = new ArrayList<>();
     private List<Long> companyList = new ArrayList<>();
     private List<Long> advisorList = new ArrayList<>();
@@ -64,14 +63,6 @@ public class StudentInfoAddAction extends ActionSupport {
 
     public void setStudentInfo(StudentInfo studentInfo) {
         this.studentInfo = studentInfo;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public List<Long> getCenturyList() {

@@ -34,7 +34,7 @@ public class StudentInfoEditAction extends ActionSupport {
         this.advisorService = advisorService;
     }
 
-    public String getEditForm() {
+    public String getForm() {
         studentInfo = studentInfoService.findOne(this.id);
         fillLists();
         return SUCCESS;

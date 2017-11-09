@@ -23,7 +23,6 @@ public class StudentAddAction extends ActionSupport {
     private final StudentInfoService studentInfoService;
 
     private Student student;
-    private Long id;
     private List<Long> addressList = new ArrayList();
     private List<Long> contactDataList = new ArrayList();
     private List<Long> studentInfoList = new ArrayList();
@@ -69,14 +68,6 @@ public class StudentAddAction extends ActionSupport {
 
     public void setStudent(Student student) {
         this.student = student;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public List<Long> getAddressList() {

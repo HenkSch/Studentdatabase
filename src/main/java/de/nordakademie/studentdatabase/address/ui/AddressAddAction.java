@@ -8,24 +8,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * Created by U555987 on 024, 24.10.2017.
  */
-public class AddressEditAction extends ActionSupport {
+public class AddressAddAction extends ActionSupport {
 
     private final AddressService addressService;
     private Address address;
-    private Long id;
 
     @Autowired
-    public AddressEditAction(AddressService addressService) {
+    public AddressAddAction(AddressService addressService) {
         this.addressService = addressService;
     }
 
     public String getForm() {
-        address = addressService.findOne(this.id);
         return SUCCESS;
     }
 
-    public String updateAddress() {
-        addressService.update(this.address);
+
+    public String createAddress() {
+        addressService.create(this.address);
         return SUCCESS;
     }
 
@@ -42,11 +41,4 @@ public class AddressEditAction extends ActionSupport {
         this.address = address;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 }

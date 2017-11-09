@@ -13,48 +13,40 @@ import java.util.List;
 /**
  * Created by U555987 on 024, 24.10.2017.
  */
-public class CompanyEditAction extends ActionSupport {
+public class CompanyAddAction extends ActionSupport {
     private final CompanyService companyService;
     private final ContactPersonService contactPersonService;
     private final AddressService addressService;
     private Company company;
-    private Long id;
     private List<Long> contactPersonList = new ArrayList<>();
     private List<Long> addressList = new ArrayList<>();
 
     @Autowired
-    public CompanyEditAction(CompanyService companyService, ContactPersonService contactPersonService, AddressService addressService) {
+    public CompanyAddAction(CompanyService companyService, ContactPersonService contactPersonService, AddressService addressService) {
         this.companyService = companyService;
         this.contactPersonService = contactPersonService;
         this.addressService = addressService;
     }
 
-
     public String getForm() {
-        this.company = companyService.findOne(this.id);
-
-        fillLists(this.company);
+        fillLists();
 
         return SUCCESS;
     }
 
-    private void fillLists(Company company) {
-        contactPersonList = new ArrayList<>();
-        contactPersonList.add(company.getContactPerson().getId());
-        contactPersonList.addAll(contactPersonService.getUnusedIds());
-
+    private void fillLists() {
+        contactPersonList = contactPersonService.getUnusedIds();
         addressList = addressService.getAllIds();
     }
 
-    public String updateCompany() {
-        companyService.update(this.company);
+    public String createCompany() {
+        companyService.create(this.company);
         return SUCCESS;
     }
 
     @Override
     public void validate() {
-        Company tempCompany = companyService.findOne(this.id);
-        fillLists(tempCompany);
+        fillLists();
     }
 
     public Company getCompany() {
@@ -63,14 +55,6 @@ public class CompanyEditAction extends ActionSupport {
 
     public void setCompany(Company company) {
         this.company = company;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public List<Long> getContactPersonList() {
