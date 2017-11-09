@@ -11,61 +11,74 @@
     </s:form>
 </s:if>
 <s:else>
-<s:form action="studentAdd">
-    <s:submit value="Add"/>
-</s:form>
-<table border="1">
-    <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Given name</th>
-        <th>Gender</th>
-        <th>Birthdate</th>
-        <th>Birthplace</th>
-        <th>Registration number</th>
-        <th>Century</th>
-        <th>Address</th>
-        <th>Contact data</th>
-        <th>Options</th>
-    </tr>
-    <s:iterator value="studentList">
+    <table>
         <tr>
-            <td><s:property value="id"/></td>
-            <td><s:property value="name"/></td>
-            <td><s:property value="givenName"/></td>
-            <td><s:property value="gender"/></td>
-            <td><s:date name="birthDate" format="dd.MM.yyyy"/></td>
-            <td><s:property value="birthPlace"/></td>
-            <td><s:property value="studentInfo.registrationNumber"/></td>
-            <td>
-                <s:property value="studentInfo.century.studyProgram"/><s:property
-                    value="studentInfo.century.year"/><s:property value="studentInfo.century.subGroup"/>
+            <td><s:form action="studentAdd">
+                <s:submit value="Add"/>
+            </s:form>
             </td>
-            <td>
-                <s:property value="address.zipCode"/>
-                <s:property value="address.location"/>
+            <s:form action="studentList">
+                <td><s:textfield name="searchValue" label="Search"/><s:submit value="Search"/></td>
+            </s:form>
+            <td><s:form action="studentList">
+                <s:submit value="Cancel"/>
+            </s:form>
             </td>
-            <td><s:property value="contactData.email"/></td>
-            <td><!--
+        </tr>
+    </table>
+
+    <table border="1">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Given name</th>
+            <th>Gender</th>
+            <th>Birthdate</th>
+            <th>Birthplace</th>
+            <th>Registration number</th>
+            <th>Century</th>
+            <th>Address</th>
+            <th>Contact data</th>
+            <th>Options</th>
+        </tr>
+        <s:iterator value="studentList">
+            <tr>
+                <td><s:property value="id"/></td>
+                <td><s:property value="name"/></td>
+                <td><s:property value="givenName"/></td>
+                <td><s:property value="gender"/></td>
+                <td><s:date name="birthDate" format="dd.MM.yyyy"/></td>
+                <td><s:property value="birthPlace"/></td>
+                <td><s:property value="studentInfo.registrationNumber"/></td>
+                <td>
+                    <s:property value="studentInfo.century.studyProgram"/><s:property
+                        value="studentInfo.century.year"/><s:property value="studentInfo.century.subGroup"/>
+                </td>
+                <td>
+                    <s:property value="address.zipCode"/>
+                    <s:property value="address.location"/>
+                </td>
+                <td><s:property value="contactData.email"/></td>
+                <td><!--
                 Author: Meyyappan Muthuraman
                 Source: https://dzone.com/tutorials/java/struts-2/struts-2-example/struts-2-crud-example-1.html
                 -->
-                <s:url var="editUrl" action="studentEdit">
-                    <s:param name="id" value="%{id}"></s:param>
-                </s:url>
-                <s:url var="deleteUrl" action="deleteStudent">
-                    <s:param name="id" value="%{id}"></s:param>
-                </s:url>
-                <!--
-                Author: Roman C
-                Source: https://stackoverflow.com/questions/17477252/passing-values-in-button-instead-of-href-link
-                -->
-                <input type="button" value="Edit"
-                       onclick="window.location='<s:property value="%{#editUrl}"/>';">
-                <input type="button" value="Delete"
-                       onclick="window.location='<s:property value="%{#deleteUrl}"/>';">
-            </td>
-        </tr>
-    </s:iterator>
-</table>
+                    <s:url var="editUrl" action="studentEdit">
+                        <s:param name="id" value="%{id}"></s:param>
+                    </s:url>
+                    <s:url var="deleteUrl" action="deleteStudent">
+                        <s:param name="id" value="%{id}"></s:param>
+                    </s:url>
+                    <!--
+                    Author: Roman C
+                    Source: https://stackoverflow.com/questions/17477252/passing-values-in-button-instead-of-href-link
+                    -->
+                    <input type="button" value="Edit"
+                           onclick="window.location='<s:property value="%{#editUrl}"/>';">
+                    <input type="button" value="Delete"
+                           onclick="window.location='<s:property value="%{#deleteUrl}"/>';">
+                </td>
+            </tr>
+        </s:iterator>
+    </table>
 </s:else>
