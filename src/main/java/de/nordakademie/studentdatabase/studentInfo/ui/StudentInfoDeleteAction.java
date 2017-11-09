@@ -24,7 +24,9 @@ public class StudentInfoDeleteAction extends ActionSupport {
 
     @Override
     public void validate() {
-
+        if (studentInfoService.isUsed(this.id)) {
+            addActionError("Cannot delete used studentInfo.");
+        }
     }
 
     public Long getId() {

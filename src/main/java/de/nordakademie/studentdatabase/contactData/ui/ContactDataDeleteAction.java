@@ -26,6 +26,9 @@ public class ContactDataDeleteAction extends ActionSupport {
 
     @Override
     public void validate() {
+        if (contactDataService.isUsed(this.id)) {
+            addActionError("Cannot delete used contactData.");
+        }
     }
 
     public Long getId() {

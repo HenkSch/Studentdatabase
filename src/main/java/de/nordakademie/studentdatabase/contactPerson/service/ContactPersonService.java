@@ -61,19 +61,25 @@ public class ContactPersonService {
         }
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
+    @Transactional
     public List<Long> getUnusedIds() {
 
         final List<Long> usedContactPersonIds = new ArrayList<>();
         usedContactPersonIds.addAll(companyRepository.getAllUsedContactPersonIds());
 
         return contactPersonRepository.getUnusedIds(usedContactPersonIds);
+    }
+
+    @Transactional
+    public boolean isUsed(Long contactPersonId) {
+        return companyRepository.isContactPersonUsed(contactPersonId);
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

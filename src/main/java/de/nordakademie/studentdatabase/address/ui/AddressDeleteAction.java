@@ -25,7 +25,9 @@ public class AddressDeleteAction extends ActionSupport {
 
     @Override
     public void validate() {
-
+        if (addressService.isUsed(this.id)) {
+            addActionError("Cannot delete used address.");
+        }
     }
 
     public Long getId() {

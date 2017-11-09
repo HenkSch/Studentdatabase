@@ -42,4 +42,19 @@ public class StudentRepository {
     public List<Long> getAllUsedStudentInfoIds() {
         return entityManager.createQuery("select s.studentInfo.registrationNumber From Student s", Long.class).getResultList();
     }
+
+    public Boolean isAddressUsed(Long addressId) {
+        final List<Student> resultList = entityManager.createQuery("select s FROM Student s where s.address.id = " + addressId, Student.class).getResultList();
+        return (resultList.size() > 0);
+    }
+
+    public Boolean isContactDataUsed(Long contactDataId) {
+        final List<Student> resultList = entityManager.createQuery("select s FROM Student s where s.contactData.id = " + contactDataId, Student.class).getResultList();
+        return (resultList.size() > 0);
+    }
+
+    public Boolean isStudentInfoUsed(Long studentInfoId) {
+        final List<Student> resultList = entityManager.createQuery("select s FROM Student s where s.studentInfo.registrationNumber = " + studentInfoId, Student.class).getResultList();
+        return (resultList.size() > 0);
+    }
 }

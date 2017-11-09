@@ -2,6 +2,7 @@ package de.nordakademie.studentdatabase.century.service;
 
 import de.nordakademie.studentdatabase.century.model.Century;
 import de.nordakademie.studentdatabase.century.model.CenturyRepository;
+import de.nordakademie.studentdatabase.studentInfo.model.StudentInfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,11 +15,13 @@ import java.util.List;
 @Service
 public class CenturyService {
     private final CenturyRepository centuryRepository;
+    private final StudentInfoRepository studentInfoRepository;
     private Long id;
 
     @Autowired
-    public CenturyService(CenturyRepository centuryRepository) {
+    public CenturyService(CenturyRepository centuryRepository, StudentInfoRepository studentInfoRepository) {
         this.centuryRepository = centuryRepository;
+        this.studentInfoRepository = studentInfoRepository;
     }
 
     @Transactional
@@ -52,6 +55,11 @@ public class CenturyService {
         if (century != null) {
             centuryRepository.delete(century);
         }
+    }
+
+    @Transactional
+    public boolean isUsed(Long centuryId) {
+        return studentInfoRepository.isCenturyUsed(centuryId);
     }
 
     public Long getId() {

@@ -37,6 +37,7 @@
                 class="de.nordakademie.studentdatabase.contactData.ui.ContactDataDeleteAction"
                 method="deleteContactData">
             <result type="redirectAction">contactDataList</result>
+            <result name="input">contactDataList</result>
         </action>
 
         <!-- century -->
@@ -69,6 +70,7 @@
                 class="de.nordakademie.studentdatabase.century.ui.CenturyDeleteAction"
                 method="deleteCentury">
             <result type="redirectAction">centuryList</result>
+            <result name="input">centuryList</result>
         </action>
 
         <!-- address -->
@@ -101,6 +103,7 @@
                 class="de.nordakademie.studentdatabase.address.ui.AddressDeleteAction"
                 method="deleteAddress">
             <result type="redirectAction">addressList</result>
+            <result name="input">addressList</result>
         </action>
 
         <!-- advisor -->
@@ -133,6 +136,7 @@
                 class="de.nordakademie.studentdatabase.advisor.ui.AdvisorDeleteAction"
                 method="deleteAdvisor">
             <result type="redirectAction">advisorList</result>
+            <result name="input">advisorList</result>
         </action>
 
         <!-- company -->
@@ -165,6 +169,7 @@
                 class="de.nordakademie.studentdatabase.company.ui.CompanyDeleteAction"
                 method="deleteCompany">
             <result type="redirectAction">companyList</result>
+            <result name="input">companyList</result>
         </action>
 
         <!-- studentInfo -->
@@ -197,6 +202,7 @@
                 class="de.nordakademie.studentdatabase.studentInfo.ui.StudentInfoDeleteAction"
                 method="deleteStudentInfo">
             <result type="redirectAction">studentInfoList</result>
+            <result name="input">studentInfoList</result>
         </action>
 
         <!-- student -->
@@ -263,6 +269,7 @@
                 class="de.nordakademie.studentdatabase.contactPerson.ui.ContactPersonDeleteAction"
                 method="deleteContactPerson">
             <result type="redirectAction">contactPersonList</result>
+            <result name="input">contactPersonList</result>
         </action>
     </package>
 </struts>

@@ -2,6 +2,8 @@ package de.nordakademie.studentdatabase.address.service;
 
 import de.nordakademie.studentdatabase.address.model.Address;
 import de.nordakademie.studentdatabase.address.model.AddressRepository;
+import de.nordakademie.studentdatabase.company.model.CompanyRepository;
+import de.nordakademie.studentdatabase.student.model.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,11 +17,15 @@ import java.util.List;
 public class AddressService {
 
     private final AddressRepository addressRepository;
+    private final CompanyRepository companyRepository;
+    private final StudentRepository studentRepository;
     private Long id;
 
     @Autowired
-    public AddressService(AddressRepository addressRepository) {
+    public AddressService(AddressRepository addressRepository, CompanyRepository companyRepository, StudentRepository studentRepository) {
         this.addressRepository = addressRepository;
+        this.companyRepository = companyRepository;
+        this.studentRepository = studentRepository;
     }
 
     @Transactional
@@ -53,6 +59,13 @@ public class AddressService {
         if (address != null) {
             addressRepository.delete(address);
         }
+    }
+
+    @Transactional
+    public boolean isUsed(Long addressId) {
+        Boolean isAddressUsedInStudent = studentRepository.isAddressUsed(addressId);
+        Boolean isAddressUsedInCompany = companyRepository.isAddressUsed(addressId);
+        return (isAddressUsedInStudent || isAddressUsedInCompany);
     }
 
     public Long getId() {

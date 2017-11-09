@@ -24,7 +24,9 @@ public class AdvisorDeleteAction extends ActionSupport {
 
     @Override
     public void validate() {
-
+        if (advisorService.isUsed(this.id)) {
+            addActionError("Cannot delete used advisor.");
+        }
     }
 
 

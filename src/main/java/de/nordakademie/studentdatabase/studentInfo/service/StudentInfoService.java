@@ -111,4 +111,9 @@ public class StudentInfoService {
 
         return studentInfoRepository.getUnusedIds(usedStudentInfoIds);
     }
+
+    @Transactional
+    public boolean isUsed(Long studentInfoId) {
+        return studentRepository.isStudentInfoUsed(studentInfoId);
+    }
 }

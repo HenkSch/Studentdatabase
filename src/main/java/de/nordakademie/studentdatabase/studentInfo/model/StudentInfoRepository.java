@@ -39,4 +39,19 @@ public class StudentInfoRepository {
     public List<Long> getUnusedIds(List<Long> usedIds) {
         return entityManager.createQuery("SELECT s.registrationNumber FROM StudentInfo s where s.registrationNumber not in (" + StringUtils.join(usedIds, ',') + ")", Long.class).getResultList();
     }
+
+    public boolean isAvisorUsed(Long advisorId) {
+        final List<StudentInfo> resultList = entityManager.createQuery("select s FROM StudentInfo s where s.advisor.id = " + advisorId, StudentInfo.class).getResultList();
+        return (resultList.size() > 0);
+    }
+
+    public boolean isCenturyUsed(Long centuryId) {
+        final List<StudentInfo> resultList = entityManager.createQuery("select s FROM StudentInfo s where s.century.id = " + centuryId, StudentInfo.class).getResultList();
+        return (resultList.size() > 0);
+    }
+
+    public boolean isCompanyUsed(Long companyId) {
+        final List<StudentInfo> resultList = entityManager.createQuery("select s FROM StudentInfo s where s.company.id = " + companyId, StudentInfo.class).getResultList();
+        return (resultList.size() > 0);
+    }
 }

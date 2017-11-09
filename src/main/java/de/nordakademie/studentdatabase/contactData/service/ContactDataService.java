@@ -70,6 +70,14 @@ public class ContactDataService {
         }
     }
 
+    @Transactional
+    public boolean isUsed(Long contactDataId) {
+        Boolean isContactDataUsedInStudent = studentRepository.isContactDataUsed(contactDataId);
+        Boolean isContactDataUsedInAdvisor = advisorRepository.isContactDataUsed(contactDataId);
+        Boolean isContactDataUsedInContactPerson = contactPersonRepository.isContactDataUsed(contactDataId);
+        return (isContactDataUsedInStudent || isContactDataUsedInAdvisor || isContactDataUsedInContactPerson);
+    }
+
     public Long getId() {
         return id;
     }
@@ -77,5 +85,4 @@ public class ContactDataService {
     public void setId(Long id) {
         this.id = id;
     }
-
 }

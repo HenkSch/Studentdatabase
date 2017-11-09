@@ -6,6 +6,7 @@ import de.nordakademie.studentdatabase.company.model.Company;
 import de.nordakademie.studentdatabase.company.model.CompanyRepository;
 import de.nordakademie.studentdatabase.contactPerson.model.ContactPerson;
 import de.nordakademie.studentdatabase.contactPerson.model.ContactPersonRepository;
+import de.nordakademie.studentdatabase.studentInfo.model.StudentInfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,14 +22,16 @@ public class CompanyService {
     private final CompanyRepository companyRepository;
     private final AddressRepository addressRepository;
     private final ContactPersonRepository contactPersonRepository;
+    private final StudentInfoRepository studentInfoRepository;
     private Long id;
 
 
     @Autowired
-    public CompanyService(CompanyRepository companyRepository, AddressRepository addressRepository, ContactPersonRepository contactPersonRepository) {
+    public CompanyService(CompanyRepository companyRepository, AddressRepository addressRepository, ContactPersonRepository contactPersonRepository, StudentInfoRepository studentInfoRepository) {
         this.companyRepository = companyRepository;
         this.addressRepository = addressRepository;
         this.contactPersonRepository = contactPersonRepository;
+        this.studentInfoRepository = studentInfoRepository;
     }
 
     @Transactional
@@ -70,6 +73,11 @@ public class CompanyService {
         }
     }
 
+    @Transactional
+    public boolean isUsed(Long companyId) {
+        return studentInfoRepository.isCompanyUsed(companyId);
+    }
+
     public Long getId() {
         return id;
     }
@@ -77,6 +85,4 @@ public class CompanyService {
     public void setId(Long id) {
         this.id = id;
     }
-
-
 }

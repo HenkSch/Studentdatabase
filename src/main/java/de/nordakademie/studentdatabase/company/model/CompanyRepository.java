@@ -42,4 +42,14 @@ public class CompanyRepository {
     public List<Long> getAllUsedContactPersonIds() {
         return entityManager.createQuery("select c.contactPerson.id From Company c", Long.class).getResultList();
     }
+
+    public Boolean isAddressUsed(Long addressId) {
+        final List<Company> resultList = entityManager.createQuery("select c FROM Company c where c.address.id = " + addressId, Company.class).getResultList();
+        return (resultList.size() > 0);
+    }
+
+    public boolean isContactPersonUsed(Long contactPersonId) {
+        final List<Company> resultList = entityManager.createQuery("select c FROM Company c where c.contactPerson.id = " + contactPersonId, Company.class).getResultList();
+        return (resultList.size() > 0);
+    }
 }

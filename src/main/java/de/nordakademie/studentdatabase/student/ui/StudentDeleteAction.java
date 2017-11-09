@@ -29,7 +29,6 @@ public class StudentDeleteAction extends ActionSupport {
     @Override
     public void validate() {
         final Student student = studentService.findOne(this.id);
-        System.out.println(student.getStudentInfo());
         if (student.getStudentInfo() != null) {
             addActionError("Cannot delete student with registrationNumber.");
         }

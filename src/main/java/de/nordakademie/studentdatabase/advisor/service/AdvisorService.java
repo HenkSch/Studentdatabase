@@ -4,6 +4,7 @@ import de.nordakademie.studentdatabase.advisor.model.Advisor;
 import de.nordakademie.studentdatabase.advisor.model.AdvisorRepository;
 import de.nordakademie.studentdatabase.contactData.model.ContactData;
 import de.nordakademie.studentdatabase.contactData.model.ContactDataRepository;
+import de.nordakademie.studentdatabase.studentInfo.model.StudentInfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,12 +19,14 @@ public class AdvisorService {
 
     private final AdvisorRepository advisorRepository;
     private final ContactDataRepository contactDataRepository;
+    private final StudentInfoRepository studentInfoRepository;
     private Long id;
 
     @Autowired
-    public AdvisorService(AdvisorRepository advisorRepository, ContactDataRepository contactDataRepository) {
+    public AdvisorService(AdvisorRepository advisorRepository, ContactDataRepository contactDataRepository, StudentInfoRepository studentInfoRepository) {
         this.advisorRepository = advisorRepository;
         this.contactDataRepository = contactDataRepository;
+        this.studentInfoRepository = studentInfoRepository;
     }
 
     @Transactional
@@ -62,6 +65,11 @@ public class AdvisorService {
         }
     }
 
+    @Transactional
+    public boolean isUsed(Long advisorId) {
+        return studentInfoRepository.isAvisorUsed(advisorId);
+    }
+
     public Long getId() {
         return id;
     }
@@ -69,5 +77,4 @@ public class AdvisorService {
     public void setId(Long id) {
         this.id = id;
     }
-
 }

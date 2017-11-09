@@ -42,4 +42,9 @@ public class AdvisorRepository {
     public List<Long> getAllIds() {
         return entityManager.createQuery("Select a.id FROM Advisor a", Long.class).getResultList();
     }
+
+    public Boolean isContactDataUsed(Long contactDataId) {
+        final List<Advisor> resultList = entityManager.createQuery("select a FROM Advisor a where a.contactData.id = " + contactDataId, Advisor.class).getResultList();
+        return (resultList.size() > 0);
+    }
 }
