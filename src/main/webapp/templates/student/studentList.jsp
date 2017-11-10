@@ -7,39 +7,35 @@
         <s:actionerror/>
     </div>
     <s:form action="studentList">
-        <s:submit value="Ok. Back to List"/>
+        <s:submit key="button.back"/>
     </s:form>
 </s:if>
 <s:else>
-    <table>
-        <tr>
-            <td><s:form action="studentAdd">
-                <s:submit value="Add"/>
-            </s:form>
-            </td>
-            <s:form action="studentList">
-                <td><s:textfield name="searchValue" label="Search"/><s:submit value="Search"/></td>
-            </s:form>
-            <td><s:form action="studentList">
-                <s:submit value="Cancel"/>
-            </s:form>
-            </td>
-        </tr>
-    </table>
+    <s:form action="studentList">
+        <s:textfield name="searchValue" key="student.search"/>
+        <s:submit key="student.searchGo"/>
+    </s:form>
+    <s:form action="studentList">
+        <s:submit key="student.searchCancel"/>
+    </s:form>
+    <br/>
+    <s:form action="studentAdd">
+        <s:submit key="button.add"/>
+    </s:form>
 
     <table border="1">
         <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Given name</th>
-            <th>Gender</th>
-            <th>Birthdate</th>
-            <th>Birthplace</th>
-            <th>Registration number</th>
-            <th>Century</th>
-            <th>Address</th>
-            <th>Contact data</th>
-            <th>Options</th>
+            <th><s:text name="student.id"/></th>
+            <th><s:text name="student.name"/></th>
+            <th><s:text name="student.givenName"/></th>
+            <th><s:text name="student.gender"/></th>
+            <th><s:text name="student.birthDate"/></th>
+            <th><s:text name="student.birthPlace"/></th>
+            <th><s:text name="student.registrationNumber"/></th>
+            <th><s:text name="student.century"/></th>
+            <th><s:text name="student.address"/></th>
+            <th><s:text name="student.contactData"/></th>
+            <th><s:text name="list.options"/></th>
         </tr>
         <s:iterator value="studentList">
             <tr>
@@ -73,9 +69,9 @@
                     Author: Roman C
                     Source: https://stackoverflow.com/questions/17477252/passing-values-in-button-instead-of-href-link
                     -->
-                    <input type="button" value="Edit"
+                    <input type="button" value="<s:text name="button.edit"/>"
                            onclick="window.location='<s:property value="%{#editUrl}"/>';">
-                    <input type="button" value="Delete"
+                    <input type="button" value="<s:text name="button.delete"/>"
                            onclick="window.location='<s:property value="%{#deleteUrl}"/>';">
                 </td>
             </tr>

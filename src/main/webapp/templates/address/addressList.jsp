@@ -12,22 +12,22 @@
         <s:actionerror/>
     </div>
     <s:form action="addressList">
-        <s:submit value="Ok. Back to List"/>
+        <s:submit key="button.back"/>
     </s:form>
 </s:if>
 <s:else>
     <s:form action="addressAdd">
-        <s:submit value="Add"/>
+        <s:submit key="button.add"/>
     </s:form>
     <table border="1">
         <tr>
-            <th>Id</th>
-            <th>Street</th>
-            <th>House number</th>
-            <th>ZIP code</th>
-            <th>Location</th>
-            <th>Addition</th>
-            <th>Options</th>
+            <th><s:text name="address.id"/></th>
+            <th><s:text name="address.street"/></th>
+            <th><s:text name="address.houseNumber"/></th>
+            <th><s:text name="address.zipCode"/></th>
+            <th><s:text name="address.location"/></th>
+            <th><s:text name="address.addition"/></th>
+            <th><s:text name="list.options"/></th>
         </tr>
         <s:iterator value="addressList">
             <tr>
@@ -51,9 +51,9 @@
                     Author: Roman C
                     Source: https://stackoverflow.com/questions/17477252/passing-values-in-button-instead-of-href-link
                     -->
-                    <input type="button" value="Edit"
+                    <input type="button" value="<s:text name="button.edit"/>"
                            onclick="window.location='<s:property value="%{#editUrl}"/>';">
-                    <input type="button" value="Delete"
+                    <input type="button" value="<s:text name="button.delete"/>"
                            onclick="window.location='<s:property value="%{#deleteUrl}"/>';">
                 </td>
             </tr>
