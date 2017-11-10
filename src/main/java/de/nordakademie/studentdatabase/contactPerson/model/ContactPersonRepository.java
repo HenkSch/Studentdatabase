@@ -8,7 +8,7 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 /**
- * Created by U555987 on 006, 06.11.2017.
+ * Created by Henk Schuhmann on 006, 06.11.2017.
  */
 @Repository
 public class ContactPersonRepository {

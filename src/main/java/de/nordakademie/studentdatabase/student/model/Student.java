@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
- * Created by U555987 on 019, 19.10.2017.
+ * Created by Henk Schuhmann on 019, 19.10.2017.
  */
 @Entity
 @Table(name = "STUDENT")

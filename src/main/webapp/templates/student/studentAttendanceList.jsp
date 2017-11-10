@@ -1,3 +1,7 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Henk Schuhmann
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <h1><s:text name="attendanceList.caption"/></h1>

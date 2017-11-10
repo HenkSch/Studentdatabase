@@ -5,7 +5,7 @@ import de.nordakademie.studentdatabase.advisor.service.AdvisorService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * Created by U555987 on 024, 24.10.2017.
+ * Created by Henk Schuhmann on 024, 24.10.2017.
  */
 public class AdvisorDeleteAction extends ActionSupport {
     private final AdvisorService advisorService;

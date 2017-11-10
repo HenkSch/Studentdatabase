@@ -6,7 +6,7 @@ import de.nordakademie.studentdatabase.contactData.service.ContactDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * Created by U555987 on 020, 20.10.2017.
+ * Created by Henk Schuhmann on 020, 20.10.2017.
  */
 public class ContactDataEditAction extends ActionSupport {
 

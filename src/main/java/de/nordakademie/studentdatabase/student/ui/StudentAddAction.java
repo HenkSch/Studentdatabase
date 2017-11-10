@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by U555987 on 008, 08.11.2017.
+ * Created by Henk Schuhmann on 008, 08.11.2017.
  */
 public class StudentAddAction extends ActionSupport {
 

@@ -8,7 +8,7 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 /**
- * Created by U555987 on 019, 19.10.2017.
+ * Created by Henk Schuhmann on 019, 19.10.2017.
  */
 @Repository
 public class StudentInfoRepository {

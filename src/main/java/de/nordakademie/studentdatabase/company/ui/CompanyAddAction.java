@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by U555987 on 024, 24.10.2017.
+ * Created by Henk Schuhmann on 024, 24.10.2017.
  */
 public class CompanyAddAction extends ActionSupport {
     private final CompanyService companyService;

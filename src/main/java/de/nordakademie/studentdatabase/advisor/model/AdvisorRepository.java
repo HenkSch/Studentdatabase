@@ -7,7 +7,7 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 /**
- * Created by U555987 on 023, 23.10.2017.
+ * Created by Henk Schuhmann on 023, 23.10.2017.
  */
 @Repository
 public class AdvisorRepository {

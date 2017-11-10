@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
 /**
- * Created by U555987 on 025, 25.10.2017.
+ * Created by Henk Schuhmann on 025, 25.10.2017.
  */
 public class StudentInfoListAction implements Action {
 

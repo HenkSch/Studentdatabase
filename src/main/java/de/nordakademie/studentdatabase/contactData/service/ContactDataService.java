@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by U555987 on 020, 20.10.2017.
+ * Created by Henk Schuhmann on 020, 20.10.2017.
  */
 @Service
 public class ContactDataService {
