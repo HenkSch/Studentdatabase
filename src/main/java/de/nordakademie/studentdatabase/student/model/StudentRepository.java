@@ -57,4 +57,8 @@ public class StudentRepository {
         final List<Student> resultList = entityManager.createQuery("select s FROM Student s where s.studentInfo.registrationNumber = " + studentInfoId, Student.class).getResultList();
         return (resultList.size() > 0);
     }
+
+    public List<Student> findAllInCentury(Long centuryId) {
+        return entityManager.createQuery("select s from Student s where s.studentInfo.century.id = " + centuryId, Student.class).getResultList();
+    }
 }

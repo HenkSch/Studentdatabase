@@ -80,6 +80,12 @@ public class StudentService {
         }
     }
 
+    @Transactional
+    public List<Student> findAllInCentury(Long centuryId) {
+        return studentRepository.findAllInCentury(centuryId);
+    }
+
+
     public Long getId() {
         return id;
     }
@@ -87,6 +93,4 @@ public class StudentService {
     public void setId(Long id) {
         this.id = id;
     }
-
-
 }

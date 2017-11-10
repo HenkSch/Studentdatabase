@@ -76,6 +76,9 @@
     <definition name="studentList" extends="pageFrame">
         <put-attribute name="content" value="/templates/student/studentList.jsp"/>
     </definition>
+    <definition name="studentAttendanceList" extends="pageFrame">
+        <put-attribute name="content" value="/templates/student/studentAttendanceList.jsp"/>
+    </definition>
     <definition name="studentAddForm" extends="pageFrame">
         <put-attribute name="content" value="/templates/student/studentAddForm.jsp"/>
     </definition>

@@ -43,6 +43,9 @@
                     <s:url var="deleteUrl" action="deleteCentury">
                         <s:param name="id" value="%{id}"></s:param>
                     </s:url>
+                    <s:url var="attendanceListUrl" action="studentAttendanceList">
+                        <s:param name="centuryId" value="%{id}"></s:param>
+                    </s:url>
                     <!--
                     Author: Roman C
                     Source: https://stackoverflow.com/questions/17477252/passing-values-in-button-instead-of-href-link
@@ -51,6 +54,8 @@
                            onclick="window.location='<s:property value="%{#editUrl}"/>';">
                     <input type="button" value="Delete"
                            onclick="window.location='<s:property value="%{#deleteUrl}"/>';">
+                    <input type="button" value="Attendance list"
+                           onclick="window.location='<s:property value="%{#attendanceListUrl}"/>';">
                 </td>
             </tr>
         </s:iterator>

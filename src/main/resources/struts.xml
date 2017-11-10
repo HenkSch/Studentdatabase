@@ -209,6 +209,10 @@
         <action name="studentList" class="de.nordakademie.studentdatabase.student.ui.StudentListAction">
             <result>studentList</result>
         </action>
+        <action name="studentAttendanceList"
+                class="de.nordakademie.studentdatabase.student.ui.StudentAttendanceListAction">
+            <result>studentAttendanceList</result>
+        </action>
         <action name="studentAdd"
                 class="de.nordakademie.studentdatabase.student.ui.StudentAddAction"
                 method="getForm">
