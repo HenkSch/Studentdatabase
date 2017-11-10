@@ -9,7 +9,7 @@
 <h1><s:text name="student.caption"/></h1>
 
 <s:form action="createStudent" method="POST">
-    <s:textfield name="student.name" key="student.givenNameEdit"/>
+    <s:textfield name="student.name" key="student.nameEdit"/>
     <s:textfield name="student.givenName" key="student.givenNameEdit"/>
     <s:select name="student.gender" key="student.genderEdit" list="genderList"
               headerKey="" headerValue="Please select a gender"/>
