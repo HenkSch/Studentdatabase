@@ -21,10 +21,10 @@
     </s:form>
     <table border="1">
         <tr>
-            <th><s:text name="contactData.id"/>Id</th>
-            <th><s:text name="contactData.email"/>Email</th>
-            <th><s:text name="contactData.phoneNumber"/>Phone number</th>
-            <th><s:text name="contactData.faxNumber"/>Fax number</th>
+            <th><s:text name="contactData.id"/></th>
+            <th><s:text name="contactData.email"/></th>
+            <th><s:text name="contactData.phoneNumber"/></th>
+            <th><s:text name="contactData.faxNumber"/></th>
             <th><s:text name="list.options"/></th>
         </tr>
         <s:iterator value="contactDataList">

@@ -8,16 +8,16 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <h1><s:text name="studentInfo.caption"/></h1>
 <s:form action="createStudentInfo" method="POST">
-    <s:textfield name="studentInfo.userNumber" label="*User number"/>
-    <s:select list="centuryList" name="studentInfo.century.id" label="*Century" headerKey=""
+    <s:textfield name="studentInfo.userNumber" key="studentInfo.userNumberEdit"/>
+    <s:select list="centuryList" name="studentInfo.century.id" key="studentInfo.centuryEdit" headerKey=""
               headerValue="Please select a century"/>
-    <s:select list="advisorList" name="studentInfo.advisor.id" label="Advisor" headerKey=""
+    <s:select list="advisorList" name="studentInfo.advisor.id" key="studentInfo.advisorEdit" headerKey=""
               headerValue="Please select an advisor"/>
-    <s:select list="companyList" name="studentInfo.company.id" label="Company" headerKey=""
+    <s:select list="companyList" name="studentInfo.company.id" key="studentInfo.companyEdit" headerKey=""
               headerValue="Please select a company"/>
-    <s:submit value="Save"/>
+    <s:submit key="button.save"/>
 </s:form>
 <s:form action="studentInfoList">
-    <s:submit value="Cancel"/>
+    <s:submit key="button.cancel"/>
 </s:form>
 <s:text name="required.caption"/>

@@ -8,13 +8,13 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <h1><s:text name="century.caption"/></h1>
 <s:form action="updateCentury" method="POST">
-    <s:textfield name="century.id" label="Id" readonly="true"/>
-    <s:textfield name="century.studyProgram" label="*Study program"/>
-    <s:textfield name="century.year" label="*Year"/>
-    <s:textfield name="century.subGroup" label="*Sub group"/>
-    <s:submit value="Save"/>
+    <s:textfield name="century.id" key="century.idEdit" readonly="true"/>
+    <s:textfield name="century.studyProgram" key="century.studyProgramEdit"/>
+    <s:textfield name="century.year" key="century.yearEdit"/>
+    <s:textfield name="century.subGroup" key="century.subGroupEdit"/>
+    <s:submit key="button.save"/>
 </s:form>
 <s:form action="centuryList">
-    <s:submit value="Cancel"/>
+    <s:submit key="button.cancel"/>
 </s:form>
 <s:text name="required.caption"/>

@@ -8,15 +8,15 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <h1><s:text name="company.caption"/></h1>
 <s:form action="updateCompany" method="POST">
-    <s:textfield name="company.id" label="Id" readonly="true"/>
-    <s:textfield name="company.name" label="*Name"/>
-    <s:textfield name="company.shortName" label="Short name"/>
-    <s:select list="contactPersonList" name="company.contactPerson.id" label="*Contact person"/>
-    <s:select list="addressList" name="company.address.id" label="*Address"/>
+    <s:textfield name="company.id" key="company.idEdit" readonly="true"/>
+    <s:textfield name="company.name" key="company.nameEdit"/>
+    <s:textfield name="company.shortName" key="company.shortNameEdit"/>
+    <s:select list="contactPersonList" name="company.contactPerson.id" key="company.contactPersonEdit"/>
+    <s:select list="addressList" name="company.address.id" key="company.addressEdit"/>
     <s:hidden name="id" value="%{id}"/>
-    <s:submit value="Save"/>
+    <s:submit key="button.save"/>
 </s:form>
 <s:form action="companyList">
-    <s:submit value="Cancel"/>
+    <s:submit key="button.cancel"/>
 </s:form>
 <s:text name="required.caption"/>

@@ -25,7 +25,7 @@ public class CompanyDeleteAction extends ActionSupport {
     @Override
     public void validate() {
         if (companyService.isUsed(this.id)) {
-            addActionError("Cannot delete used company.");
+            addActionError(getText("company.deleteError"));
         }
     }
 

@@ -30,7 +30,7 @@ public class StudentDeleteAction extends ActionSupport {
     public void validate() {
         final Student student = studentService.findOne(this.id);
         if (student.getStudentInfo() != null) {
-            addActionError("Cannot delete student with registrationNumber.");
+            addActionError(getText("student.deleteError"));
         }
     }
 

@@ -26,7 +26,7 @@ public class ContactPersonDeleteAction extends ActionSupport {
     @Override
     public void validate() {
         if (contactPersonService.isUsed(this.id)) {
-            addActionError("Cannot delete used contactPerson.");
+            addActionError(getText("contactPerson.deleteError"));
         }
     }
 

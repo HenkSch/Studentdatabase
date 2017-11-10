@@ -25,7 +25,7 @@ public class CenturyDeleteAction extends ActionSupport {
     @Override
     public void validate() {
         if (centuryService.isUsed(this.id)) {
-            addActionError("Cannot delete used century.");
+            addActionError(getText("century.deleteError"));
         }
     }
 
