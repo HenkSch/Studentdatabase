@@ -15,12 +15,21 @@ public class AddressListAction implements Action {
     private final AddressService addressService;
     private List<Address> addressList;
 
+    /**
+     * Constructor
+     *
+     * @param addressService
+     */
     @Autowired
     public AddressListAction(AddressService addressService) {
         this.addressService = addressService;
     }
 
-
+    /**
+     * finds all addresses
+     * @return
+     * @throws Exception
+     */
     @Override
     public String execute() throws Exception {
         addressList = addressService.findAll();

@@ -11,17 +11,28 @@ public class CompanyDeleteAction extends ActionSupport {
     private final CompanyService companyService;
     private Long id;
 
+    /**
+     * Constructor
+     *
+     * @param companyService
+     */
     @Autowired
     public CompanyDeleteAction(CompanyService companyService) {
         this.companyService = companyService;
     }
 
-
+    /**
+     * deletes a company by id
+     * @return
+     */
     public String deleteCompany() {
         companyService.deleteBy(this.id);
         return SUCCESS;
     }
 
+    /**
+     * adds Error if company is used
+     */
     @Override
     public void validate() {
         if (companyService.isUsed(this.id)) {

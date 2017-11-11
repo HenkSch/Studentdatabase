@@ -24,6 +24,14 @@ public class ContactDataService {
     private final AdvisorRepository advisorRepository;
     private Long id;
 
+    /**
+     * Constructor
+     *
+     * @param contactDataRepository
+     * @param studentRepository
+     * @param contactPersonRepository
+     * @param advisorRepository
+     */
     @Autowired
     public ContactDataService(ContactDataRepository contactDataRepository, StudentRepository studentRepository, ContactPersonRepository contactPersonRepository, AdvisorRepository advisorRepository) {
         this.contactDataRepository = contactDataRepository;
@@ -32,6 +40,10 @@ public class ContactDataService {
         this.advisorRepository = advisorRepository;
     }
 
+    /**
+     * returns all unused contactDataIds
+     * @return
+     */
     @Transactional
     public List<Long> getUnusedIds() {
         final List<Long> usedContactDataIds = new ArrayList<>();
@@ -42,26 +54,47 @@ public class ContactDataService {
         return contactDataRepository.getUnusedIds(usedContactDataIds);
     }
 
+    /**
+     * finds all contactData
+     * @return
+     */
     @Transactional(readOnly = true)
     public List<ContactData> findAll() {
         return contactDataRepository.findAll();
     }
 
+    /**
+     * returns a contactData by contactDataId
+     * @param contactDataId
+     * @return
+     */
     @Transactional(readOnly = true)
     public ContactData findOne(final Long contactDataId) {
         return contactDataRepository.findOne(contactDataId);
     }
 
+    /**
+     * creates a contactData
+     * @param contactData
+     */
     @Transactional
     public void create(final ContactData contactData) {
         contactDataRepository.create(contactData);
     }
 
+    /**
+     * updates a contactData
+     * @param contactData
+     */
     @Transactional
     public void update(final ContactData contactData) {
         contactDataRepository.update(contactData);
     }
 
+    /**
+     * deletes a contactData by contactDataId
+     * @param contactDataId
+     */
     @Transactional
     public void deleteBy(final Long contactDataId) {
         final ContactData contactData = contactDataRepository.findOne(contactDataId);
@@ -70,6 +103,11 @@ public class ContactDataService {
         }
     }
 
+    /**
+     * checks if contactData with contactDataId is used
+     * @param contactDataId
+     * @return
+     */
     @Transactional
     public boolean isUsed(Long contactDataId) {
         Boolean isContactDataUsedInStudent = studentRepository.isContactDataUsed(contactDataId);

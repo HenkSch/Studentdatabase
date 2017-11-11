@@ -22,6 +22,13 @@ public class AdvisorService {
     private final StudentInfoRepository studentInfoRepository;
     private Long id;
 
+    /**
+     * Constructor
+     *
+     * @param advisorRepository
+     * @param contactDataRepository
+     * @param studentInfoRepository
+     */
     @Autowired
     public AdvisorService(AdvisorRepository advisorRepository, ContactDataRepository contactDataRepository, StudentInfoRepository studentInfoRepository) {
         this.advisorRepository = advisorRepository;
@@ -29,21 +36,38 @@ public class AdvisorService {
         this.studentInfoRepository = studentInfoRepository;
     }
 
+    /**
+     * returns all advisorIds
+     * @return
+     */
     @Transactional
     public List<Long> getAllIds() {
         return advisorRepository.getAllIds();
     }
 
+    /**
+     * finds all advisors
+     * @return
+     */
     @Transactional(readOnly = true)
     public List<Advisor> findAll() {
         return advisorRepository.findAll();
     }
 
+    /**
+     * returns one advisor by advisorId
+     * @param advisorId
+     * @return
+     */
     @Transactional(readOnly = true)
     public Advisor findOne(final Long advisorId) {
         return advisorRepository.findOne(advisorId);
     }
 
+    /**
+     * creates an advisor
+     * @param advisor
+     */
     @Transactional
     public void create(final Advisor advisor) {
         final ContactData contactData = contactDataRepository.findOne(advisor.getContactData().getId());
@@ -52,11 +76,19 @@ public class AdvisorService {
         advisorRepository.create(advisor);
     }
 
+    /**
+     * updates an advisor
+     * @param advisor
+     */
     @Transactional
     public void update(final Advisor advisor) {
         advisorRepository.update(advisor);
     }
 
+    /**
+     * deletes an advisor by advisorId
+     * @param advisorId
+     */
     @Transactional
     public void deleteBy(final Long advisorId) {
         final Advisor advisor = advisorRepository.findOne(advisorId);
@@ -65,6 +97,11 @@ public class AdvisorService {
         }
     }
 
+    /**
+     * checks if advisor with advisorId is used
+     * @param advisorId
+     * @return
+     */
     @Transactional
     public boolean isUsed(Long advisorId) {
         return studentInfoRepository.isAvisorUsed(advisorId);

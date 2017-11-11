@@ -15,11 +15,21 @@ public class ContactDataListAction implements Action {
     private final ContactDataService contactDataService;
     private List<ContactData> contactDataList;
 
+    /**
+     * Constructor
+     *
+     * @param contactDataService
+     */
     @Autowired
     public ContactDataListAction(ContactDataService contactDataService) {
         this.contactDataService = contactDataService;
     }
 
+    /**
+     * finds all contactData
+     * @return
+     * @throws Exception
+     */
     @Override
     public String execute() throws Exception {
         contactDataList = contactDataService.findAll();

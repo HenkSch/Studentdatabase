@@ -14,6 +14,11 @@ public class ContactDataAddAction extends ActionSupport {
 
     private ContactData contactData;
 
+    /**
+     * Constructor
+     *
+     * @param contactDataService
+     */
     @Autowired
     public ContactDataAddAction(ContactDataService contactDataService) {
         this.contactDataService = contactDataService;
@@ -23,7 +28,10 @@ public class ContactDataAddAction extends ActionSupport {
         return SUCCESS;
     }
 
-
+    /**
+     * creates a contactData
+     * @return
+     */
     public String createContactData() {
         contactDataService.create(this.contactData);
         return SUCCESS;

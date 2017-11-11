@@ -16,9 +16,20 @@ public class ContactPerson {
     private String givenName;
     private ContactData contactData;
 
+    /**
+     * Constructor
+     */
     public ContactPerson() {
     }
 
+    /**
+     * Constructor
+     *
+     * @param id
+     * @param name
+     * @param givenName
+     * @param contactData
+     */
     public ContactPerson(Long id, String name, String givenName, ContactData contactData) {
         this.id = id;
         this.name = name;

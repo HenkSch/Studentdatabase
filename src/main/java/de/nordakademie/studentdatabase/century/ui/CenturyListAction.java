@@ -15,11 +15,21 @@ public class CenturyListAction implements Action {
     private final CenturyService centuryService;
     private List<Century> centuryList;
 
+    /**
+     * Constructor
+     *
+     * @param centuryService
+     */
     @Autowired
     public CenturyListAction(CenturyService centuryService) {
         this.centuryService = centuryService;
     }
 
+    /**
+     * finds all centuries
+     * @return
+     * @throws Exception
+     */
     @Override
     public String execute() throws Exception {
         centuryList = centuryService.findAll();

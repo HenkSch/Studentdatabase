@@ -22,6 +22,13 @@ public class CompanyEditAction extends ActionSupport {
     private List<Long> contactPersonList = new ArrayList<>();
     private List<Long> addressList = new ArrayList<>();
 
+    /**
+     * Constructor
+     *
+     * @param companyService
+     * @param contactPersonService
+     * @param addressService
+     */
     @Autowired
     public CompanyEditAction(CompanyService companyService, ContactPersonService contactPersonService, AddressService addressService) {
         this.companyService = companyService;
@@ -29,7 +36,10 @@ public class CompanyEditAction extends ActionSupport {
         this.addressService = addressService;
     }
 
-
+    /**
+     * finds a company by id and fills dropdown lists
+     * @return
+     */
     public String getForm() {
         this.company = companyService.findOne(this.id);
 
@@ -38,6 +48,10 @@ public class CompanyEditAction extends ActionSupport {
         return SUCCESS;
     }
 
+    /**
+     * fills dropdown lists
+     * @param company
+     */
     private void fillLists(Company company) {
         contactPersonList = new ArrayList<>();
         contactPersonList.add(company.getContactPerson().getId());
@@ -46,11 +60,18 @@ public class CompanyEditAction extends ActionSupport {
         addressList = addressService.getAllIds();
     }
 
+    /**
+     * updates a company
+     * @return
+     */
     public String updateCompany() {
         companyService.update(this.company);
         return SUCCESS;
     }
 
+    /**
+     * fills dropdown lists so they are filled after validationError
+     */
     @Override
     public void validate() {
         Company tempCompany = companyService.findOne(this.id);

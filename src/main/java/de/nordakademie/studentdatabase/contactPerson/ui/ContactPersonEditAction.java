@@ -20,13 +20,22 @@ public class ContactPersonEditAction extends ActionSupport {
     private Long id;
     private List<Long> contactDataList = new ArrayList<>();
 
+    /**
+     * Constructor
+     *
+     * @param contactPersonService
+     * @param contactDataService
+     */
     @Autowired
     public ContactPersonEditAction(ContactPersonService contactPersonService, ContactDataService contactDataService) {
         this.contactPersonService = contactPersonService;
         this.contactDataService = contactDataService;
     }
 
-
+    /**
+     * finds a contactPerson by id and fills dropdown lists
+     * @return
+     */
     public String getForm() {
         this.contactPerson = this.contactPersonService.findOne(this.id);
 
@@ -35,17 +44,28 @@ public class ContactPersonEditAction extends ActionSupport {
         return SUCCESS;
     }
 
+    /**
+     * fills dropdown lists
+     * @param contactPerson
+     */
     private void fillLists(ContactPerson contactPerson) {
         this.contactDataList = new ArrayList<>();
         this.contactDataList.add(contactPerson.getContactData().getId());
         this.contactDataList.addAll(contactDataService.getUnusedIds());
     }
 
+    /**
+     * updates a contactPerson
+     * @return
+     */
     public String updateContactPerson() {
         this.contactPersonService.update(this.contactPerson);
         return SUCCESS;
     }
 
+    /**
+     * fills dropdown lists so they are filled after validationError
+     */
     @Override
     public void validate() {
         ContactPerson tempContactPerson = this.contactPersonService.findOne(this.id);

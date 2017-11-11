@@ -18,15 +18,34 @@ public class StudentListAction implements Action {
 
     private String searchValue = "";
 
+    /**
+     * Constructor
+     *
+     * @param studentService
+     */
     @Autowired
     public StudentListAction(StudentService studentService) {
         this.studentService = studentService;
     }
 
-
+    /**
+     * finds a student by id and searches for searchValue
+     * @return
+     * @throws Exception
+     */
     @Override
     public String execute() throws Exception {
         studentList = studentService.findAll();
+        studentList = doSearch(searchValue, studentList);
+
+        return SUCCESS;
+    }
+
+    /**
+     * removes student from studentlist if they do not match searchValue
+     * search can match "Name", "GivenName", "Name GivenName" or "GivenName Name" as searchValue
+     */
+    private List<Student> doSearch(String searchValue, List<Student> studentList) {
         final String trimmedSearchValue = searchValue.replaceAll("\\s+", " ").toLowerCase();
 
         for (int i = studentList.size() - 1; i >= 0; i--) {
@@ -38,13 +57,11 @@ public class StudentListAction implements Action {
             final boolean givenName_name = (lowerCaseGivenName + lowerCaseName).contains(trimmedSearchValue);
             final boolean name_givenName = (lowerCaseName + lowerCaseGivenName).contains(trimmedSearchValue);
             if (givenName_name || name_givenName) {
-
             } else {
                 studentList.remove(i);
             }
         }
-
-        return SUCCESS;
+        return studentList;
     }
 
     public List<Student> getStudentList() {

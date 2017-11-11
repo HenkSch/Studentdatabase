@@ -12,16 +12,28 @@ public class CenturyDeleteAction extends ActionSupport {
     private final CenturyService centuryService;
     private Long id;
 
+    /**
+     * Constructor
+     *
+     * @param centuryService
+     */
     @Autowired
     public CenturyDeleteAction(CenturyService centuryService) {
         this.centuryService = centuryService;
     }
 
+    /**
+     * deletes a century by id
+     * @return
+     */
     public String deleteCentury() {
         centuryService.deleteBy(this.id);
         return SUCCESS;
     }
 
+    /**
+     * adds Error if century with id is used
+     */
     @Override
     public void validate() {
         if (centuryService.isUsed(this.id)) {

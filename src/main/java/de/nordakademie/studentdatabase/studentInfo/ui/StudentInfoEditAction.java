@@ -26,6 +26,14 @@ public class StudentInfoEditAction extends ActionSupport {
     private List<Long> companyList = new ArrayList<>();
     private List<Long> advisorList = new ArrayList<>();
 
+    /**
+     * Constructor
+     *
+     * @param studentInfoService
+     * @param centuryService
+     * @param companyService
+     * @param advisorService
+     */
     @Autowired
     public StudentInfoEditAction(StudentInfoService studentInfoService, CenturyService centuryService, CompanyService companyService, AdvisorService advisorService) {
         this.studentInfoService = studentInfoService;
@@ -34,23 +42,37 @@ public class StudentInfoEditAction extends ActionSupport {
         this.advisorService = advisorService;
     }
 
+    /**
+     * finds a studentInfo by id and fills dropdown lists
+     * @return
+     */
     public String getForm() {
         studentInfo = studentInfoService.findOne(this.id);
         fillLists();
         return SUCCESS;
     }
 
+    /**
+     * fills dropdown lists
+     */
     private void fillLists() {
         centuryList = centuryService.getAllIds();
         companyList = companyService.getAllIds();
         advisorList = advisorService.getAllIds();
     }
 
+    /**
+     * updates a studentInfo
+     * @return
+     */
     public String updateStudentInfo() {
         studentInfoService.update(this.studentInfo);
         return SUCCESS;
     }
 
+    /**
+     * fills dropdown lists so they are filled after validationError
+     */
     @Override
     public void validate() {
         fillLists();

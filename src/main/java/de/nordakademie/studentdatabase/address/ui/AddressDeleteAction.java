@@ -12,17 +12,28 @@ public class AddressDeleteAction extends ActionSupport {
     private final AddressService addressService;
     private Long id;
 
+    /**
+     * Constructor
+     *
+     * @param addressService
+     */
     @Autowired
     public AddressDeleteAction(AddressService addressService) {
         this.addressService = addressService;
     }
 
+    /**
+     * deletes an address by id
+     * @return
+     */
     public String deleteAddress() {
         addressService.deleteBy(this.id);
         return SUCCESS;
     }
 
-
+    /**
+     * adds Error if address with id is used
+     */
     @Override
     public void validate() {
         if (addressService.isUsed(this.id)) {

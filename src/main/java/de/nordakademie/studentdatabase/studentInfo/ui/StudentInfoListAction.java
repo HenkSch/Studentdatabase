@@ -15,12 +15,21 @@ public class StudentInfoListAction implements Action {
     private final StudentInfoService studentInfoService;
     private List<StudentInfo> studentInfoList;
 
+    /**
+     * Constructor
+     *
+     * @param studentInfoService
+     */
     @Autowired
     public StudentInfoListAction(StudentInfoService studentInfoService) {
         this.studentInfoService = studentInfoService;
     }
 
-
+    /**
+     * finds all studentInfos
+     * @return
+     * @throws Exception
+     */
     @Override
     public String execute() throws Exception {
         studentInfoList = studentInfoService.findAll();

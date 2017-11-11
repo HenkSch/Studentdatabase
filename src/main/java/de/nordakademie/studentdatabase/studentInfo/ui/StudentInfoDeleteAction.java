@@ -12,16 +12,28 @@ public class StudentInfoDeleteAction extends ActionSupport {
     private final StudentInfoService studentInfoService;
     private Long id;
 
+    /**
+     * Constructor
+     *
+     * @param studentInfoService
+     */
     @Autowired
     public StudentInfoDeleteAction(StudentInfoService studentInfoService) {
         this.studentInfoService = studentInfoService;
     }
 
+    /**
+     * deletes a studentInfo by id
+     * @return
+     */
     public String deleteStudentInfo() {
         studentInfoService.deleteBy(this.id);
         return SUCCESS;
     }
 
+    /**
+     * adds Error if studentInfo is used
+     */
     @Override
     public void validate() {
         if (studentInfoService.isUsed(this.id)) {

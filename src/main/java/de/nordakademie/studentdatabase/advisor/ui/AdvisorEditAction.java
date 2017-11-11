@@ -19,12 +19,22 @@ public class AdvisorEditAction extends ActionSupport {
     private Long id;
     private List<Long> contactDataList = new ArrayList<>();
 
+    /**
+     * Constructor
+     *
+     * @param advisorService
+     * @param contactDataService
+     */
     @Autowired
     public AdvisorEditAction(AdvisorService advisorService, ContactDataService contactDataService) {
         this.advisorService = advisorService;
         this.contactDataService = contactDataService;
     }
 
+    /**
+     * finds one advisor by id and fills dropdown lists
+     * @return
+     */
     public String getForm() {
         advisor = advisorService.findOne(this.id);
 
@@ -33,17 +43,28 @@ public class AdvisorEditAction extends ActionSupport {
         return SUCCESS;
     }
 
+    /**
+     * fills dropdown lists
+     * @param advisor
+     */
     private void fillLists(Advisor advisor) {
         this.contactDataList = new ArrayList<>();
         this.contactDataList.add(advisor.getContactData().getId());
         this.contactDataList.addAll(contactDataService.getUnusedIds());
     }
 
+    /**
+     * updates an advisor
+     * @return
+     */
     public String updateAdvisor() {
         advisorService.update(this.advisor);
         return SUCCESS;
     }
 
+    /**
+     * fills dropdown lists they are filled after validationError
+     */
     @Override
     public void validate() {
         Advisor tempAdvisor = advisorService.findOne(this.id);

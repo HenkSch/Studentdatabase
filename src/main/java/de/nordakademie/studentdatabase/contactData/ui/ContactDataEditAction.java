@@ -15,17 +15,29 @@ public class ContactDataEditAction extends ActionSupport {
     private ContactData contactData;
     private Long id;
 
+    /**
+     * Constructor
+     *
+     * @param contactDataService
+     */
     @Autowired
     public ContactDataEditAction(ContactDataService contactDataService) {
         this.contactDataService = contactDataService;
     }
 
-
+    /**
+     * finds a contactData by id
+     * @return
+     */
     public String getForm() {
         contactData = contactDataService.findOne(id);
         return SUCCESS;
     }
 
+    /**
+     * updates a contactData
+     * @return
+     */
     public String updateContactData() {
         contactDataService.update(this.contactData);
         return SUCCESS;

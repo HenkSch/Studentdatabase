@@ -14,16 +14,29 @@ public class AddressEditAction extends ActionSupport {
     private Address address;
     private Long id;
 
+    /**
+     * Constructor
+     *
+     * @param addressService
+     */
     @Autowired
     public AddressEditAction(AddressService addressService) {
         this.addressService = addressService;
     }
 
+    /**
+     * finds one address by id
+     * @return
+     */
     public String getForm() {
         address = addressService.findOne(this.id);
         return SUCCESS;
     }
 
+    /**
+     * updates an address
+     * @return
+     */
     public String updateAddress() {
         addressService.update(this.address);
         return SUCCESS;

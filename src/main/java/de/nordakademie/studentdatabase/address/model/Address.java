@@ -17,9 +17,22 @@ public class Address {
     private String addition;
 
 
+    /**
+     * Constructor
+     */
     public Address() {
     }
 
+    /**
+     * Constructor
+     *
+     * @param id
+     * @param street
+     * @param houseNumber
+     * @param zipCode
+     * @param location
+     * @param addition
+     */
     public Address(Long id, String street, String houseNumber, Integer zipCode, String location, String addition) {
         this.id = id;
         this.street = street;

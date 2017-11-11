@@ -25,7 +25,14 @@ public class CompanyService {
     private final StudentInfoRepository studentInfoRepository;
     private Long id;
 
-
+    /**
+     * Constructor
+     *
+     * @param companyRepository
+     * @param addressRepository
+     * @param contactPersonRepository
+     * @param studentInfoRepository
+     */
     @Autowired
     public CompanyService(CompanyRepository companyRepository, AddressRepository addressRepository, ContactPersonRepository contactPersonRepository, StudentInfoRepository studentInfoRepository) {
         this.companyRepository = companyRepository;
@@ -34,21 +41,38 @@ public class CompanyService {
         this.studentInfoRepository = studentInfoRepository;
     }
 
+    /**
+     * returns all companyIds
+     * @return
+     */
     @Transactional
     public List<Long> getAllIds() {
         return companyRepository.getAllIds();
     }
 
+    /**
+     * finds all companies
+     * @return
+     */
     @Transactional(readOnly = true)
     public List<Company> findAll() {
         return companyRepository.findAll();
     }
 
+    /**
+     * finds a company by companyId
+     * @param companyId
+     * @return
+     */
     @Transactional(readOnly = true)
     public Company findOne(final Long companyId) {
         return companyRepository.findOne(companyId);
     }
 
+    /**
+     * creates a company
+     * @param company
+     */
     @Transactional
     public void create(final Company company) {
         Address address = addressRepository.findOne(company.getAddress().getId());
@@ -60,11 +84,19 @@ public class CompanyService {
         companyRepository.create(company);
     }
 
+    /**
+     * updates a company
+     * @param company
+     */
     @Transactional
     public void update(final Company company) {
         companyRepository.update(company);
     }
 
+    /**
+     * deletes a company by companyId
+     * @param companyId
+     */
     @Transactional
     public void deleteBy(final Long companyId) {
         final Company company = companyRepository.findOne(companyId);
@@ -73,6 +105,11 @@ public class CompanyService {
         }
     }
 
+    /**
+     * checks if company with companyId is used
+     * @param companyId
+     * @return
+     */
     @Transactional
     public boolean isUsed(Long companyId) {
         return studentInfoRepository.isCompanyUsed(companyId);

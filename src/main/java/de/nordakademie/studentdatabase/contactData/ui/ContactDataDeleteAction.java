@@ -13,17 +13,28 @@ public class ContactDataDeleteAction extends ActionSupport {
 
     private Long id;
 
+    /**
+     * Constructor
+     *
+     * @param contactDataService
+     */
     @Autowired
     public ContactDataDeleteAction(ContactDataService contactDataService) {
         this.contactDataService = contactDataService;
     }
 
-
+    /**
+     * deletes a contactData by id
+     * @return
+     */
     public String deleteContactData() {
         contactDataService.deleteBy(this.id);
         return SUCCESS;
     }
 
+    /**
+     * adds Error if contactData is used
+     */
     @Override
     public void validate() {
         if (contactDataService.isUsed(this.id)) {

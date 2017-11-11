@@ -20,27 +20,46 @@ public class ContactPersonAddAction extends ActionSupport {
     private Long id;
     private List<Long> contactDataList = new ArrayList<>();
 
+    /**
+     * Constructor
+     *
+     * @param contactPersonService
+     * @param contactDataService
+     */
     @Autowired
     public ContactPersonAddAction(ContactPersonService contactPersonService, ContactDataService contactDataService) {
         this.contactPersonService = contactPersonService;
         this.contactDataService = contactDataService;
     }
 
+    /**
+     * fills dropdown lists
+     * @return
+     */
     public String getForm() {
         fillLists();
         return SUCCESS;
     }
 
+    /**
+     * fills dropdown lists
+     */
     private void fillLists() {
         this.contactDataList = contactDataService.getUnusedIds();
     }
 
-
+    /**
+     * creates a contactPerson
+     * @return
+     */
     public String createContactPerson() {
         this.contactPersonService.create(this.contactPerson);
         return SUCCESS;
     }
 
+    /**
+     * fills dropdown lists so they are filled after validationError
+     */
     @Override
     public void validate() {
         fillLists();

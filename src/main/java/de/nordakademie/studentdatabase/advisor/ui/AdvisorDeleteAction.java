@@ -11,17 +11,28 @@ public class AdvisorDeleteAction extends ActionSupport {
     private final AdvisorService advisorService;
     private Long id;
 
+    /**
+     * Constructor
+     *
+     * @param advisorService
+     */
     @Autowired
     public AdvisorDeleteAction(AdvisorService advisorService) {
         this.advisorService = advisorService;
     }
 
-
+    /**
+     * deletes an advisor by id
+     * @return
+     */
     public String deleteAdvisor() {
         advisorService.deleteBy(this.id);
         return SUCCESS;
     }
 
+    /**
+     * adds Error if advisor with id is used
+     */
     @Override
     public void validate() {
         if (advisorService.isUsed(this.id)) {

@@ -15,17 +15,28 @@ public class StudentDeleteAction extends ActionSupport {
     private final StudentService studentService;
     private Long id;
 
+    /**
+     * Constructor
+     *
+     * @param studentService
+     */
     @Autowired
     public StudentDeleteAction(StudentService studentService) {
         this.studentService = studentService;
     }
 
-
+    /**
+     * deletes a student by id
+     * @return
+     */
     public String deleteStudent() {
         studentService.deleteBy(this.id);
         return SUCCESS;
     }
 
+    /**
+     * adds Error if student has studentInfo
+     */
     @Override
     public void validate() {
         final Student student = studentService.findOne(this.id);

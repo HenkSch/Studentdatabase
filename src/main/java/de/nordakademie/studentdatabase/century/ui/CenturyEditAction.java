@@ -14,17 +14,29 @@ public class CenturyEditAction extends ActionSupport {
     private Century century;
     private Long id;
 
+    /**
+     * Constructor
+     *
+     * @param centuryService
+     */
     @Autowired
     public CenturyEditAction(CenturyService centuryService) {
         this.centuryService = centuryService;
     }
 
-
+    /**
+     * finds a century by id
+     * @return
+     */
     public String getForm() {
         century = centuryService.findOne(this.id);
         return SUCCESS;
     }
 
+    /**
+     * updates a century
+     * @return
+     */
     public String updateCentury() {
         centuryService.update(this.century);
         return SUCCESS;
@@ -32,7 +44,6 @@ public class CenturyEditAction extends ActionSupport {
 
     @Override
     public void validate() {
-
     }
 
     public Century getCentury() {

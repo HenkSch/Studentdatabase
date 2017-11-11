@@ -14,9 +14,20 @@ public class Century {
     private Integer year;
     private String subGroup;
 
+    /**
+     * Constructor
+     */
     public Century() {
     }
 
+    /**
+     * Constructor
+     *
+     * @param id
+     * @param studyProgram
+     * @param year
+     * @param subGroup
+     */
     public Century(Long id, String studyProgram, Integer year, String subGroup) {
         this.id = id;
         this.studyProgram = studyProgram;

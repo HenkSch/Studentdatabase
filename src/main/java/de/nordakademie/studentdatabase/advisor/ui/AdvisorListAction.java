@@ -15,11 +15,20 @@ public class AdvisorListAction implements Action {
     private final AdvisorService advisorService;
     private List<Advisor> advisorList;
 
+    /**
+     * Constructor
+     *
+     * @param advisorService
+     */
     @Autowired
     public AdvisorListAction(AdvisorService advisorService) {
         this.advisorService = advisorService;
     }
 
+    /**
+     * finds all advisors
+     * @return
+     */
     @Override
     public String execute() {
         advisorList = advisorService.findAll();

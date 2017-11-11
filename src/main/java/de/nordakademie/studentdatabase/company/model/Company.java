@@ -18,9 +18,21 @@ public class Company {
     private ContactPerson contactPerson;
     private Address address;
 
+    /**
+     * Constructor
+     */
     public Company() {
     }
 
+    /**
+     * Constructor
+     *
+     * @param id
+     * @param name
+     * @param shortName
+     * @param contactPerson
+     * @param address
+     */
     public Company(Long id, String name, String shortName, ContactPerson contactPerson, Address address) {
         this.id = id;
         this.name = name;

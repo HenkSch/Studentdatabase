@@ -18,26 +18,46 @@ public class AdvisorAddAction extends ActionSupport {
     private Advisor advisor;
     private List<Long> contactDataList = new ArrayList<>();
 
+    /**
+     * Constructor
+     *
+     * @param advisorService
+     * @param contactDataService
+     */
     @Autowired
     public AdvisorAddAction(AdvisorService advisorService, ContactDataService contactDataService) {
         this.advisorService = advisorService;
         this.contactDataService = contactDataService;
     }
 
+    /**
+     * fills dropdown lists
+     * @return
+     */
     public String getForm() {
         fillLists();
         return SUCCESS;
     }
 
+    /**
+     * fills dropdown lists
+     */
     private void fillLists() {
         this.contactDataList = contactDataService.getUnusedIds();
     }
 
+    /**
+     * creates an advisor
+     * @return
+     */
     public String createAdvisor() {
         advisorService.create(this.advisor);
         return SUCCESS;
     }
 
+    /**
+     * fills list so they are filled after validation Error
+     */
     @Override
     public void validate() {
         fillLists();

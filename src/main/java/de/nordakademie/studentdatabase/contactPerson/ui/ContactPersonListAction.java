@@ -15,11 +15,20 @@ public class ContactPersonListAction implements Action {
     private final ContactPersonService contactPersonService;
     private List<ContactPerson> contactPersonList;
 
+    /**
+     * Constructor
+     *
+     * @param contactPersonService
+     */
     @Autowired
     public ContactPersonListAction(ContactPersonService contactPersonService) {
         this.contactPersonService = contactPersonService;
     }
 
+    /**
+     * finds all contactPersons
+     * @return
+     */
     @Override
     public String execute() {
         contactPersonList = contactPersonService.findAll();

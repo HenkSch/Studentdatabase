@@ -14,14 +14,25 @@ public class ContactData {
     private String phoneNumber;
     private String faxNumber;
 
+    /**
+     * Constructor
+     */
+    public ContactData() {
+    }
+
+    /**
+     * Constructor
+     *
+     * @param id
+     * @param email
+     * @param phoneNumber
+     * @param faxNumber
+     */
     public ContactData(Long id, String email, String phoneNumber, String faxNumber) {
         this.id = id;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.faxNumber = faxNumber;
-    }
-
-    public ContactData() {
     }
 
     @Id

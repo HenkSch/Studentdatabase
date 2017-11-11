@@ -19,9 +19,21 @@ public class StudentInfo {
     private Advisor advisor;
     private Company company;
 
+    /**
+     * Constructor
+     */
     public StudentInfo() {
     }
 
+    /**
+     * Constructor
+     *
+     * @param registrationNumber
+     * @param userNumber
+     * @param century
+     * @param advisor
+     * @param company
+     */
     public StudentInfo(Long registrationNumber, Integer userNumber, Century century, Advisor advisor, Company company) {
         this.registrationNumber = registrationNumber;
         this.userNumber = userNumber;

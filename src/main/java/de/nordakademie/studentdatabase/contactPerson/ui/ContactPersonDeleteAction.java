@@ -12,17 +12,28 @@ public class ContactPersonDeleteAction extends ActionSupport {
     private final ContactPersonService contactPersonService;
     private Long id;
 
+    /**
+     * Constructor
+     *
+     * @param contactPersonService
+     */
     @Autowired
     public ContactPersonDeleteAction(ContactPersonService contactPersonService) {
         this.contactPersonService = contactPersonService;
     }
 
-
+    /**
+     * deletes a contactPerson by id
+     * @return
+     */
     public String deleteContactPerson() {
         this.contactPersonService.deleteBy(this.id);
         return SUCCESS;
     }
 
+    /**
+     * adds Error if contactPerson is used
+     */
     @Override
     public void validate() {
         if (contactPersonService.isUsed(this.id)) {

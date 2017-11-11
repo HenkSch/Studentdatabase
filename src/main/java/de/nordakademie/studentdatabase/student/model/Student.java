@@ -24,9 +24,25 @@ public class Student {
     private Address address;
     private ContactData contactData;
 
+    /**
+     * Constructor
+     */
     public Student() {
     }
 
+    /**
+     * Constructor
+     *
+     * @param id
+     * @param name
+     * @param givenName
+     * @param gender
+     * @param birthDate
+     * @param birthPlace
+     * @param studentInfo
+     * @param address
+     * @param contactData
+     */
     public Student(Long id, String name, String givenName, String gender, Date birthDate, String birthPlace, StudentInfo studentInfo, Address address, ContactData contactData) {
         this.id = id;
         this.name = name;

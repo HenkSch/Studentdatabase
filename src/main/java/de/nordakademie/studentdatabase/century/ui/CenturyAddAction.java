@@ -13,6 +13,11 @@ public class CenturyAddAction extends ActionSupport {
     private final CenturyService centuryService;
     private Century century;
 
+    /**
+     * Constructor
+     *
+     * @param centuryService
+     */
     @Autowired
     public CenturyAddAction(CenturyService centuryService) {
         this.centuryService = centuryService;
@@ -22,7 +27,10 @@ public class CenturyAddAction extends ActionSupport {
         return SUCCESS;
     }
 
-
+    /**
+     * creates a century
+     * @return
+     */
     public String createCentury() {
         centuryService.create(this.century);
         return SUCCESS;
@@ -30,7 +38,6 @@ public class CenturyAddAction extends ActionSupport {
 
     @Override
     public void validate() {
-
     }
 
     public Century getCentury() {

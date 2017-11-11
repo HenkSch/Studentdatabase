@@ -21,6 +21,13 @@ public class AddressService {
     private final StudentRepository studentRepository;
     private Long id;
 
+    /**
+     * Constructor
+     *
+     * @param addressRepository
+     * @param companyRepository
+     * @param studentRepository
+     */
     @Autowired
     public AddressService(AddressRepository addressRepository, CompanyRepository companyRepository, StudentRepository studentRepository) {
         this.addressRepository = addressRepository;
@@ -28,31 +35,56 @@ public class AddressService {
         this.studentRepository = studentRepository;
     }
 
+    /**
+     * returns all addressIds
+     * @return
+     */
     @Transactional
     public List<Long> getAllIds() {
         return addressRepository.getAllIds();
     }
 
+    /**
+     * returns all addresses
+     * @return
+     */
     @Transactional(readOnly = true)
     public List<Address> findAll() {
         return addressRepository.findAll();
     }
 
+    /**
+     * finds one address by addressId
+     * @param addressId
+     * @return
+     */
     @Transactional(readOnly = true)
     public Address findOne(final Long addressId) {
         return addressRepository.findOne(addressId);
     }
 
+    /**
+     * creates an address
+     * @param address
+     */
     @Transactional
     public void create(final Address address) {
         addressRepository.create(address);
     }
 
+    /**
+     * updates an address
+     * @param address
+     */
     @Transactional
     public void update(final Address address) {
         addressRepository.update(address);
     }
 
+    /**
+     * deletes an address by id
+     * @param addressId
+     */
     @Transactional
     public void deleteBy(final Long addressId) {
         final Address address = addressRepository.findOne(addressId);
@@ -61,6 +93,11 @@ public class AddressService {
         }
     }
 
+    /**
+     * checks if address with addressId is used or not
+     * @param addressId
+     * @return
+     */
     @Transactional
     public boolean isUsed(Long addressId) {
         Boolean isAddressUsedInStudent = studentRepository.isAddressUsed(addressId);

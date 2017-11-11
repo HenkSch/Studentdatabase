@@ -28,6 +28,14 @@ public class StudentEditAction extends ActionSupport {
     private List<Long> studentInfoList = new ArrayList();
     private List<String> genderList = Gender.getGenderList();
 
+    /**
+     * Constructor
+     *
+     * @param studentService
+     * @param addressService
+     * @param contactDataService
+     * @param studentInfoService
+     */
     @Autowired
     public StudentEditAction(StudentService studentService, AddressService addressService, ContactDataService contactDataService, StudentInfoService studentInfoService) {
         this.studentService = studentService;
@@ -36,6 +44,10 @@ public class StudentEditAction extends ActionSupport {
         this.studentInfoService = studentInfoService;
     }
 
+    /**
+     * finds a student by id and fills dropdown lists
+     * @return
+     */
     public String getForm() {
         this.student = studentService.findOne(this.id);
 
@@ -44,6 +56,10 @@ public class StudentEditAction extends ActionSupport {
         return SUCCESS;
     }
 
+    /**
+     * fills drop down lists
+     * @param student
+     */
     private void fillLists(Student student) {
         this.addressList = addressService.getAllIds();
 
@@ -58,11 +74,18 @@ public class StudentEditAction extends ActionSupport {
         this.studentInfoList.addAll(studentInfoService.getUnusedIds());
     }
 
+    /**
+     * updates a student
+     * @return
+     */
     public String updateStudent() {
         studentService.update(this.student);
         return SUCCESS;
     }
 
+    /**
+     * fills dropdown lists so they are filled after validationError
+     */
     @Override
     public void validate() {
         Student tempStudent = studentService.findOne(this.id);

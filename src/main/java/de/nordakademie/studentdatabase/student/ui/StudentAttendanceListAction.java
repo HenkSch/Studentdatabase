@@ -16,19 +16,21 @@ public class StudentAttendanceListAction implements Action {
     private List<Student> studentList;
     private Long centuryId;
 
+    /**
+     * Constructor
+     *
+     * @param studentService
+     */
     @Autowired
     public StudentAttendanceListAction(StudentService studentService) {
         this.studentService = studentService;
     }
 
-    public Long getCenturyId() {
-        return centuryId;
-    }
-
-    public void setCenturyId(Long centuryId) {
-        this.centuryId = centuryId;
-    }
-
+    /**
+     * finds all students in century with centuryId
+     * @return
+     * @throws Exception
+     */
     @Override
     public String execute() throws Exception {
         studentList = studentService.findAllInCentury(centuryId);
@@ -37,5 +39,13 @@ public class StudentAttendanceListAction implements Action {
 
     public List<Student> getStudentList() {
         return studentList;
+    }
+
+    public Long getCenturyId() {
+        return centuryId;
+    }
+
+    public void setCenturyId(Long centuryId) {
+        this.centuryId = centuryId;
     }
 }

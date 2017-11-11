@@ -26,6 +26,14 @@ public class StudentService {
     private final ContactDataRepository contactDataRepository;
     private Long id;
 
+    /**
+     * Constructor
+     *
+     * @param studentRepository
+     * @param studentInfoRepository
+     * @param addressRepository
+     * @param contactDataRepository
+     */
     @Autowired
     public StudentService(StudentRepository studentRepository, StudentInfoRepository studentInfoRepository, AddressRepository addressRepository, ContactDataRepository contactDataRepository) {
         this.studentRepository = studentRepository;
@@ -34,16 +42,29 @@ public class StudentService {
         this.contactDataRepository = contactDataRepository;
     }
 
+    /**
+     * finds all students
+     * @return
+     */
     @Transactional
     public List<Student> findAll() {
         return studentRepository.findAll();
     }
 
+    /**
+     * returns a student by id
+     * @param id
+     * @return
+     */
     @Transactional
     public Student findOne(final Long id) {
         return studentRepository.findOne(id);
     }
 
+    /**
+     * creates a student
+     * @param student
+     */
     @Transactional
     public void create(final Student student) {
 
@@ -64,6 +85,10 @@ public class StudentService {
         studentRepository.create(student);
     }
 
+    /**
+     * updates a sudent
+     * @param student
+     */
     @Transactional
     public void update(final Student student) {
         if (student.getStudentInfo().getRegistrationNumber() == null) {
@@ -72,6 +97,10 @@ public class StudentService {
         studentRepository.update(student);
     }
 
+    /**
+     * deletes a student by id
+     * @param id
+     */
     @Transactional
     public void deleteBy(Long id) {
         Student student = studentRepository.findOne(id);
@@ -80,6 +109,11 @@ public class StudentService {
         }
     }
 
+    /**
+     * returns all students in century with centuryId
+     * @param centuryId
+     * @return
+     */
     @Transactional
     public List<Student> findAllInCentury(Long centuryId) {
         return studentRepository.findAllInCentury(centuryId);

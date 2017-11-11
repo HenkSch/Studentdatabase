@@ -11,6 +11,11 @@ public class Gender {
     private static final String MALE = "M";
     private static final List<String> genderList = createGenderList();
 
+    /**
+     * returns a list of genders for to show in dropdown list
+     *
+     * @return
+     */
     private static List<String> createGenderList() {
         List<String> genderList = new ArrayList<>();
         genderList.add(FEMALE);

@@ -14,12 +14,21 @@ public class CompanyListAction implements Action {
     private final CompanyService companyService;
     private List<Company> companyList;
 
+    /**
+     * Constructor
+     *
+     * @param companyService
+     */
     @Autowired
     public CompanyListAction(CompanyService companyService) {
         this.companyService = companyService;
     }
 
-
+    /**
+     * finds all companies
+     * @return
+     * @throws Exception
+     */
     @Override
     public String execute() throws Exception {
         companyList = companyService.findAll();

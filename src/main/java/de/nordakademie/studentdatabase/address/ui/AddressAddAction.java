@@ -13,6 +13,11 @@ public class AddressAddAction extends ActionSupport {
     private final AddressService addressService;
     private Address address;
 
+    /**
+     * Constructor
+     *
+     * @param addressService
+     */
     @Autowired
     public AddressAddAction(AddressService addressService) {
         this.addressService = addressService;
@@ -22,12 +27,16 @@ public class AddressAddAction extends ActionSupport {
         return SUCCESS;
     }
 
-
+    /**
+     *  creates an address
+     * @return
+     */
     public String createAddress() {
         addressService.create(this.address);
         return SUCCESS;
     }
 
+    
     @Override
     public void validate() {
 

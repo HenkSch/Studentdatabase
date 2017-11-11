@@ -23,6 +23,13 @@ public class ContactPersonService {
     private final CompanyRepository companyRepository;
     private Long id;
 
+    /**
+     * Constructor
+     *
+     * @param contactPersonRepository
+     * @param contactDataRepository
+     * @param companyRepository
+     */
     @Autowired
     public ContactPersonService(ContactPersonRepository contactPersonRepository, ContactDataRepository contactDataRepository, CompanyRepository companyRepository) {
         this.contactPersonRepository = contactPersonRepository;
@@ -30,16 +37,29 @@ public class ContactPersonService {
         this.companyRepository = companyRepository;
     }
 
+    /**
+     * finds all contactPersons
+     * @return
+     */
     @Transactional(readOnly = true)
     public List<ContactPerson> findAll() {
         return contactPersonRepository.findAll();
     }
 
+    /**
+     * returns a contactPerson by contactPersonId
+     * @param contactPersonId
+     * @return
+     */
     @Transactional(readOnly = true)
     public ContactPerson findOne(final Long contactPersonId) {
         return contactPersonRepository.findOne(contactPersonId);
     }
 
+    /**
+     * creates a contactPerson
+     * @param contactPerson
+     */
     @Transactional
     public void create(final ContactPerson contactPerson) {
         final ContactData contactData = contactDataRepository.findOne(contactPerson.getContactData().getId());
@@ -48,11 +68,19 @@ public class ContactPersonService {
         contactPersonRepository.create(contactPerson);
     }
 
+    /**
+     * updates a contactPerson
+     * @param contactPerson
+     */
     @Transactional
     public void update(final ContactPerson contactPerson) {
         contactPersonRepository.update(contactPerson);
     }
 
+    /**
+     * deletes a contactPerson by contactPersonId
+     * @param contactPersonId
+     */
     @Transactional
     public void deleteBy(final Long contactPersonId) {
         final ContactPerson contactPerson = contactPersonRepository.findOne(contactPersonId);
@@ -61,6 +89,10 @@ public class ContactPersonService {
         }
     }
 
+    /**
+     * returns all unused contactPersonIds
+     * @return
+     */
     @Transactional
     public List<Long> getUnusedIds() {
 
@@ -70,6 +102,11 @@ public class ContactPersonService {
         return contactPersonRepository.getUnusedIds(usedContactPersonIds);
     }
 
+    /**
+     * checks if contactPerson with contactPersonId is used
+     * @param contactPersonId
+     * @return
+     */
     @Transactional
     public boolean isUsed(Long contactPersonId) {
         return companyRepository.isContactPersonUsed(contactPersonId);

@@ -30,6 +30,15 @@ public class StudentInfoService {
     private final CompanyRepository companyRepository;
     private Long id;
 
+    /**
+     * Constructor
+     *
+     * @param studentInfoRepository
+     * @param studentRepository
+     * @param centuryRepository
+     * @param advisorRepository
+     * @param companyRepository
+     */
     @Autowired
     public StudentInfoService(StudentInfoRepository studentInfoRepository, StudentRepository studentRepository, CenturyRepository centuryRepository, AdvisorRepository advisorRepository, CompanyRepository companyRepository) {
         this.studentInfoRepository = studentInfoRepository;
@@ -39,16 +48,29 @@ public class StudentInfoService {
         this.companyRepository = companyRepository;
     }
 
+    /**
+     * finds all studentInfos
+     * @return
+     */
     @Transactional(readOnly = true)
     public List<StudentInfo> findAll() {
         return studentInfoRepository.findAll();
     }
 
+    /**
+     * returns a studentInfo by studentInfoId
+     * @param studentInfoId
+     * @return
+     */
     @Transactional(readOnly = true)
     public StudentInfo findOne(final Long studentInfoId) {
         return studentInfoRepository.findOne(studentInfoId);
     }
 
+    /**
+     * creates a studentInfo
+     * @param studentInfo
+     */
     @Transactional
     public void create(final StudentInfo studentInfo) {
         final Century century = centuryRepository.findOne(studentInfo.getCentury().getId());
@@ -74,6 +96,10 @@ public class StudentInfoService {
         studentInfoRepository.create(studentInfo);
     }
 
+    /**
+     * updates a studentInfo
+     * @param studentInfo
+     */
     @Transactional
     public void update(final StudentInfo studentInfo) {
         if (studentInfo.getAdvisor().getId() == null) {
@@ -86,6 +112,10 @@ public class StudentInfoService {
         studentInfoRepository.update(studentInfo);
     }
 
+    /**
+     * deletes a studentInfo by studentInfoId
+     * @param studentInfoId
+     */
     @Transactional
     public void deleteBy(final Long studentInfoId) {
         final StudentInfo studentInfo = studentInfoRepository.findOne(studentInfoId);
@@ -102,7 +132,10 @@ public class StudentInfoService {
         this.id = id;
     }
 
-
+    /**
+     * returns all unused studentInfoIds
+     * @return
+     */
     @Transactional
     public List<Long> getUnusedIds() {
         final List<Long> usedStudentInfoIds = new ArrayList<>();
@@ -112,6 +145,11 @@ public class StudentInfoService {
         return studentInfoRepository.getUnusedIds(usedStudentInfoIds);
     }
 
+    /**
+     * checks if studentInfo is used
+     * @param studentInfoId
+     * @return
+     */
     @Transactional
     public boolean isUsed(Long studentInfoId) {
         return studentRepository.isStudentInfoUsed(studentInfoId);
