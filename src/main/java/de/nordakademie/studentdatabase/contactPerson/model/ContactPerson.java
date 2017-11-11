@@ -5,7 +5,7 @@ import de.nordakademie.studentdatabase.contactData.model.ContactData;
 import javax.persistence.*;
 
 /**
- * Created by Henk Schuhmann on 006, 06.11.2017.
+ * Created by Henk Schuhmann, Sarah Bruhn on 006, 06.11.2017.
  */
 @Entity
 @Table(name = "CONTACTPERSON")

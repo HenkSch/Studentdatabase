@@ -5,7 +5,7 @@ import de.nordakademie.studentdatabase.studentInfo.service.StudentInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * Created by Henk Schuhmann on 025, 25.10.2017.
+ * Created by Henk Schuhmann, Sarah Bruhn on 025, 25.10.2017.
  */
 public class StudentInfoDeleteAction extends ActionSupport {
 

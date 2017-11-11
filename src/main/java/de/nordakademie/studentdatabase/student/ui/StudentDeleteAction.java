@@ -7,7 +7,7 @@ import de.nordakademie.studentdatabase.student.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * Created by Henk Schuhmann on 008, 08.11.2017.
+ * Created by Henk Schuhmann, Sarah Bruhn on 008, 08.11.2017.
  */
 public class StudentDeleteAction extends ActionSupport {
 

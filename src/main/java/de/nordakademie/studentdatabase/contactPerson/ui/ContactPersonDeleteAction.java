@@ -5,7 +5,7 @@ import de.nordakademie.studentdatabase.contactPerson.service.ContactPersonServic
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * Created by Henk Schuhmann on 006, 06.11.2017.
+ * Created by Henk Schuhmann, Sarah Bruhn on 006, 06.11.2017.
  */
 public class ContactPersonDeleteAction extends ActionSupport {
 

@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Henk Schuhmann
+  User: Henk Schuhmann, Sarah Bruhn
   Date: 023, 23.10.2017
   Time: 16:24
 --%>

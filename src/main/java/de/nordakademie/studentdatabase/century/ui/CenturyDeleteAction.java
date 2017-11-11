@@ -5,7 +5,7 @@ import de.nordakademie.studentdatabase.century.service.CenturyService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * Created by Henk Schuhmann on 023, 23.10.2017.
+ * Created by Henk Schuhmann, Sarah Bruhn on 023, 23.10.2017.
  */
 public class CenturyDeleteAction extends ActionSupport {
 

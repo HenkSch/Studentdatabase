@@ -18,7 +18,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Created by Henk Schuhmann on 023, 23.10.2017.
+ * Created by Henk Schuhmann, Sarah Bruhn on 023, 23.10.2017.
  */
 @Service
 public class StudentInfoService {

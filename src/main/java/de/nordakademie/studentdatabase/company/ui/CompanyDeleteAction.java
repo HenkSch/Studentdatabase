@@ -5,7 +5,7 @@ import de.nordakademie.studentdatabase.company.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * Created by Henk Schuhmann on 024, 24.10.2017.
+ * Created by Henk Schuhmann, Sarah Bruhn on 024, 24.10.2017.
  */
 public class CompanyDeleteAction extends ActionSupport {
     private final CompanyService companyService;

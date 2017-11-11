@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Henk Schuhmann on 025, 25.10.2017.
+ * Created by Henk Schuhmann, Sarah Bruhn on 025, 25.10.2017.
  */
 public class StudentInfoAddAction extends ActionSupport {
 

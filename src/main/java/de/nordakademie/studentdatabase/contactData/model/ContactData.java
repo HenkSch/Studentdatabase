@@ -3,7 +3,7 @@ package de.nordakademie.studentdatabase.contactData.model;
 import javax.persistence.*;
 
 /**
- * Created by Henk Schuhmann on 019, 19.10.2017.
+ * Created by Henk Schuhmann, Sarah Bruhn on 019, 19.10.2017.
  */
 @Entity
 @Table(name = "CONTACTDATA")

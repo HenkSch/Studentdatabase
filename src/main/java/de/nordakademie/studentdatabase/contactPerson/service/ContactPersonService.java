@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Henk Schuhmann on 006, 06.11.2017.
+ * Created by Henk Schuhmann, Sarah Bruhn on 006, 06.11.2017.
  */
 @Service
 public class ContactPersonService {

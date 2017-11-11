@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Henk Schuhmann
+  User: Henk Schuhmann, Sarah Bruhn
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="/struts-tags" prefix="s" %>

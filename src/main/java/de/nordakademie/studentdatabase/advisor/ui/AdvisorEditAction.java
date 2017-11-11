@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Henk Schuhmann on 024, 24.10.2017.
+ * Created by Henk Schuhmann, Sarah Bruhn on 024, 24.10.2017.
  */
 public class AdvisorEditAction extends ActionSupport {
     private final AdvisorService advisorService;
